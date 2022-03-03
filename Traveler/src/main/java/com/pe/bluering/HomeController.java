@@ -2,14 +2,30 @@ package com.pe.bluering;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.pe.bluering.domain.BnfVO;
+import com.pe.bluering.domain.Criteria;
+import com.pe.bluering.domain.FaqVO;
+import com.pe.bluering.domain.FoodVO;
+import com.pe.bluering.domain.NewsVO;
+import com.pe.bluering.domain.PageMaker;
+import com.pe.bluering.domain.RoomVO;
+import com.pe.bluering.service.FaqService;
+import com.pe.bluering.service.FoodService;
+import com.pe.bluering.service.NewsService;
+import com.pe.bluering.service.RoomService;
+
 
 /**
  * Handles requests for the application home page.
@@ -17,13 +33,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
+	
+	@Autowired
+	private NewsService newsservice;
+	
+	@Autowired
+	private FaqService faqservice;
+	
+	@Autowired
+	private RoomService roomservice;
+	
+	@Autowired
+	private FoodService foodservice;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, NewsVO newsvo) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -32,6 +61,13 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		
+		
+		
+		 List<NewsVO> newsList = newsservice.getNewsListIndex();
+		 
+		 model.addAttribute("newsList", newsList);
+		 logger.info("admin page newsWrite list page : "+newsList);
 		
 		return "index";
 	}
@@ -42,16 +78,45 @@ public class HomeController {
 		return "about";
 	}
 	
-	@RequestMapping(value = "/room", method = RequestMethod.GET)
-	public String room() {
+	@RequestMapping(value="/room", method=RequestMethod.GET) 
+	public String room( Model model, RoomVO roomvo,Criteria cri) {
 		
-		return "room";
+		logger.info("page roomList page");
+		 
+		List<RoomVO> roomList = roomservice.getRoomList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(roomservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("roomList", roomList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 logger.info("page roomList list page : "+roomList);
+		 return "room";
 	}
 	
 	@RequestMapping(value = "/food", method = RequestMethod.GET)
-	public String food() {
+	public String food(FoodVO foodvo, BnfVO bnfvo, Model model, Criteria cri) {
 		
-		return "food";
+		logger.info("client page food page");
+		 
+		 List<FoodVO> foodList = foodservice.getFoodList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(foodservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("foodList", foodList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 int idx = 1;
+		 bnfvo =  foodservice.getBnf(idx);
+		 model.addAttribute("bnfvo",bnfvo);
+		 
+		 logger.info("client page food bnfvo page : "+bnfvo);
+		 logger.info("client page food list page : "+foodList);
+		 
+		 return "food";
 	}
 	
 	@RequestMapping(value = "/activity", method = RequestMethod.GET)
@@ -67,24 +132,65 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
-	public String news() {
+	public String news(NewsVO newsvo, Model model, Criteria cri) {
 		
-		return "news";
+		logger.info("client page news page");
+		 
+		 List<NewsVO> newsList = newsservice.getNewsList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(newsservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("newsList", newsList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 logger.info("admin page newsWrite list page : "+newsList);
+		 
+		 return "news";
 	}
 	
 	@RequestMapping(value = "/newsDetail", method = RequestMethod.GET)
-	public String newsDetail() {
+	public String newsDetail(NewsVO newsvo, @RequestParam("idx") int idx, Model model) {
+		 newsvo = newsservice.newsModify(idx);
+		 model.addAttribute("newsvo", newsvo);
+		 
+		 
+		 
+		 List<NewsVO> isPrev = newsservice.getPrev(idx);
+		 List<NewsVO> isNext = newsservice.getNext(idx);
 		
+		 System.out.println("isPrev : " + isPrev);
+		 System.out.println("isNext : " + isNext);
+		
+		 model.addAttribute("isPrev",isPrev);
+		 model.addAttribute("isNext",isNext);
 		return "newsDetail";
 	}
 	
-	@RequestMapping(value = "/faq", method = RequestMethod.GET)
-	public String faq() {
+	
+	@RequestMapping(value="/location", method=RequestMethod.GET) 
+	public String location() {
 		
-		return "faq";
+		logger.info("location faq page");
+
+		 return "location";
 	}
 	
 	
+	@RequestMapping(value="/faq", method=RequestMethod.GET) 
+	public String faq(FaqVO faqvo, Model model) {
+		
+		logger.info("admin page faq page");
+		 
+		 List<FaqVO> faqList = faqservice.listFaq();
+		 
+ 
+		 model.addAttribute("faqList", faqList);
+
+		 logger.info(" page faqList  page : "+faqList);
+		 
+		 return "faq";
+	}
 	
 	
 	

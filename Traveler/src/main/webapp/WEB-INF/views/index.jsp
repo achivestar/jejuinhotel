@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>      
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +31,30 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/resources/css/style.css" rel="stylesheet">
-
+    <link href="/resources/css/aos.css" rel="stylesheet">
+	<style>
+		span.txt-white{
+			color:#fff;
+		}
+		
+		span.txt-white2{
+			color:#5fb8c0;
+		}
+		
+		div.bg-yellow {
+			width:100%;display: flex;align-items: center;padding:0;background-color:firebrick
+		}
+		
+		div.bg-blue {
+			width:100%;display: flex;align-items: center;padding:0;background-color:#5fb8c0
+		}
+		div.bg-green {
+			width:100%;display: flex;align-items: center;padding:0;background-color:forestgreen
+		}
+		
+		
+		
+	</style>
 </head>
 <body>
  	 <!-- Header & Nav Start -->
@@ -45,7 +71,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 800px;">
                             <h4 class="text-primary text-uppercase font-weight-normal mb-md-3">luxury & place</h4>
-                            <h3 class="display-3 text-white mb-md-4">Make Your Home Better</h3>
+                            <h3 class="display-4 text-white mb-md-4">Make Your Home Better</h3>
                             <a href="" class="btn btn-cust-primary py-md-3 px-md-5 mt-2 mt-md-4">Learn More</a>
                         </div>
                     </div>
@@ -55,7 +81,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 800px;">
                             <h4 class="text-primary text-uppercase font-weight-normal mb-md-3">luxury & place</h4>
-                            <h3 class="display-3 text-white mb-md-4">Stay At Home In Peace</h3>
+                            <h3 class="display-4 text-white mb-md-4">Stay At Home In Peace</h3>
                             <a href="" class="btn btn-cust-primary py-md-3 px-md-5 mt-2 mt-md-4">Learn More</a>
                         </div>
                     </div>
@@ -65,7 +91,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 800px;">
                             <h4 class="text-primary text-uppercase font-weight-normal mb-md-3">TOURS & TRAVEL</h4>
-                            <h3 class="display-8 text-white mb-md-4">우리와 함께 제주의 놀라운 장소를 발견해요.</h3>
+                            <h3 class="display-4 text-white mb-md-4">Let's Discover The Jeju Together</h3>
                             <a href="" class="btn btn-cust-primary py-md-3 px-md-5 mt-2 mt-md-4">Learn More</a>
                         </div>
                     </div>
@@ -94,7 +120,7 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-6 pr-lg-5">
-                    <h6 class="text-primary font-weight-normal text-uppercase mb-3">Abuut Us</h6>
+                    <!-- <h6 class="text-primary font-weight-normal text-uppercase mb-3">Abuut Us</h6> -->
                     <h4 class="mb-4"><b>숙박을 제공하는 것으로 끝이 아닙니다</b></h4>
                     <p>
 JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
@@ -151,11 +177,52 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8 col text-center mb-4">
-                    <h6 class="text-primary font-weight-normal text-uppercase mb-3">Room/Food</h6>
+                   <!--  <h6 class="text-primary font-weight-normal text-uppercase mb-3">Room/Food</h6> -->
                     <h4 class="mb-4" style="padding-left:0"><b>여행자들의 질 높은 휴식을 보장합니다</b></h4>
                 </div>
             </div>
             <div class="row">
+            	<!-- room start -->
+            	<div class="col-md-4 col-4 bg-blue" data-aos="zoom-in" data-aos-duration="1000">
+	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">시그니처 객실</span><br><a href="/room" class="btn btn-cust-primary mt-2 py-md-3 px-md-5">+ More</a></p>
+	    		</div>
+	    		<div class="col-md-4 col-4" style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
+	    			<img src="/resources/img/room/room1.jpg" style="width:100%;height:100%" />
+	    		</div>
+	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
+	    			<img src="/resources/img/room/room4.jpg" style="width:100%;height:100%" />
+	    		</div>
+	    		<!-- room end -->
+	    		
+	    		<!-- food start -->
+	    		
+	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
+	    			<img src="/resources/img/food/food3.jpg" style="width:100%;height:100%" />
+	    		</div>
+	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
+	    			<img src="/resources/img/food/food4.jpg" style="width:100%;height:100%" />
+	    		</div>
+	    		<div class="col-md-4 col-4 bg-yellow" data-aos="zoom-in"
+     data-aos-duration="1000">
+	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">취향저격</span><br><a href="/food" class="btn btn-cust-primary mt-2 py-md-1 px-md-3">+ More</a></p>
+	    		</div>
+	    		<!-- food end -->
+	    		
+	    		<!-- our service start -->
+	    		<div class="col-md-4 col-4 bg-green"  data-aos="zoom-in"
+     data-aos-duration="1000">
+	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">여행의 다양함</span><br><a href="/shop" class="btn btn-cust-primary mt-2 py-md-3 px-md-5">+ More</a></p>
+	    		</div>
+	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
+	    			<img src="/resources/img/shop/shop6.jpeg" style="width:100%;height:100%" />
+	    		</div>
+	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
+	    			<img src="/resources/img/shop/shop9.jpg" style="width:100%;height:100%" />
+	    		</div>
+	    		
+	    		<!-- out service end -->
+            </div>
+            <!-- <div class="row">
                 <div class="col-12 text-center mb-2">
                     <ul class="list-inline mb-4" id="portfolio-flters">
                         <li class="btn btn-outline-primary m-1 active"  data-filter="*">All</li>
@@ -165,8 +232,8 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 
                     </ul>
                 </div>
-            </div>
-            <div class="row mx-1 portfolio-container">
+            </div> -->
+            <!-- <div class="row mx-1 portfolio-container">
                 <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item first">
                     <div class="position-relative overflow-hidden">
                         <div class="portfolio-img d-flex align-items-center justify-content-center">
@@ -275,7 +342,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Projects End -->
@@ -296,23 +363,35 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
                 <div class="col-md-8 col-sm-6 col-12 p-0 py-sm-5">
                  
                     <div class="card-group">
-	                     <div class="card">
-							    <img src="/resources/img/about/about2.jpeg" class="card-img-top" alt="...">
+                    	<c:if test="${empty newsList}">
+			       			 <p>등록된 공지글이 없습니다.</p>
+						</c:if>
+						<c:forEach items="${newsList}" var="newsList" varStatus="status">	
+						<c:set var="regdate" value="${newsList.regdate}"/>
+			    		<c:set var="TextValue" value="${newsList.title}"/>
+	                     <div class="card ml-2 mr-2">
+							     <c:if test="${not empty newsList.thumburl}">
+				      				<a href="/newsDetail?idx=${newsList.idx}"><img src="${newsList.thumburl}" class="card-img-top newsimg" alt="..."></a>
+								 </c:if>
+							      <c:if test="${empty newsList.thumburl}">
+							     	 <a href="/newsDetail?idx=${newsList.idx}"><img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" alt="..."></a>
+							      </c:if>
 							    <div class="card-body">
-							      <h5 class="card-title">News 제목</h5>
-							      <p class="card-text">사이트 오픈</p>
-							      <p class="card-text"><small class="text-muted">2020.02.17</small></p>
+							      <h5 class="card-title"><a style="color:#000" href="/newsDetail?idx=${newsList.idx}">${fn:substring(TextValue,0,20)}<c:if test="${fn:length(TextValue)>=20}">
+				        	...
+				        </c:if></a></h5>
+							      <p class="card-text"><small class="text-muted">${fn:substring(regdate,0,10) }</small></p>
 							    </div>
 						  </div>
-						  
-						  <div class="card">
+						 </c:forEach>
+						  <!-- <div class="card ml-2 mr-2">
 						    <img src="/resources/img/about/about3.jpg" class="card-img-top" alt="...">
 						    <div class="card-body">
 						      <h5 class="card-title">New 제목2</h5>
 						      <p class="card-text">사이트 오픈2</p>
 						      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
 						    </div>
-						  </div>
+						  </div> -->
 							  
 					</div>
                 </div>
@@ -328,7 +407,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 
 
 <!-- Team Start -->
-    <div class="container-fluid bg-cust-light">
+    <!-- <div class="container-fluid bg-cust-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 mb-3" >
@@ -346,7 +425,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 							    <div class="card-body">
 							      <h5 class="card-title">제주인호텔</h5>
 							      <p class="card-text">제주인호텔에 대한 ..</p>
-							      <!-- <p class="card-text"><small class="text-muted">2020.02.17</small></p> -->
+							      <p class="card-text"><small class="text-muted">2020.02.17</small></p>
 							    </div>
 						  </div>
 						  
@@ -355,7 +434,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 						    <div class="card-body">
 						      <h5 class="card-title">제주잡화점</h5>
 						      <p class="card-text">제주잡화점에 대한..</p>
-						      <!-- <p class="card-text"><small class="text-muted">2020.02.19</small></p> -->
+						      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
 						    </div>
 						  </div>
 							  
@@ -366,7 +445,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
               
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Team End -->
 
 
@@ -396,5 +475,9 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 
     <!-- Template Javascript -->
     <script src="/resources/js/main.js"></script>
+    <script src="/resources/js/aos.js"></script>
+     <script>
+	  AOS.init();
+	</script>
 </body>
 </html>

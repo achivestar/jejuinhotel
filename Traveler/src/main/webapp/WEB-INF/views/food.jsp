@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>            
 <!DOCTYPE html>
 <html>
 <head>
@@ -231,7 +233,7 @@
         <div class="container py-5">
             <div class="row align-items-center py-4">
                 <div class="col-md-6 text-center text-md-left">
-                    <h1 class="mb-4 mb-md-0 text-white text-uppercase">음식, 음악, 이야기, 마음, 그리고 술</h1>
+                    <h1 class="mb-4 mb-md-0 text-white text-uppercase">음식, 음악, 이야기 그리고 인생커피</h1>
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
@@ -252,45 +254,93 @@
     <!-- Food Start -->
             <div class="container mt-3 mb-3">
                 <div class="row align-items-center">
-                	<div class="col-lg-12">
-	            		<div class="alert" role="alert" style="background-color:#e3e9fa">
-						  <h4 class="alert-heading" style="color:#f7b113"><b>인생 커피와 크래프트 맥주, 디저트까지.</b></h4>
-						  <hr>
-						  <p style="color:#0094a8">피해갈 수 없는 취향저격 인생맛집을 경험하세요.</p>
-						  
-						  
-						</div>
-            		</div>
-                    
+                	
                     <div class="col-md-12 col-12 col-lg-12">
                        <div class="card-deck">
+                       
+                      	 <c:if test="${empty foodList}">
+						     <p class="text-center">등록된 소개가 없습니다.<p>
+							</c:if>
+						    <c:forEach items="${foodList}" var="foodList" varStatus="status">	
 						  <div class="card" style="border-radius:20px">
-						    <img src="/resources/img/food/food1.jpg" class="card-img-top" alt="..." style="display:inline-block;border-radius:20px 20px 0px 0px">
+						    <img src="/resources/foodfileupload/${foodList.idx}/${foodList.savedFileName}" class="card-img-top" alt="..." style="display:inline-block;border-radius:20px 20px 0px 0px">
 						    <div class="card-body">
-						      <h5 class="card-title">Card title</h5>
-						      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						      <h5 class="card-title">${foodList.title }</h5>
+						      <p class="card-text">${foodList.content }</p>
 						      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
 						    </div>
 						  </div>
-						  <div class="card" style="border-radius:20px">
+						  </c:forEach>
+						  
+						  
+						  <!-- <div class="card" style="border-radius:20px">
 						    <img src="/resources/img/food/food2.jpg" class="card-img-top" alt="..." style="display:inline-block;border-radius:20px 20px 0px 0px">
 						    <div class="card-body">
-						      <h5 class="card-title">Card title</h5>
-						      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-						      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+						      <h5 class="card-title">든든하고 맛있는 조식</h5>
+						      <p class="card-text">제주의 대표 메뉴들로 구성하여 준비되고 호텔투숙객들과 제주현지인들이 어울릴 수 있는 고품격.</p>
+						      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 						    </div>
 						  </div>
-						  <div class="card" style="border-radius:20px">
+						   <div class="card" style="border-radius:20px">
 						    <img src="/resources/img/food/food3.jpg" class="card-img-top" alt="..." style="display:inline-block;border-radius:20px 20px 0px 0px">
 						    <div class="card-body">
-						      <h5 class="card-title">Card title</h5>
-						      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-						      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+						      <h5 class="card-title">언제나 곁에 있는 편의점</h5>
+						      <p class="card-text">JEJU IN HOTEL에는 편의점이 입점되어 있습니다.</p>
 						    </div>
-						  </div>
+						  </div>  -->
 						</div>
                    
                 </div>
+                
+                <div class="col-lg-12 mt-3">
+	            		<div class="alert" role="alert" style="background-color:#e3e9fa">
+						  <h4 class="alert-heading" style="color:#f7b113"><b>${bnfvo.title}</b></h4>
+						  <hr>
+						  <p style="color:#0094a8">${bnfvo.content}</p>
+						  
+						  
+						</div>
+            	</div>
+            	
+            	<div class="col-lg-12 mt-3 mb-3">
+            		 <div class="table-responsive">
+						  <table class="table table-bordered">
+						    <tr class="text-center">
+						      <td style="vertical-align:middle" class="table-light">식당</td>
+						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
+						       <table style="width:100%">
+							      	<tr >
+							      		<td class="table-light" style="width:30%;vertical-align:middle;border-left:0px;border-top:0px">운영시간</td><td style="vertical-align:middle;border-right:0px;border-top:0px">AM 06:00 ~ AM 09:00</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px">이용방법</td><td style="vertical-align:middle;border-right:0px">조식서비스를 이용하실 고객님은 입실시 문의 드립니다.</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-bottom:0px;border-left:0px">위치</td><td style="vertical-align:middle;border-right:0px;border-bottom:0px">지하1층</td>
+							      	</tr>
+						      	</table>
+						      </td>
+						    </tr>
+						     <tr class="text-center">
+						      <td style="vertical-align:middle" class="table-light">커피라운지/편의점</td>
+						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
+						       <table style="width:100%">
+							      	<tr >
+							      		<td class="table-light" style="width:30%;vertical-align:middle;border-top:0px;border-left:0px">운영시간</td><td style="vertical-align:middle;border-top:0px;border-right:0px">상시운영</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px">이용방법</td><td style="vertical-align:middle;border-right:0px">상시이용</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px;border-bottom:0px">위치</td><td style="vertical-align:middle;border-bottom:0px;border-right:0px">1F</td>
+							      	</tr>
+						      	</table>
+						      </td>
+						    </tr>
+						  </table>
+					</div>
+            	</div>
+                    
 			</div>
 		</div>
 	
@@ -301,134 +351,61 @@
         <div class="menu">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Food Menu</p>
-                    <h2>Delicious Food Menu</h2>
+                    <!-- <p>Food Menu</p> -->
+                    <h4>JEJU IN HOTEL 만의 특별한 음식 서비스</h4>
                 </div>
                 <div class="menu-tab">
                     <ul class="nav nav-pills justify-content-center">
+                       <!--  <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#burgers">coffee</a>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#burgers">Burgers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#snacks">Snacks</a>
+                            <a class="nav-link active" data-toggle="pill" href="#food">Food</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#beverages">Beverages</a>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div id="burgers" class="container tab-pane active">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food1.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food1.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Double size burger</span> <strong>$11.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food1.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bacon, EGG and Cheese</span> <strong>$13.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food1.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Pulled porx Burger</span> <strong>$18.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food1.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Fried chicken Burger</span> <strong>$22.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                     <img src="/resources/img/food/food2.jpg"  style="width:100%"alt="Image">
-                                      <br><br>
-                                     <img src="/resources/img/food/food5.jpg" style="width:100%" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="snacks" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food2.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>$15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food2.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bread besan Toast</span> <strong>$35.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food2.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Healthy soya nugget snacks</span> <strong>$20.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food2.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Tandoori Soya Chunks</span> <strong>$30.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                     <img src="/resources/img/food/food5.jpg" style="width:100%" alt="Image"><br><br>
-                                     <img src="/resources/img/food/food3.jpg" style="width:100%" alt="Image">
-                                </div>
-                            </div>
-                        </div>
                         <div id="beverages" class="container tab-pane fade">
                             <div class="row">
                                 <div class="col-lg-7 col-md-12">
                                     <div class="menu-item">
                                         <div class="menu-img">
+                                            <img src="/resources/img/food/food1.jpg" alt="Image">
+                                        </div>
+                                        <div class="menu-text">
+                                            <h3><span>아메리카노</span> <!-- <strong>$9.00</strong> --></h3>
+                                            <p>아늑한 음악을 감상하며 커피 한잔의 여유를 즐겨보시기 바랍니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <div class="menu-img">
+                                            <img src="/resources/img/food/food2.jpg" alt="Image">
+                                        </div>
+                                        <div class="menu-text">
+                                            <h3><span>베이커리</span> <!-- <strong>$11.00</strong> --></h3>
+                                            <p>정성이 담긴 명품 패스트리와 베이커리를 만나보실 수 있습니다.</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-block">
+                                     <img src="/resources/img/food/food6.jpg"  style="width:100%"alt="Image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="food" class="container tab-pane  active">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-12">
+                                    <div class="menu-item">
+                                        <div class="menu-img">
                                             <img src="/resources/img/food/food3.jpg" alt="Image">
                                         </div>
                                         <div class="menu-text">
-                                            <h3><span>Single Cup Brew</span> <strong>$7.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                            <h3><span>제주향토음식</span> <!-- <strong>$7.00</strong> --></h3>
+                                            <p>청정 제주의 정취가 숨어있는 맛깔스러운 한식요리!</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -436,42 +413,15 @@
                                             <img src="/resources/img/food/food3.jpg" alt="Image">
                                         </div>
                                         <div class="menu-text">
-                                            <h3><span>Caffe Americano</span> <strong>$9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                            <h3><span>제주향토음식</span><!--  <strong>$9.00</strong> --></h3>
+                                            <p>조리장의 특선 한식 퓨전요리로 고객님의 미각을 유혹합니다</p>
                                         </div>
                                     </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food3.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caramel Macchiato</span> <strong>$15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food3.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>$8.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food3.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>$12.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-block">
                                     <img src="/resources/img/food/food6.jpg" style="width:100%" alt="Image">
-                                    <br><br>
-                                     <img src="/resources/img/food/food1.jpg" style="width:100%" alt="Image">
+                                   
                                 </div>
                             </div>
                         </div>

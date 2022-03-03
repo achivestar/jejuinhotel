@@ -106,14 +106,15 @@
 
     <div class="container">
     	<div class="row">
-    		<div class="col-md-12 text-center p-3" style="font-size:20px;line-height:1.8">
+    		<div class="col-md-12 text-center p-3" >
+    		    <p style="line-height:1.8">
     		    제주잡화점은<br>
     			제주도를 사랑하는<br>
     			제주도를 알고싶은<br>
     			제주에서 살고싶은<br>
     			여러분과 함께<br><br>
     			모두가 상생하는 공정여행을 추구하며,<br>
-    			제주도의 사회적 경제와 함께 합니다
+    			제주도의 사회적 경제와 함께 합니다</p>
     		</div>
     		<div class="col-md-12">
     			<img src="/resources/img/shop/shop1.jpg" style="width:100%"/>
@@ -151,12 +152,12 @@
     		</div>
     		
     		<div class="col-md-12 col-12 mt-3 mb-3 text-center">
-    			제주잡화점은<br>
+    			<p style="line-height:1.8">제주잡화점은<br>
     			새롭고 특별하며 제주여행의<br> 다양한 것을 제공합니다.<br><br>
     			HRD/MICE 분야에 오랜 기간 다양한<br> 분야의 고객을 대상으로<br>
     			맞춤 프로젝트를 기획하고 운영하면서<br> 다져진 노하우를 바탕으로<br><br>
     			제주의 새로운 경험&여행의 <br>모든 것을 선사하고자 합니다.<br><br>
-    			제주. 새로운 경험&여행의 모든것 <br><br> New Experience in Jeju
+    			제주. 새로운 경험&여행의 모든것 <br><br> New Experience in Jeju</p>
     			
     		</div>
     		
@@ -339,7 +340,7 @@
    </div>
    
        <!-- Blog Start -->
-    <div class="container-fluid  pt-5">
+   <!--  <div class="container-fluid  pt-5">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8 col text-center mb-4">
@@ -354,8 +355,8 @@
                                 <div class="card position-relative team d-flex flex-column text-center mx-3">
 								    <img src="/resources/img/about/about3.jpg" class="card-img-top" alt="...">
 								    <div class="card-body">
-								      <h5 class="card-title">Card title</h5>
-								      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+								      <h5 class="card-title">너무 좋아요</h5>
+								      <p class="card-text">친절해서 너무 좋았어요</p>
 								      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
 								    </div>
 							  </div>
@@ -369,8 +370,8 @@
                                 <div class="card position-relative team d-flex flex-column text-center mx-3">
 								    <img src="/resources/img/about/about4.jpg" class="card-img-top" alt="...">
 								    <div class="card-body">
-								      <h5 class="card-title">Card title</h5>
-								      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+								      <h5 class="card-title">너무 좋아요</h5>
+								      <p class="card-text">친절해서 너무 좋았어요</p>
 								      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
 								    </div>
 							  </div>
@@ -384,8 +385,8 @@
                                 <div class="card position-relative team d-flex flex-column text-center mx-3">
 								    <img src="/resources/img/about/about2.jpeg" class="card-img-top" alt="...">
 								    <div class="card-body">
-								      <h5 class="card-title">Card title</h5>
-								      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+								      <h5 class="card-title">너무 좋아요</h5>
+								      <p class="card-text">친절해서 너무 좋았어요</p>
 								      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
 								    </div>
 							  </div>
@@ -399,8 +400,8 @@
                                 <div class="card position-relative team d-flex flex-column text-center mx-3">
 								    <img src="/resources/img/about/about4.jpg" class="card-img-top" alt="...">
 								    <div class="card-body">
-								      <h5 class="card-title">Card title</h5>
-								      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+								      <h5 class="card-title">너무 좋아요</h5>
+								      <p class="card-text">친절해서 너무 좋았어요</p>
 								      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
 								    </div>
 							  </div>
@@ -419,7 +420,7 @@
         </div>
         
           
-    </div>
+    </div> -->
     <!-- Blog End -->
 
  

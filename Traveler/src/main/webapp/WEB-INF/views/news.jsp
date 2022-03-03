@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>      
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,104 +128,76 @@
 
     <div class="container">
     	<div class="row">
+    		<div class="col-md-12 p-3 text-center">
+    			<c:if test="${empty newsList}">
+			        <p>등록된 공지글이 없습니다.</p>
+				</c:if>
+    		
+    		</div>
     		<div class="col-md-12 text-center p-3" style="font-size:20px;line-height:1.8">
-    		   	<div class="row row-cols-2 row-cols-md-3">
-				  <div class="col mb-4">
+    		   	<div class="row row-cols-2 row-cols-md-3 text-center" id="anch">
+    		   
+			    <c:forEach items="${newsList}" var="newsList" varStatus="status">	
+			    <c:set var="regdate" value="${newsList.regdate}"/>
+			    <c:set var="TextValue" value="${newsList.title}"/>
+			   	 <div class="col mb-4">
 				    <div class="card"  data-aos="zoom-in">
-				      <a href="/newsDetail"><img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" alt="..."></a>
+				      <a href="/newsDetail?idx=${newsList.idx}">
+				      <c:if test="${not empty newsList.thumburl}">
+				      		<img src="${newsList.thumburl}" class="card-img-top newsimg" alt="...">
+				      </c:if>
+				      <c:if test="${empty newsList.thumburl}">
+				     	 <img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" alt="...">
+				      </c:if>
+				      
+				      
+				      </a>
 				      <div class="card-body">
-				        <h5 class="card-title"><a href="/newsDetail">Card title</a></h5>
-				        <p class="card-text"><a href="/newsDetail">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</a></p>
-				      	<p class="card-text"><small class="text-muted">2022.02.19</small></p>
+				        <p class="card-text"><a href="/newsDetail?idx=${newsList.idx}">${fn:substring(TextValue,0,20)}
+				        <c:if test="${fn:length(TextValue)>=20}">
+				        	...
+				        </c:if>
+				        </a></p>
+				      	<p class="card-text"><small class="text-muted">${fn:substring(regdate,0,10) } | ${newsList.writer }</small></p>
 				      </div>
 				    </div>
 				  </div>
-				  <div class="col mb-4">
-				    <div class="card" data-aos="zoom-in">
-				      <a href="/newsDetail"><img src="/resources/img/active/active6.jpg" class="card-img-top newsimg" alt="..."></a>
-				      <div class="card-body">
-				        <h5 class="card-title"> <a href="/newsDetail">Card title</a></h5>
-				        <p class="card-text"> <a href="/newsDetail">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</a></p>
-				      	<p class="card-text"><small class="text-muted">2022.02.17</small></p>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="col mb-4">
-				    <div class="card" data-aos="zoom-in">
-				      <img src="/resources/img/active/active7.jpg" class="card-img-top newsimg" alt="...">
-				      <div class="card-body">
-				        <h5 class="card-title">Card title</h5>
-				        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-				      	<p class="card-text"><small class="text-muted">2022.02.16</small></p>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="col mb-4">
-				    <div class="card" data-aos="zoom-in">
-				      <img src="/resources/img/active/active8.jpg" class="card-img-top newsimg" alt="...">
-				      <div class="card-body">
-				        <h5 class="card-title">Card title</h5>
-				        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				     	<p class="card-text"><small class="text-muted">2022.02.16</small></p>
-				      </div>
-				    </div>
-				  </div>
-				 <div class="col mb-4">
-				    <div class="card" data-aos="zoom-in">
-				      <img src="/resources/img/active/active13.jpg" class="card-img-top newsimg" alt="...">
-				      <div class="card-body">
-				        <h5 class="card-title">Card title</h5>
-				        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				      	<p class="card-text"><small class="text-muted">2022.02.14</small></p>
-				      </div>
-				    </div>
-				  </div>
-
-				 <div class="col mb-4">
-				    <div class="card" data-aos="zoom-in">
-				      <img src="/resources/img/active/active14.jpg" class="card-img-top newsimg" alt="...">
-				      <div class="card-body">
-				        <h5 class="card-title">Card title</h5>
-				        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				     	<p class="card-text"><small class="text-muted">2022.02.14</small></p>
-				      </div>
-				    </div>
-				  </div>
-				
-				 <div class="col mb-4">
-				    <div class="card" data-aos="zoom-in">
-				      <img src="/resources/img/active/active15.jpg" class="card-img-top newsimg" alt="...">
-				      <div class="card-body">
-				        <h5 class="card-title">Card title</h5>
-				        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				     	<p class="card-text"><small class="text-muted">2022.02.13</small></p>
-				      </div>
-				    </div>
-				  </div>
-			
+			    
+			    
+			    </c:forEach>
     		</div>
     		
-    		<div class="col-md-12 mb-4">
+    		<!-- 페이징 시작 -->
+			<div class="col-md-12 mb-4">
                     <nav aria-label="Page navigation">
                       <ul class="pagination justify-content-center mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                          </a>
-                        </li>
+                        <c:if test="${pageMaker.prev}">
+	                        <li class="page-item">
+	                          <a class="page-link" href="/news?page=${pageMaker.startPage-1}#anch" aria-label="Previous">
+	                            <span aria-hidden="true">&laquo;</span>
+	                            <span class="sr-only">Previous</span>
+	                          </a>
+	                        </li>
+                        </c:if>
+                        
+                        <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                        	 <li class="page-item <c:out value="${pageMaker.cri.page == idx ? 'active' : ''}" /> ">
+                        	  <a class="page-link" href="/news?page=${idx}#anch">${idx }</a></li>
+                        </c:forEach>
+                        
+                        <c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
+	                        <li class="page-item">
+	                          <a class="page-link" href="/news?page=${pageMaker.endPage+1}#anch" aria-label="Next">
+	                            <span aria-hidden="true">&raquo;</span>
+	                            <span class="sr-only">Next</span>
+	                          </a>
+	                        </li>
+                        </c:if>
                       </ul>
                     </nav>
                 </div>
+                
+                <!-- 페이징 끝 -->
                 
                 
     		

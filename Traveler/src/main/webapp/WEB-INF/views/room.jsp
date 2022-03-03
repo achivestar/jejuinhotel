@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +46,11 @@
 			max-heght:470px;
 		}
 
-  	
+  		p.card-text {
+  			padding:4px;
+  			display:inline-block;
+  			border:2px solid #fff;
+  		}
 </style>
 </head>
 <body>
@@ -89,55 +95,89 @@
     <%@include file="./include/info.jsp" %>
 
 	<div class="container">
-
+			<c:if test="${empty roomList}">
+				<div class="row mb-3 text-center"> 등록된 룸이 없습니다.</div>
+			</c:if>
+			<c:forEach items="${roomList}" var="roomList" varStatus="status">	
             <div class="row mb-3">
-            	<div class="col-lg-12 m-0 my-lg-1">
+            
+            	<c:if test="${not empty roomList.savedFileName1}">
+	            	<div class="col-lg-12 m-0 my-lg-1">
+	            		<div class="card text-white">
+						  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName1}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <p class="card-text">${roomList.roomType}</p><br>
+						    <p class="card-text">${roomList.bedType}</p>
+						  </div>
+						</div>
+						
+	            	</div>
+            	</c:if>
+            	<c:if test="${not empty roomList.savedFileName2}">
+            	<div class="col-lg-6 m-0 my-lg-1">
             		<div class="card text-white">
-					  <img class="card-img img" src="/resources/img/room/room1.jpg" alt="Card image">
-					  <div class="card-img-overlay">
-					    <p class="card-text">STANDARD</p>
-					    <p class="card-text">Last updated 3 mins ago</p>
-					  </div>
+					  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName2}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <p class="card-text">${roomList.roomType}</p><br>
+						    <p class="card-text">${roomList.bedType}</p>
+						  </div>
 					</div>
 					
             	</div>
+            	</c:if>
+            	<c:if test="${not empty roomList.savedFileName3}">
+            	<div class="col-lg-6 m-0 my-lg-1">
+            		<div class="card text-white">
+					  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName3}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <p class="card-text">${roomList.roomType}</p><br>
+						    <p class="card-text">${roomList.bedType}</p>
+						  </div>
+					</div>
+					
+            	</div>
+            	</c:if>
             	
-            	<div class="col-lg-6 m-0 my-lg-1">
-            		<div class="card text-white">
-					  <img class="card-img img" src="/resources/img/room/room2.jpg" alt="Card image">
-					  <div class="card-img-overlay">
-					    <p class="card-text">STANDARD</p>
-					    <p class="card-text">Last updated 3 mins ago</p>
-					  </div>
-					</div>
-					
-            	</div>
-            	<div class="col-lg-6 m-0 my-lg-1">
-            		<div class="card text-white">
-					  <img class="card-img img" src="/resources/img/room/room3.jpg" alt="Card image">
-					  <div class="card-img-overlay">
-					    <p class="card-text">STANDARD</p>
-					    <p class="card-text">Last updated 3 mins ago</p>
-					  </div>
-					</div>
-					
-            	</div>
             	<div class="col-lg-12">
             		<div class="alert" role="alert" style="background-color:#e3e9fa">
-					  <h4 class="alert-heading" style="color:#f7b113"><b>제주의 시그니처 객실</b></h4>
-					  <p style="color:#0094a8">프라이빗한 공간에서 바라보는 한라산이 압도적인 시그니처 객실</p>
+					  <h4 class="alert-heading" style="color:#f7b113"><b>${roomList.title }</b></h4>
 					  <hr>
-					  <p class="mb-0">55,200 ~ 140,000원</p>
+					   <p style="color:#0094a8">${roomList.content }</p>				 
 					</div>
             	</div>
-            	<div class="col-lg-12 text-center">
-						<a href="" class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">예약하기</a>
-				</div>
-					
+            	<div class="col-lg-12">
+            		  <div class="table-responsive">
+						  <table class="table table-bordered" >
+						    <tr class="text-center">
+						      <th width="30%" class="table-light">객실</th>
+						      <td>${roomList.roomType }</td>
+						    </tr>
+						    <tr class="text-center">
+						      <th class="table-light">침대</th>
+						      <td>${roomList.bedType }</td>
+						    </tr>
+						    <tr class="text-center">
+						      <th class="table-light">어메니티</th>
+						      <td>${roomList.amenity }</td>
+						    </tr>
+						    <tr class="text-center">
+						      <th class="table-light">가격</th>
+						      <td>${roomList.price }</td>
+						    </tr>
+						  </table>
+						</div>
+            	</div>
             	
+            	<c:if test="${roomList.reserveBtn eq 'y' }">
+	            	<div class="col-lg-12 text-center">
+							<a href="${roomList.reserveLink }" class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">예약하기</a>
+					</div>
+				</c:if>
+
             </div>
             
-            
+            </c:forEach>
+            <!-- 
              <div class="row mb-3">
             	<div class="col-lg-12 m-0 my-lg-1">
             		<div class="card text-white">
@@ -183,7 +223,7 @@
 				</div>
 					
             	
-            </div>
+            </div> -->
        
     </div>
 

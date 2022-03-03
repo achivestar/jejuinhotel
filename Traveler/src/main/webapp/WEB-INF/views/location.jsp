@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>        
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,8 +30,8 @@
     <link href="/resources/css/style.css" rel="stylesheet">
 	<style>
 		.page-header {
-		  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/resources/img/header/active9.jpg);
-		  background-position:top center;
+		  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/resources/img/header/room.jpg);
+		  background-position:center center;
 		  background-repeat:no-repeat;
 		  background-size: cover;
 		  width: 100%;
@@ -46,29 +43,6 @@
 			width:100%;
 			max-heght:470px;
 		}
-		
-		span.theme{
-			color:#fff;font-size:30px
-		}
-		
-		span.txt-white{
-			color:#fff;
-		}
-		
-		div.bg-yellow {
-			width:100%;display: flex;align-items: center;padding:0;background-color:#f7b113
-		}
-		
-		div.bg-blue {
-			width:100%;display: flex;align-items: center;padding:0;background-color:#0094a8
-		}
-		
-		.card-text {
-			line-height:1.1;
-			text-align:left;
-		}
-		
-	
 
 </style>
 </head>
@@ -96,13 +70,13 @@
         <div class="container py-5">
             <div class="row align-items-center py-4">
                 <div class="col-md-6 text-center text-md-left">
-                    <h1 class="mb-4 mb-md-0 text-white text-uppercase">JEJU IN HOTEL<br>HOT NEWS</h1>
+                    <h1 class="mb-4 mb-md-0 text-white text-uppercase">여행자들의 질 높은 휴식을 보장합니다.</h1>
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
                         <a class="btn btn-outline-primary" href="/">Home</a>
                         <i class="fas fa-angle-double-right text-primary mx-2"></i>
-                        <a class="btn btn-cust-primary disabled" href="">Faq</a>
+                        <a class="btn btn-cust-primary disabled" href="">Location</a>
                     </div>
                 </div>
             </div>
@@ -113,48 +87,73 @@
     
     <%@include file="./include/info.jsp" %>
 
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				
+			<div id="daumRoughmapContainer1645073860175" class="root_daum_roughmap root_daum_roughmap_landing mt-3 mb-3" style="width:100%;padding:0;border:2px solid #ddd"></div>
+			
+			<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+	
+			<script charset="UTF-8">
+				new daum.roughmap.Lander({
+					"timestamp" : "1645073860175",
+					"key" : "296r3",
+					"mapWidth" : "100%",
+					"mapHeight" : "360"
+				}).render();
+			</script>
+			</div>
+			<div class="col-12 mt-3 mb-3">
+				<p>JEJU IN HOTEL 주소 : 제주특별자치도 제주시 신산마을길 20</p>
+				<p>대표전화 : 064-000-0000</p>
+			</div>
+			<div class="col-12 mt-3 mb-3">
+					<div class="table-responsive">
+						  <table class="table table-bordered">
+						    <tr class="text-center">
+						      <td style="vertical-align:middle" class="table-light">제주국제공항</td>
+						      <td style="vertical-align:middle" class="table-light">택시이용시</td>
+						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
+						       <table style="width:100%">
+							      	<tr >
+							      		<td class="table-light" style="width:30%;vertical-align:middle;border-left:0px;border-top:0px">요금</td><td style="vertical-align:middle;border-right:0px;border-top:0px">약6,600원</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px">소요시간</td><td style="vertical-align:middle;border-right:0px">약10~15분</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-bottom:0px;border-left:0px">거리</td><td style="vertical-align:middle;border-right:0px;border-bottom:0px">약6.2km</td>
+							      	</tr>
+						      	</table>
+						      </td>
+						    </tr>
+						     <tr class="text-center">
+						      <td style="vertical-align:middle" class="table-light">제주항연안여객터미널</td>
+						      <td style="vertical-align:middle" class="table-light">택시이용시</td>
+						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
+						       <table style="width:100%">
+							      	<tr >
+							      		<td class="table-light" style="width:30%;vertical-align:middle;border-top:0px;border-left:0px">요금</td><td style="vertical-align:middle;border-top:0px;border-right:0px">약11,600원</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px">소요시간</td><td style="vertical-align:middle;border-right:0px">약20분</td>
+							      	</tr>
+							      	<tr>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px;border-bottom:0px">거리</td><td style="vertical-align:middle;border-bottom:0px;border-right:0px">약10.1km</td>
+							      	</tr>
+						      	</table>
+						      </td>
+						    </tr>
+						  </table>
+					</div>
+			</div>
+		</div>
+            
+    </div>
 
-    <div class="container">
-    	<div class="row">
-    		<c:if test="${empty faqList}">
-				<div class="col-md-12 text-center p-3 mt-3 mb-3" style="font-size:20px;line-height:1.8">
-					등록된 자주 묻는 질문과 답변이 없습니다.
-				</div>
-			</c:if>
-    		<div class="col-md-12 text-center p-3 mt-3 mb-3" style="font-size:20px;line-height:1.8">
-    			<div class="accordion" id="accordionExample">
-    				
-					  <c:forEach items="${faqList}" var="faqList" varStatus="status">
-						  <div class="card">
-						    <div class="card-header" id="heading${faqList.idx}">
-						      <h2 class="mb-0">
-						        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo${faqList.idx}" aria-expanded="false" aria-controls="collapseTwo${faqList.idx}">
-						         Q.${faqList.question }
-						        </button>
-						      </h2>
-						    </div>
-						    <div id="collapseTwo${faqList.idx}" class="collapse" aria-labelledby="heading${faqList.idx}" data-parent="#accordionExample">
-						      <div class="card-body text-left">
-						          A.${faqList.answer }
-						      </div>
-						    </div>
-						  </div>
-					 </c:forEach>
-					 
-			   </div>
-                
-            </div>    	
-    		<div class="col-md-12 mb-3">
-    			<%@include file="./include/video.jsp" %>
-					
-    		</div>
-    		
-    		
-   </div>
-   
-   
 
- </div>
+ 
     <!-- Footer Start -->
     	<%@include file="./include/footer.jsp" %>
     <!-- Footer End -->
