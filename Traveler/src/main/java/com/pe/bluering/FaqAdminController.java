@@ -28,6 +28,8 @@ public class FaqAdminController {
 		ResponseEntity<String> entity = null;
 		
 		try {
+
+			
 			faqservice.faqAdd(faqvo);
 			entity = new ResponseEntity<String>("success",HttpStatus.OK);
 		} catch (Exception e) {
@@ -43,6 +45,7 @@ public class FaqAdminController {
 		
 		try {
 			faqvo.setIdx(idx);
+			
 			faqservice.faqUpdate(faqvo);
 			
 			entity = new ResponseEntity<String>("success",HttpStatus.OK);

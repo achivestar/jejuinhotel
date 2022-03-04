@@ -79,6 +79,31 @@
 			]]>
 	</select>
 	
+	<select id="getStore" parameterType="int"  resultType="FoodVO">
+			<![CDATA[
+				select * from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	<select id="getCoffee" parameterType="int"  resultType="FoodVO">
+			<![CDATA[
+				select * from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	<select id="getRest" parameterType="int"  resultType="FoodVO">
+			<![CDATA[
+				select * from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	
 	
 	<update id="foodUpdate" parameterType="FoodVO">
 		<![CDATA[
@@ -104,6 +129,11 @@
 			idx = #{idx}
 		]]>
 	</update>
+	
+	
+	
+	
+	
 	
 	
 	<!-- <update id="newsThumbUpdate" parameterType="newsVO">

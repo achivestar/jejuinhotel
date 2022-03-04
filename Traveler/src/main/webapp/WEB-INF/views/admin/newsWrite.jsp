@@ -80,7 +80,7 @@
 						</div>
 						<div class="form-group">
 							 <label for="content">공지내용</label>
-							 <textarea id="summernote" name="content" id="content" class="form-control"></textarea>
+							 <textarea id="summernote" name="content" class="form-control"></textarea>
 						</div>
 					 
 					 
@@ -168,12 +168,14 @@ $(document).ready(function() {
 	});
 	
 	$("#save").click(function(e){
-		
-		var title =  document.getElementById("title");
 
-		if(title.value.length==0){
+		if($("#title").val()==""){
 			 alert("제목을 입력해 주세요.");
-			 title.focus();
+			 $("#title").focus();
+		     return false;
+		}else if($("#summernote").val()==""){
+			 alert("내용을 입력해 주세요.");
+			 $("#summernote").focus();
 		     return false;
 		}else{
 			 var form = new FormData(document.getElementById('form'));

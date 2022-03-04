@@ -6,23 +6,21 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.pe.bluering.domain.BnfVO;
 import com.pe.bluering.domain.Criteria;
-import com.pe.bluering.domain.FoodVO;
+import com.pe.bluering.domain.FoodMenuVO;
 
 @Repository
-public class FoodDAOImpl implements FoodDAO {
+public class FoodMenuDAOImpl implements FoodMenuDAO {
 
 	@Autowired
 	private SqlSession sql;
 	
-	private static String namespace = "com.pe.bluering.mappers.foodMapper";
+	private static String namespace = "com.pe.bluering.mappers.foodMenuMapper";
 	
 	
 	@Override
-	public void Insert(FoodVO foodvo) {
-		sql.insert(namespace+".Insert",foodvo);
-
+	public void Insert(FoodMenuVO foodmenuvo) {
+		sql.insert(namespace+".Insert",foodmenuvo);
 	}
 
 	@Override
@@ -36,8 +34,8 @@ public class FoodDAOImpl implements FoodDAO {
 	}
 
 	@Override
-	public List<FoodVO> getFoodList(Criteria cri) {
-		return sql.selectList(namespace+".getFoodList",cri);
+	public List<FoodMenuVO> getFoodMenuList(Criteria cri) {
+		return sql.selectList(namespace+".getFoodMenuList",cri);
 	}
 
 	@Override
@@ -46,19 +44,18 @@ public class FoodDAOImpl implements FoodDAO {
 	}
 
 	@Override
-	public FoodVO foodModify(int idx) {
+	public FoodMenuVO foodMenuModify(int idx) {
 		return sql.selectOne(namespace+".getFoodModify",idx);
 	}
 
 	@Override
-	public void foodUpdate(FoodVO foodvo) {
-		sql.update(namespace+".foodUpdate",foodvo);
-
+	public void foodMenuUpdate(FoodMenuVO foodmenuvo) {
+		sql.update(namespace+".foodMenuUpdate",foodmenuvo);
 	}
 
 	@Override
-	public void foodDelete(int idx) {
-		sql.delete(namespace+".foodDelete",idx);
+	public void foodMenuDelete(int idx) {
+		sql.delete(namespace+".foodMenuDelete",idx);
 	}
 
 	@Override
@@ -77,31 +74,13 @@ public class FoodDAOImpl implements FoodDAO {
 	}
 
 	@Override
-	public void bnfUpdate(BnfVO bnfvo) {
-		sql.update(namespace+".bnfUpdate",bnfvo);
-		
+	public List<FoodMenuVO> getFoodMenuList(String str) {
+		return sql.selectList(namespace+".getFoodMenusList",str);
 	}
 
 	@Override
-	public BnfVO getBnf(int idx) {
-		return sql.selectOne(namespace+".getBnf",idx);
+	public List<FoodMenuVO> getBeverageMenuList(String str) {
+		return sql.selectList(namespace+".getBeverageMenusList",str);
 	}
-
-	@Override
-	public FoodVO getStore(int i) {
-		return sql.selectOne(namespace+".getStore",i);
-	}
-
-	@Override
-	public FoodVO getRest(int i) {
-		return sql.selectOne(namespace+".getRest",i);
-	}
-
-	@Override
-	public FoodVO getCoffee(int i) {
-		return sql.selectOne(namespace+".getCoffee",i);
-	}
-
-	
 
 }

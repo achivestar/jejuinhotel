@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>       
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>        
 <html lang="ko">
 
 <head>
@@ -35,7 +35,7 @@
         <%@include file="./include/themeSetting.jsp" %>
         <%@include file="./include/nav.jsp" %>
        <!-- include theme & nav end -->
-        <div class="main-panel">
+      <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
@@ -49,7 +49,7 @@
                 	 <nav aria-label="breadcrumb">
 					  <ol class="breadcrumb">
 					    <li class="breadcrumb-item"><a href="/admin/index">Home</a></li>
-					    <li class="breadcrumb-item active" aria-current="page"></li>
+					    <li class="breadcrumb-item active" aria-current="page">Food Menu</li>
 					  </ol>
 					</nav>
                  </div>
@@ -57,11 +57,60 @@
               </div>
             </div>
           </div>
-           <div class="row">
+          <div class="row">
             <%@include file="./include/info.jsp" %>
           </div>
           
-  
+  		
+			<!--  룸 등록 시작 -->
+			<div class="row" id="anch">
+
+				<div class="col-md-12">
+						<!--  메뉴 등록 시작 -->
+				<div class="row">
+				<div class="col-md-12 text-right mb-3">
+					<a href="/admin/foodMenu" class="btn btn-primary">목록</a>
+				</div>
+				<div class="col-md-12">
+						<form name="dataForm" id="dataForm" method="post" action="/admin/foodMenuRegist" enctype="multipart/form-data">
+							<div class="form-group">
+							    <label for="title">메뉴이름</label>
+							    <input type="text" class="form-control" id="title" name="title">
+							</div>
+							<div class="form-group">
+								 <label for="content">메뉴소개</label>
+								<textarea class="form-control"  name="content" id="content" rows="3"></textarea>
+							</div>
+			
+							<div class="form-group">
+								 <label for="division">메뉴형태</label>
+							    <select  class="form-control" id="division" name="division">
+							      <option value="none" selected>--선택--</option>
+							      <option value="food">일반음식</option>
+							      <option value="beverage">Coffee/Dessert</option>
+							    </select>
+							</div>
+
+							<div class="form-group">
+							    <label for="input_file">메뉴이미지</label>
+							    <input type="file" class="form-control-file" id="input_file" name="file" >
+
+							</div>
+
+						  <br>
+						  <input type="submit" class="btn btn-primary" id="save" value="등록">
+						  <input type="button" class="btn btn-secondary" id="list" value="목록">
+						</form>
+					</div>
+				</div>
+				<!--  메뉴 등록 끝 -->
+				</div>
+			</div>
+
+			
+			
+		
+		
         </div>
        	 <!-- include footer start -->
          	<%@include file="./include/footer.jsp" %>
@@ -96,4 +145,9 @@
   <!-- End custom js for this page-->
 </body>
 
+<script>
+	$("#list").click(function(){
+		location.href="/admin/foodmenu";
+	});
+</script>
 </html>

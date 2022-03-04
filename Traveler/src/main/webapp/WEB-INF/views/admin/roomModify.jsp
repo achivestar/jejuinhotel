@@ -83,7 +83,7 @@
 						</div>
 						<div class="form-group">
 							 <label for="content">객실소개</label>
-							<textarea class="form-control"  name="content" id="content" rows="3">${roomvo.content}</textarea>
+							<textarea class="form-control"  name="content" id="content" rows="3" >${roomvo.content }</textarea>
 						</div>
 						<div class="form-group">
 							 <label for="amenity">어메니티 (객실내물품)</label>
@@ -120,12 +120,17 @@
 								<br />
 								<div id="articlefileChange">
 								</div>
+								<p>현재 적용된 이미지</p>
+								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName1}" alt="" class="img-thumbnail" style="width:200px;height:auto">
+								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName2}" alt="" class="img-thumbnail" style="width:200px;height:auto">
+								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName3}" alt="" class="img-thumbnail" style="width:200px;height:auto">
+								
 								<input type="hidden" name="originalFileName1" value="${roomvo.originalFileName1}" />
 								<input type="hidden" name="originalFileName2" value="${roomvo.originalFileName2}" />
 								<input type="hidden" name="originalFileName3" value="${roomvo.originalFileName3}" />
-								<input type="hidden" name="savedFileName1" value="${roomvo.savedFileName1}" />
-								<input type="hidden" name="savedFileName2" value="${roomvo.savedFileName2}" />
-								<input type="hidden" name="savedFileName3" value="${roomvo.savedFileName3}" />
+								<input type="hidden" id="savedFileName1" name="savedFileName1" value="${roomvo.savedFileName1}" />
+								<input type="hidden" id="savedFileName2" name="savedFileName2" value="${roomvo.savedFileName2}" />
+								<input type="hidden" id="savedFileName3" name="savedFileName3" value="${roomvo.savedFileName3}" />
 							</div>
 						</div>
 						
@@ -291,29 +296,54 @@
 			}
 	   /*
 	   * 파일업로드 multiple ajax처리
-	   */    
-		$.ajax({
-	   	      type: "POST",
-	   	   	  enctype: "multipart/form-data",
-	   	      url: "/admin/roomUpdate",
-	       	  data : formData,
-	       	  dataType : 'text',
-	       	  processData: false,
-	   	      contentType: false,
-	   	      success: function (data) {
-	   	    	 // alert(data);
-	   	    	location.href="/admin/room";
-	   	      },
-	   	      beforeSend : function(){
-					$(".spinner").removeClass("displayLoding");
-			  },complete:function(){
-					$(".spinner").addClass("displayLoding");	
-			  },
-	   	      error:function(data){
-	   	    	//  alert(data);
-	   	    	location.href="/admin/room";
-	   	      }
-	   	    });
+	   */ 
+	   if($("#title").val()==""){
+	    	alert("객실 이름을 입력해 주세요");
+	    	$("#title").focus();
+	    	return;
+	    }else if($("#content").val()==""){
+	    	alert("객실 소개란에 소개글을 입력해 주세요");
+	    	$("#content").focus();
+	    }else if($("#amenity").val()==""){
+	    	alert("어메니티 소개글을 입력해 주세요");
+	    	$("#amenity").focus();
+	    }else if($("#price").val()==""){
+	    	alert("룸 가격을 입력해 주세요");
+	    	$("#price").focus();
+	    }else if($("#roomType").val()==""){
+	    	alert("객실 형태를 선택해 주세요");
+	    	$("#roomType").focus();
+	    }else if($("#bedType").val()==""){
+	    	alert("침대 형식을 선택해 주세요");
+	    	$("#bedType").focus();
+	    }else if($("#bedType").val()==""){
+	    	alert("침대 형식을 선택해 주세요");
+	    	$("#bedType").focus();
+	    }else{
+	    	$.ajax({
+		   	      type: "POST",
+		   	   	  enctype: "multipart/form-data",
+		   	      url: "/admin/roomUpdate",
+		       	  data : formData,
+		       	  dataType : 'text',
+		       	  processData: false,
+		   	      contentType: false,
+		   	      success: function (data) {
+		   	    	 // alert(data);
+		   	    	location.href="/admin/room";
+		   	      },
+		   	      beforeSend : function(){
+						$(".spinner").removeClass("displayLoding");
+				  },complete:function(){
+						$(".spinner").addClass("displayLoding");	
+				  },
+		   	      error:function(data){
+		   	    	//  alert(data);
+		   	    	location.href="/admin/room";
+		   	      }
+		   	    });
+	    } 
+		
 	   	    return false;
 		}
 

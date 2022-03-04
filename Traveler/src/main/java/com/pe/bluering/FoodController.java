@@ -43,200 +43,200 @@ public class FoodController {
 	private static final Logger logger = LoggerFactory.getLogger(FoodController.class);
 	
 	
-	@RequestMapping(value="/foodRegist", method=RequestMethod.POST) 
-	public String foodRegist(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
-		 logger.info("originalName" + file.getOriginalFilename());
-		 
-		  String root_path = request.getSession().getServletContext().getRealPath("/");  
-	      String attach_path = "resources/foodfileupload/";
-		  String uploadPath = root_path+attach_path;
-		  String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-		  String fileRoot;
-		 	int idx = 0;
-		    if(foodservice.getCount()==0) {
-		    	idx = 1;
-		    }else {
-		    	 idx = foodservice.getIdx()+1;
-
-		    }
-		    
-			File Folder = new File(uploadPath+"/"+idx);
-
-			if (!Folder.exists()) {
-				try{
-				    Folder.mkdir(); 
-				    
-			        } 
-			        catch(Exception e){
-				    e.getStackTrace();
-				}        
-		     }else {
-				
-		     }
-
-			
-			 fileRoot = contextRoot + "resources/foodfileupload/"+idx+"/";
-			    System.out.println("fileRoot : " +fileRoot);
-			    File Folders = new File(fileRoot);
-
-				
-				if (!Folders.exists()) {
-					try{
-					    Folders.mkdir(); 
-					    
-				        } 
-				        catch(Exception e){
-					    e.getStackTrace();
-					}        
-			     }else {
-					
-			      }
-
-		    logger.info("uploadPath : " + fileRoot);
-	    	String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),fileRoot);
-	    	foodvo.setOriginalFileName(file.getOriginalFilename());
-	    	foodvo.setSavedFileName(savedName);
-	    	 logger.info("foodvo : " + foodvo);
-	    	 foodservice.Insert(foodvo);
-		logger.info("savedName" + savedName +", uploadPath :" +uploadPath);
-		
-		return "redirect:/admin/food";
-	}
-	
-	
-	@RequestMapping(value="/foodRegist2", method=RequestMethod.POST) 
-	public String foodRegist2(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
-		 logger.info("originalName" + file.getOriginalFilename());
-		 
-		  String root_path = request.getSession().getServletContext().getRealPath("/");  
-	      String attach_path = "resources/foodfileupload/";
-		  String uploadPath = root_path+attach_path;
-		  String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-		  String fileRoot;
-		 	int idx = 0;
-		    if(foodservice.getCount()==0) {
-		    	idx = 1;
-		    }else {
-		    	 idx = foodservice.getIdx()+1;
-
-		    }
-		    
-			File Folder = new File(uploadPath+"/"+idx);
-
-			if (!Folder.exists()) {
-				try{
-				    Folder.mkdir(); 
-				    
-			        } 
-			        catch(Exception e){
-				    e.getStackTrace();
-				}        
-		     }else {
-				
-		     }
-
-			
-			 fileRoot = contextRoot + "resources/foodfileupload/"+idx+"/";
-			    System.out.println("fileRoot : " +fileRoot);
-			    File Folders = new File(fileRoot);
-
-				
-				if (!Folders.exists()) {
-					try{
-					    Folders.mkdir(); 
-					    
-				        } 
-				        catch(Exception e){
-					    e.getStackTrace();
-					}        
-			     }else {
-					
-			      }
-
-		    logger.info("uploadPath : " + fileRoot);
-	    	String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),fileRoot);
-	    	foodvo.setOriginalFileName(file.getOriginalFilename());
-	    	foodvo.setSavedFileName(savedName);
-	    	 logger.info("foodvo : " + foodvo);
-	    	 foodservice.Insert(foodvo);
-		logger.info("savedName" + savedName +", uploadPath :" +uploadPath);
-		
-		return "redirect:/admin/food";
-	}
-
-
-	
-	@RequestMapping(value="/foodRegist3", method=RequestMethod.POST) 
-	public String foodRegist3(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
-		  logger.info("originalName" + file.getOriginalFilename());
-		 
-		  String root_path = request.getSession().getServletContext().getRealPath("/");  
-	      String attach_path = "resources/foodfileupload/";
-		  String uploadPath = root_path+attach_path;
-		  String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-		  String fileRoot;
-		 	int idx = 0;
-		    if(foodservice.getCount()==0) {
-		    	idx = 1;
-		    }else {
-		    	 idx = foodservice.getIdx()+1;
-
-		    }
-		    
-			File Folder = new File(uploadPath+"/"+idx);
-
-			if (!Folder.exists()) {
-				try{
-				    Folder.mkdir(); 
-				    
-			        } 
-			        catch(Exception e){
-				    e.getStackTrace();
-				}        
-		     }else {
-				
-		     }
-
-			
-			 fileRoot = contextRoot + "resources/foodfileupload/"+idx+"/";
-			    System.out.println("fileRoot : " +fileRoot);
-			    File Folders = new File(fileRoot);
-
-				
-				if (!Folders.exists()) {
-					try{
-					    Folders.mkdir(); 
-					    
-				        } 
-				        catch(Exception e){
-					    e.getStackTrace();
-					}        
-			     }else {
-					
-			      }
-
-		    logger.info("uploadPath : " + fileRoot);
-	    	String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),fileRoot);
-	    	foodvo.setOriginalFileName(file.getOriginalFilename());
-	    	foodvo.setSavedFileName(savedName);
-	    	 logger.info("foodvo : " + foodvo);
-	    	 foodservice.Insert(foodvo);
-		logger.info("savedName" + savedName +", uploadPath :" +uploadPath);
-		
-		return "redirect:/admin/food";
-	}
+//	@RequestMapping(value="/foodRegist", method=RequestMethod.POST) 
+//	public String foodRegist(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
+//		 logger.info("originalName" + file.getOriginalFilename());
+//		 
+//		  String root_path = request.getSession().getServletContext().getRealPath("/");  
+//	      String attach_path = "resources/foodfileupload/";
+//		  String uploadPath = root_path+attach_path;
+//		  String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+//		  String fileRoot;
+//		 	int idx = 0;
+//		    if(foodservice.getCount()==0) {
+//		    	idx = 1;
+//		    }else {
+//		    	 idx = foodservice.getIdx()+1;
+//
+//		    }
+//		    
+//			File Folder = new File(uploadPath+"/"+idx);
+//
+//			if (!Folder.exists()) {
+//				try{
+//				    Folder.mkdir(); 
+//				    
+//			        } 
+//			        catch(Exception e){
+//				    e.getStackTrace();
+//				}        
+//		     }else {
+//				
+//		     }
+//
+//			
+//			 fileRoot = contextRoot + "resources/foodfileupload/"+idx+"/";
+//			    System.out.println("fileRoot : " +fileRoot);
+//			    File Folders = new File(fileRoot);
+//
+//				
+//				if (!Folders.exists()) {
+//					try{
+//					    Folders.mkdir(); 
+//					    
+//				        } 
+//				        catch(Exception e){
+//					    e.getStackTrace();
+//					}        
+//			     }else {
+//					
+//			      }
+//
+//		    logger.info("uploadPath : " + fileRoot);
+//	    	String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),fileRoot);
+//	    	foodvo.setOriginalFileName(file.getOriginalFilename());
+//	    	foodvo.setSavedFileName(savedName);
+//	    	 logger.info("foodvo : " + foodvo);
+//	    	 foodservice.Insert(foodvo);
+//		logger.info("savedName" + savedName +", uploadPath :" +uploadPath);
+//		
+//		return "redirect:/admin/food";
+//	}
+//	
+//	
+//	@RequestMapping(value="/foodRegist2", method=RequestMethod.POST) 
+//	public String foodRegist2(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
+//		 logger.info("originalName" + file.getOriginalFilename());
+//		 
+//		  String root_path = request.getSession().getServletContext().getRealPath("/");  
+//	      String attach_path = "resources/foodfileupload/";
+//		  String uploadPath = root_path+attach_path;
+//		  String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+//		  String fileRoot;
+//		 	int idx = 0;
+//		    if(foodservice.getCount()==0) {
+//		    	idx = 1;
+//		    }else {
+//		    	 idx = foodservice.getIdx()+1;
+//
+//		    }
+//		    
+//			File Folder = new File(uploadPath+"/"+idx);
+//
+//			if (!Folder.exists()) {
+//				try{
+//				    Folder.mkdir(); 
+//				    
+//			        } 
+//			        catch(Exception e){
+//				    e.getStackTrace();
+//				}        
+//		     }else {
+//				
+//		     }
+//
+//			
+//			 fileRoot = contextRoot + "resources/foodfileupload/"+idx+"/";
+//			    System.out.println("fileRoot : " +fileRoot);
+//			    File Folders = new File(fileRoot);
+//
+//				
+//				if (!Folders.exists()) {
+//					try{
+//					    Folders.mkdir(); 
+//					    
+//				        } 
+//				        catch(Exception e){
+//					    e.getStackTrace();
+//					}        
+//			     }else {
+//					
+//			      }
+//
+//		    logger.info("uploadPath : " + fileRoot);
+//	    	String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),fileRoot);
+//	    	foodvo.setOriginalFileName(file.getOriginalFilename());
+//	    	foodvo.setSavedFileName(savedName);
+//	    	 logger.info("foodvo : " + foodvo);
+//	    	 foodservice.Insert(foodvo);
+//		logger.info("savedName" + savedName +", uploadPath :" +uploadPath);
+//		
+//		return "redirect:/admin/food";
+//	}
+//
+//
+//	
+//	@RequestMapping(value="/foodRegist3", method=RequestMethod.POST) 
+//	public String foodRegist3(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
+//		  logger.info("originalName" + file.getOriginalFilename());
+//		 
+//		  String root_path = request.getSession().getServletContext().getRealPath("/");  
+//	      String attach_path = "resources/foodfileupload/";
+//		  String uploadPath = root_path+attach_path;
+//		  String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+//		  String fileRoot;
+//		 	int idx = 0;
+//		    if(foodservice.getCount()==0) {
+//		    	idx = 1;
+//		    }else {
+//		    	 idx = foodservice.getIdx()+1;
+//
+//		    }
+//		    
+//			File Folder = new File(uploadPath+"/"+idx);
+//
+//			if (!Folder.exists()) {
+//				try{
+//				    Folder.mkdir(); 
+//				    
+//			        } 
+//			        catch(Exception e){
+//				    e.getStackTrace();
+//				}        
+//		     }else {
+//				
+//		     }
+//
+//			
+//			 fileRoot = contextRoot + "resources/foodfileupload/"+idx+"/";
+//			    System.out.println("fileRoot : " +fileRoot);
+//			    File Folders = new File(fileRoot);
+//
+//				
+//				if (!Folders.exists()) {
+//					try{
+//					    Folders.mkdir(); 
+//					    
+//				        } 
+//				        catch(Exception e){
+//					    e.getStackTrace();
+//					}        
+//			     }else {
+//					
+//			      }
+//
+//		    logger.info("uploadPath : " + fileRoot);
+//	    	String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),fileRoot);
+//	    	foodvo.setOriginalFileName(file.getOriginalFilename());
+//	    	foodvo.setSavedFileName(savedName);
+//	    	 logger.info("foodvo : " + foodvo);
+//	    	 foodservice.Insert(foodvo);
+//		logger.info("savedName" + savedName +", uploadPath :" +uploadPath);
+//		
+//		return "redirect:/admin/food";
+//	}
 	
 	
 	
 	@RequestMapping(value="/foodRegist4", method=RequestMethod.POST) 
 	public String foodRegist4(Model model, BnfVO bnfvo,HttpServletRequest request) throws IOException {	
 		foodservice.bnfUpdate(bnfvo);
-		return "redirect:/admin/food";
+		return "redirect:/admin/foodWrite";
 	}
 	
 	
-	@RequestMapping(value="/foodUpdate", method = RequestMethod.POST)
-	public String foodUpdate(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
+	@RequestMapping(value="/foodUpdate1", method = RequestMethod.POST)
+	public String foodUpdate1(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
 		
 		System.out.println("update mapping start");
 		 String root_path = request.getSession().getServletContext().getRealPath("/");  
@@ -246,8 +246,40 @@ public class FoodController {
 		 logger.info("fileupload : " + uploadPath);
 		System.out.println("idx :"  + foodvo.getIdx());
 		String delFileName = getDeleteFileName(foodvo.getIdx());
-		//String delFileName = getDeleteFileName(foodvo.getIdx());
-		//System.out.println("getDeleteFileName : " + delFileName);
+
+		if(file.getOriginalFilename().equals("")) {
+			logger.info("파일업로드 파일이 비어있을때");
+			String getSaveFileName = getSavedFileName(foodvo.getIdx());
+			String getOriginFileName = getOriginFileName(foodvo.getIdx());
+			foodvo.setSavedFileName(getSaveFileName);
+			foodvo.setOriginalFileName(getOriginFileName);
+			foodservice.foodUpdate(foodvo);
+		}else {
+			logger.info("파일업로드 파일이 비어있을때 있지 않을 때");
+			String savedName = uploadUpdateFile(file.getOriginalFilename(), file.getBytes(),request,uploadPath,delFileName);
+			foodvo.setSavedFileName(savedName);
+			foodvo.setOriginalFileName(file.getOriginalFilename());
+			foodservice.foodUpdate(foodvo);
+		}
+	
+		System.out.println("update mapping end");
+		
+		return "redirect:/admin/foodWrite";
+	}
+	
+	
+	@RequestMapping(value="/foodUpdate2", method = RequestMethod.POST)
+	public String foodUpdate2(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
+		
+		System.out.println("update mapping start");
+		 String root_path = request.getSession().getServletContext().getRealPath("/");  
+		 int idx = foodvo.getIdx();
+	     String attach_path = "resources/foodfileupload/"+idx;
+		 String uploadPath = root_path+attach_path;
+		 logger.info("fileupload : " + uploadPath);
+		System.out.println("idx :"  + foodvo.getIdx());
+		String delFileName = getDeleteFileName(foodvo.getIdx());
+
 		
 		if(file.getOriginalFilename().equals("")) {
 			logger.info("파일업로드 파일이 비어있을때");
@@ -258,7 +290,7 @@ public class FoodController {
 			foodservice.foodUpdate(foodvo);
 		}else {
 			logger.info("파일업로드 파일이 비어있을때 있지 않을 때");
-			String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),uploadPath);
+			String savedName = uploadUpdateFile(file.getOriginalFilename(), file.getBytes(),request,uploadPath,delFileName);
 			foodvo.setSavedFileName(savedName);
 			foodvo.setOriginalFileName(file.getOriginalFilename());
 			foodservice.foodUpdate(foodvo);
@@ -266,7 +298,41 @@ public class FoodController {
 	
 		System.out.println("update mapping end");
 		
-		return "redirect:/admin/food";
+		return "redirect:/admin/foodWrite";
+	}
+	
+	
+	@RequestMapping(value="/foodUpdate3", method = RequestMethod.POST)
+	public String foodUpdate3(MultipartFile file, Model model, FoodVO foodvo,HttpServletRequest request) throws IOException {
+		
+		System.out.println("update mapping start");
+		 String root_path = request.getSession().getServletContext().getRealPath("/");  
+		 int idx = foodvo.getIdx();
+	     String attach_path = "resources/foodfileupload/"+idx;
+		 String uploadPath = root_path+attach_path;
+		 logger.info("fileupload : " + uploadPath);
+		System.out.println("idx :"  + foodvo.getIdx());
+		String delFileName = getDeleteFileName(foodvo.getIdx());
+		
+		if(file.getOriginalFilename().equals("")) {
+			logger.info("파일업로드 파일이 비어있을때");
+			String getSaveFileName = getSavedFileName(foodvo.getIdx());
+			String getOriginFileName = getOriginFileName(foodvo.getIdx());
+			foodvo.setSavedFileName(getSaveFileName);
+			foodvo.setOriginalFileName(getOriginFileName);
+			foodservice.foodUpdate(foodvo);
+		}else {
+			logger.info("파일업로드 파일이 비어있을때 있지 않을 때");
+			
+			String savedName = uploadUpdateFile(file.getOriginalFilename(), file.getBytes(),request,uploadPath,delFileName);
+			foodvo.setSavedFileName(savedName);
+			foodvo.setOriginalFileName(file.getOriginalFilename());
+			foodservice.foodUpdate(foodvo);
+		}
+	
+		System.out.println("update mapping end");
+		
+		return "redirect:/admin/foodWrite";
 	}
 	
 	
@@ -337,5 +403,34 @@ public class FoodController {
 
 	private String getSavedFileName(Integer idx) {
 		return  foodservice.getSavedFileName(idx);
+	}
+	
+	
+	
+		private String uploadUpdateFile(String originalFilename, byte[] fileData, HttpServletRequest request, String uploadPath, String delFileName) throws IOException {
+		
+	    
+	    String deleteFileName = uploadPath+"/"+delFileName;
+	    System.out.println("DeleteFileName : " + deleteFileName);
+	    File deleteFile = new File(deleteFileName);
+	    
+       
+        if(deleteFile.exists()) {
+            
+            deleteFile.delete(); 
+
+        } else {
+       
+            
+        }
+		
+	    
+        UUID uid = UUID.randomUUID();
+		String savedName = uid.toString()+"_"+originalFilename;
+		File target = new File(uploadPath,savedName);
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
+
+
 	}
 }

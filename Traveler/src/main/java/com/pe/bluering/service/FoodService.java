@@ -35,4 +35,10 @@ public interface FoodService {
 
 	public BnfVO getBnf(int idx);
 
+	public FoodVO getStore(int i);
+
+	public FoodVO getRest(int i);
+
+	public FoodVO getCoffee(int i);
+
 }

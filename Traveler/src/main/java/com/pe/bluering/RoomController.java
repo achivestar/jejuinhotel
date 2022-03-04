@@ -184,13 +184,20 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 					i++;
 				}
 				
+				
+				roomvo.setContent(roomvo.getContent().replace("\r\n","<br>"));
+				roomvo.setAmenity(roomvo.getAmenity().replace("\r\n","<br>"));
 				roomservice.Insert(roomvo);
 				entity = new ResponseEntity<String>("success",HttpStatus.OK);
 			}
 			// 파일 아무것도 첨부 안했을때 탄다.(게시판일때, 업로드 없이 글을 등록하는경우)
-			else
+			else {
+				roomvo.setContent(roomvo.getContent().replace("\r\n","<br>"));
+				roomvo.setAmenity(roomvo.getAmenity().replace("\r\n","<br>"));
 				roomservice.Insert(roomvo);
-			entity = new ResponseEntity<String>("success",HttpStatus.OK);
+				entity = new ResponseEntity<String>("success",HttpStatus.OK);
+			}
+				
 		}catch(Exception e){
 			e.printStackTrace();
 			entity = new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
@@ -288,13 +295,15 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 					
 					i++;
 				}
-			
+				roomvo.setContent(roomvo.getContent().replace("\r\n","<br>"));
+				roomvo.setAmenity(roomvo.getAmenity().replace("\r\n","<br>"));
 				roomservice.roomUpdate(roomvo);
 				entity = new ResponseEntity<String>("success",HttpStatus.OK);
 			}
 			// 파일 아무것도 첨부 안했을때 탄다.(게시판일때, 업로드 없이 글을 등록하는경우)
 			else {
-				
+				roomvo.setContent(roomvo.getContent().replace("\r\n","<br>"));
+				roomvo.setAmenity(roomvo.getAmenity().replace("\r\n","<br>"));
 				roomservice.roomUpdate(roomvo);
 				entity = new ResponseEntity<String>("success",HttpStatus.OK);
 				

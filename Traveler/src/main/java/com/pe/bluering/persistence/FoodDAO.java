@@ -34,4 +34,10 @@ public interface FoodDAO {
 	void bnfUpdate(BnfVO bnfvo);
 
 	BnfVO getBnf(int idx);
+
+	FoodVO getStore(int i);
+
+	FoodVO getRest(int i);
+
+	FoodVO getCoffee(int i);
 }

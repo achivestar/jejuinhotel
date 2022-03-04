@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>          
 <html lang="ko">
 
 <head>
@@ -67,7 +68,7 @@
           </div>
           
   		
-			<!--  공지사항 등록 시작 -->
+			<!--  룸 등록 시작 -->
 			<div class="row">
 				<div class="col-md-12 text-right mb-3">
 					<a href="/admin/room" class="btn btn-primary">목록</a>
@@ -80,11 +81,11 @@
 						</div>
 						<div class="form-group">
 							 <label for="content">객실소개</label>
-							<textarea class="form-control"  name="content" id="content" rows="3"></textarea>
+							  <textarea class="form-control"  name="content" id="content" rows="3"></textarea>
 						</div>
 						<div class="form-group">
 							 <label for="amenity">어메니티 (객실내물품)</label>
-							<textarea class="form-control" name="amenity" id="amenity" rows="3"></textarea>
+						  	 <textarea class="form-control" name="amenity" id="amenity" rows="3"></textarea>
 						</div>
 						<div class="form-group">
 							 <label for="content">객실가격</label>
@@ -93,7 +94,7 @@
 						<div class="form-group">
 							 <label for="roomType">객실형태</label>
 						    <select  class="form-control" id="roomType" name="roomType">
-						      <option value="none" selected>--선택--</option>
+						      <option value="" selected>--선택--</option>
 						      <option value="Standard">스텐다드 룸</option>
 						      <option value="Superior">슈페리어 룸</option>
 						      <option value="Deluxe">디럭스룸</option>
@@ -102,7 +103,7 @@
 						<div class="form-group">
 							 <label for="bedType">침대형식</label>
 						    <select  class="form-control" id="bedType" name="bedType">
-						      <option value="none" selected>--선택--</option>
+						      <option value="" selected>--선택--</option>
 						      <option value="Single Bed Room">싱글</option>
 						      <option value="Double Bed Room">더블</option>
 						      <option value="Twin Room">트윈</option>
@@ -143,7 +144,7 @@
 					</form>
 				</div>
 			</div>
-			<!--  공지사항 등록 끝 -->
+			<!--  룸 등록 끝 -->
 		
         </div>
        	 <!-- include footer start -->
@@ -230,6 +231,9 @@
 	    var filesArr = Array.prototype.slice.call(files);
 	    
 	    // 파일 개수 확인 및 제한
+	    
+	   
+	    
 	    if (fileCount + filesArr.length > totalCount) {
 	      $.alert('파일은 최대 '+totalCount+'개까지 업로드 할 수 있습니다.');
 	      return;
@@ -282,28 +286,56 @@
 	   /*
 	   * 파일업로드 multiple ajax처리
 	   */    
-		$.ajax({
-	   	      type: "POST",
-	   	   	  enctype: "multipart/form-data",
-	   	      url: "/admin/roomRegist",
-	       	  data : formData,
-	       	  dataType : 'text',
-	       	  processData: false,
-	   	      contentType: false,
-	   	      success: function (data) {
-	   	    	 // alert(data);
-	   	    	location.href="/admin/room";
-	   	      },
-	   	      beforeSend : function(){
-					$(".spinner").removeClass("displayLoding");
-			  },complete:function(){
-					$(".spinner").addClass("displayLoding");	
-			  },
-	   	      error:function(data){
-	   	    	//  alert(data);
-	   	    	location.href="/admin/room";
-	   	      }
-	   	    });
+	   
+	    if($("#title").val()==""){
+	    	alert("객실 이름을 입력해 주세요");
+	    	$("#title").focus();
+	    	return;
+	    }else if($("#content").val()==""){
+	    	alert("객실 소개란에 소개글을 입력해 주세요");
+	    	$("#content").focus();
+	    }else if($("#amenity").val()==""){
+	    	alert("어메니티 소개글을 입력해 주세요");
+	    	$("#amenity").focus();
+	    }else if($("#price").val()==""){
+	    	alert("룸 가격을 입력해 주세요");
+	    	$("#price").focus();
+	    }else if($("#roomType").val()==""){
+	    	alert("객실 형태를 선택해 주세요");
+	    	$("#roomType").focus();
+	    }else if($("#bedType").val()==""){
+	    	alert("침대 형식을 선택해 주세요");
+	    	$("#bedType").focus();
+	    }else if($("#bedType").val()==""){
+	    	alert("침대 형식을 선택해 주세요");
+	    	$("#bedType").focus();
+	    }else if(content_files==0){
+	    	alert("룸에 적용할 이미지를 첨부해 주세요");
+	    }else{
+	    	$.ajax({
+		   	      type: "POST",
+		   	   	  enctype: "multipart/form-data",
+		   	      url: "/admin/roomRegist",
+		       	  data : formData,
+		       	  dataType : 'text',
+		       	  processData: false,
+		   	      contentType: false,
+		   	      success: function (data) {
+		   	    	 // alert(data);
+		   	    	location.href="/admin/room";
+		   	      },
+		   	      beforeSend : function(){
+						$(".spinner").removeClass("displayLoding");
+				  },complete:function(){
+						$(".spinner").addClass("displayLoding");	
+				  },
+		   	      error:function(data){
+		   	    	//  alert(data);
+		   	    	location.href="/admin/room";
+		   	      }
+		   	    });
+	   	 }
+		
 	   	    return false;
 		}
 

@@ -33,6 +33,7 @@ import com.google.gson.JsonObject;
 import com.pe.bluering.domain.BnfVO;
 import com.pe.bluering.domain.Criteria;
 import com.pe.bluering.domain.FaqVO;
+import com.pe.bluering.domain.FoodMenuVO;
 import com.pe.bluering.domain.FoodVO;
 import com.pe.bluering.domain.LoginDTO;
 import com.pe.bluering.domain.NewsVO;
@@ -40,9 +41,11 @@ import com.pe.bluering.domain.PageMaker;
 import com.pe.bluering.domain.RoomVO;
 import com.pe.bluering.domain.UserVO;
 import com.pe.bluering.service.FaqService;
+import com.pe.bluering.service.FoodMenuService;
 import com.pe.bluering.service.FoodService;
 import com.pe.bluering.service.NewsService;
 import com.pe.bluering.service.RoomService;
+import com.pe.bluering.service.TotalCount;
 import com.pe.bluering.service.UserService;
 
 
@@ -67,6 +70,12 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	
 	@Autowired
 	private FaqService faqservice;
+	
+	@Autowired
+	private FoodMenuService foodmenuservice;
+	
+	@Autowired
+	private TotalCount totalcount;
 	
 	
 	/**
@@ -118,6 +127,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	public String index( Model model) {
 		logger.info("admin page welcome");
 		
+		
+	  	 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+		 
+		 
 		return "/admin/index";
 	}
 	
@@ -134,6 +155,16 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 
 		 model.addAttribute("newsList", newsList);
 		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
 		 logger.info("admin page newsWrite list page : "+newsList);
 		 return "/admin/news";
 	}
@@ -142,6 +173,15 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	public String newsWrite( Model model) {
 		logger.info("admin page newsWrite get page");
 		
+		int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
 		return "/admin/newsWrite";
 	}
 	
@@ -174,6 +214,16 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	   
 		 newsvo = newsservice.newsModify(idx);
 		 model.addAttribute("newsvo", newsvo);
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
 	     return "/admin/newsModify";
 	  }
 
@@ -413,10 +463,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		logger.info("admin page faq page");
 		 
 		 List<FaqVO> faqList = faqservice.listFaq();
-		 
- 
 		 model.addAttribute("faqList", faqList);
-
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+		 
 		 logger.info("admin page faqList  page : "+faqList);
 		 
 		 return "/admin/faq";
@@ -425,9 +483,22 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	
 	@RequestMapping(value="/faqModify", method=RequestMethod.GET) 
 	public String faq(FaqVO faqvo, @RequestParam("idx") int idx, Model model) {
-		   
+			 
 			 faqvo = faqservice.faqModify(idx);
+			 faqvo.setAnswer(faqvo.getAnswer().replaceAll("<br>","\r\n"));
 			 model.addAttribute("faqvo", faqvo);
+			 
+			 int totalRoom = totalcount.getTotalRoom();
+			 int totalFaq = totalcount.getTotalFaq();
+			 int totalNews = totalcount.getTotalNews();
+			 int totalFood = totalcount.getTotalFood();
+			 
+			 model.addAttribute("totalRoom", totalRoom);
+			 model.addAttribute("totalFaq", totalFaq);
+			 model.addAttribute("totalNews", totalNews);
+			 model.addAttribute("totalFood", totalFood);
+			 
+			 
 		     return "/admin/faqModify";
     }
 	
@@ -447,6 +518,17 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 
 		 model.addAttribute("roomList", roomList);
 		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
 		 logger.info("admin page roomList list page : "+roomList);
 		 return "/admin/room";
 	}
@@ -456,7 +538,15 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	public String roomWrite( Model model) {
 		
 		logger.info("admin page roomWrite page");
+		int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
 		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
 
 		logger.info("admin page roomWrite  page : ");
 		 
@@ -465,10 +555,23 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	
 	
 	@RequestMapping(value="/roomModify", method=RequestMethod.GET) 
-	public String roomWrite(RoomVO roomvo, @RequestParam("idx") int idx, Model model) {
+	public String roomModify(RoomVO roomvo, @RequestParam("idx") int idx, Model model) {
 		   
-			roomvo = roomservice.roomModify(idx);
+			 
+			 roomvo = roomservice.roomModify(idx);
+			 roomvo.setContent(roomvo.getContent().replaceAll("<br>","\r\n"));
+			 roomvo.setAmenity(roomvo.getAmenity().replaceAll("<br>","\r\n"));
 			 model.addAttribute("roomvo", roomvo);
+			 
+			 int totalRoom = totalcount.getTotalRoom();
+			 int totalFaq = totalcount.getTotalFaq();
+			 int totalNews = totalcount.getTotalNews();
+			 int totalFood = totalcount.getTotalFood();
+			 
+			 model.addAttribute("totalRoom", totalRoom);
+			 model.addAttribute("totalFaq", totalFaq);
+			 model.addAttribute("totalNews", totalNews);
+			 model.addAttribute("totalFood", totalFood);
 		     return "/admin/roomModify";
 	}
 	
@@ -487,6 +590,16 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 
 		 model.addAttribute("foodList", foodList);
 		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
 		 logger.info("admin page foodList list page : "+foodList);
 		 return "/admin/food";
 	}
@@ -499,6 +612,30 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		int idx = 1;
 		bnfvo =  foodservice.getBnf(idx);
 		model.addAttribute("bnfvo",bnfvo);
+		
+		FoodVO foodvostore;
+		foodvostore =  foodservice.getStore(3);
+		model.addAttribute("foodvostore",foodvostore);
+		
+		FoodVO foodvorest;
+		foodvorest =  foodservice.getRest(2);
+		model.addAttribute("foodvorest",foodvorest);
+		
+		FoodVO foodvocoffee;
+		foodvocoffee =  foodservice.getCoffee(1);
+		model.addAttribute("foodvocoffee",foodvocoffee);
+		 
+		
+		int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+		 
 		 
 		 return "/admin/foodWrite";
 	}
@@ -511,7 +648,80 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			foodvo = foodservice.foodModify(idx);
 			model.addAttribute("foodvo", foodvo);
 
+			int totalRoom = totalcount.getTotalRoom();
+			 int totalFaq = totalcount.getTotalFaq();
+			 int totalNews = totalcount.getTotalNews();
+			 int totalFood = totalcount.getTotalFood();
+			 
+			 model.addAttribute("totalRoom", totalRoom);
+			 model.addAttribute("totalFaq", totalFaq);
+			 model.addAttribute("totalNews", totalNews);
+			 model.addAttribute("totalFood", totalFood);
 		     return "/admin/foodModify";
+	}
+	
+	
+	
+	@RequestMapping(value="/foodmenu", method=RequestMethod.GET) 
+	public String foodmenu(Model model, FoodMenuVO foodmenuvo,Criteria cri) {
+
+		 List<FoodMenuVO> foodMenuList = foodmenuservice.getFoodMenuList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(foodmenuservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("foodMenuList", foodMenuList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+			logger.info("admin page foodmenu page : "+foodMenuList);
+		 return "/admin/foodmenu";
+	}
+	
+	
+	@RequestMapping(value="/foodMenuWrite", method=RequestMethod.GET) 
+	public String foodMenuWrite(Model model, FoodMenuVO foodmenuvo,Criteria cri) {
+
+		int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+		 
+		 
+		 return "/admin/foodMenuWrite";
+	}
+	
+	
+	@RequestMapping(value="/foodMenuModify", method=RequestMethod.GET) 
+	public String roomWrite(FoodMenuVO foodmenuvo, @RequestParam("idx") int idx, Model model) {
+		   
+			foodmenuvo = foodmenuservice.foodMenuModify(idx);
+			 model.addAttribute("foodmenuvo", foodmenuvo);
+			 
+			 int totalRoom = totalcount.getTotalRoom();
+			 int totalFaq = totalcount.getTotalFaq();
+			 int totalNews = totalcount.getTotalNews();
+			 int totalFood = totalcount.getTotalFood();
+			 
+			 model.addAttribute("totalRoom", totalRoom);
+			 model.addAttribute("totalFaq", totalFaq);
+			 model.addAttribute("totalNews", totalNews);
+			 model.addAttribute("totalFood", totalFood);
+		     return "/admin/foodMenuModify";
 	}
 	
 

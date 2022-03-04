@@ -1,8 +1,17 @@
 $("#add").click(function(){
-  	var question = $("#question").val();
-  	var answer = $("#answer").val();
+	var question = $("#question").val();
+  	var answer = $("#answer").val().replace(/\n/g,"<br>");
   	
-  	$.ajax({
+	if($("#question").val()==""){
+			 alert("질문을 입력해 주세요.");
+			 $("#question").focus();
+		     return false;
+	}else if($("#answer").val()==""){
+			 alert("답변을 입력해 주세요.");
+			 $("#answer").focus();
+		     return false;
+	}else{
+		$.ajax({
 		type : 'post',
 		url : '/admin/faqRegist',
 		headers : {
@@ -21,33 +30,48 @@ $("#add").click(function(){
 			}
 		}
 	});
+	}
+	
+  	
+
+  	
 });
 
 
 $("#update").click(function(){
 	var idx = $("#idx").val();
 	var question = $("#uquestion").val();
-	var answer = $("#uanswer").val();
+	var answer = $("#uanswer").val().replace(/\n/g,"<br>");
 
-	$.ajax({
-		type : 'put',
-		url : '/admin/faqUpdate/'+idx,
-		headers : {
-			"Content-Type" : "application/json",
-			"X-HTTP-Method-Override" : "put"
-		},
-		data : JSON.stringify({
-			question : question,
-			answer : answer
-		}),
-		dataType : 'text',
-		success : function(result) {
-			if(result=='success'){
-				alert("수정되었습니다.");
-				location.href="/admin/faq";
+	if($("#uquestion").val()==""){
+			 alert("질문을 입력해 주세요.");
+			 $("#uquestion").focus();
+		     return false;
+	}else if($("#uanswer").val()==""){
+			 alert("답변을 입력해 주세요.");
+			 $("#uanswer").focus();
+		     return false;
+	}else{
+		$.ajax({
+			type : 'put',
+			url : '/admin/faqUpdate/'+idx,
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "put"
+			},
+			data : JSON.stringify({
+				question : question,
+				answer : answer
+			}),
+			dataType : 'text',
+			success : function(result) {
+				if(result=='success'){
+					alert("수정되었습니다.");
+					location.href="/admin/faq";
+				}
 			}
-		}
-	});
+		});
+	}
 });
 
 

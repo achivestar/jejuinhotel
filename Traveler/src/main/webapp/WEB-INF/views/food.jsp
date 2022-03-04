@@ -258,7 +258,7 @@
                     <div class="col-md-12 col-12 col-lg-12">
                        <div class="card-deck">
                        
-                      	 <c:if test="${empty foodList}">
+                      	    <c:if test="${empty foodList}">
 						     <p class="text-center">등록된 소개가 없습니다.<p>
 							</c:if>
 						    <c:forEach items="${foodList}" var="foodList" varStatus="status">	
@@ -370,24 +370,21 @@
                         <div id="beverages" class="container tab-pane fade">
                             <div class="row">
                                 <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
+                                   <c:if test="${empty bmenu}">
+								     <p class="text-center">등록된 메뉴가 없습니다.<p>
+									</c:if>
+						   			 <c:forEach items="${bmenu}" var="bmenu" varStatus="status">	
+                           	         <div class="menu-item">
                                         <div class="menu-img">
-                                            <img src="/resources/img/food/food1.jpg" alt="Image">
+                                            <img src="/resources/foodmenufileupload/${bmenu.idx}/${bmenu.savedFileName}" alt="Image">
                                         </div>
                                         <div class="menu-text">
-                                            <h3><span>아메리카노</span> <!-- <strong>$9.00</strong> --></h3>
-                                            <p>아늑한 음악을 감상하며 커피 한잔의 여유를 즐겨보시기 바랍니다.</p>
+                                            <h3><span>${bmenu.title }</span> <!-- <strong>$7.00</strong> --></h3>
+                                            <br>
+                                            <p>${bmenu.content}</p>
                                         </div>
                                     </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food2.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>베이커리</span> <!-- <strong>$11.00</strong> --></h3>
-                                            <p>정성이 담긴 명품 패스트리와 베이커리를 만나보실 수 있습니다.</p>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                     
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-block">
@@ -399,24 +396,24 @@
                         <div id="food" class="container tab-pane  active">
                             <div class="row">
                                 <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
+                                
+                                	 <c:if test="${empty fmenu}">
+								     <p class="text-center">등록된 메뉴가 없습니다.<p>
+									</c:if>
+						   			 <c:forEach items="${fmenu}" var="fmenu" varStatus="status">	
+                           	         <div class="menu-item">
                                         <div class="menu-img">
-                                            <img src="/resources/img/food/food3.jpg" alt="Image">
+                                            <img src="/resources/foodmenufileupload/${fmenu.idx}/${fmenu.savedFileName}" alt="Image">
                                         </div>
                                         <div class="menu-text">
-                                            <h3><span>제주향토음식</span> <!-- <strong>$7.00</strong> --></h3>
-                                            <p>청정 제주의 정취가 숨어있는 맛깔스러운 한식요리!</p>
+                                            <h3><span>${fmenu.title }</span> <!-- <strong>$7.00</strong> --></h3>
+                                            <br>
+                                            <p>${fmenu.content}</p>
                                         </div>
                                     </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/resources/img/food/food3.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>제주향토음식</span><!--  <strong>$9.00</strong> --></h3>
-                                            <p>조리장의 특선 한식 퓨전요리로 고객님의 미각을 유혹합니다</p>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
+                                 
+                                   
                                     
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-block">

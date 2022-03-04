@@ -86,6 +86,21 @@ public class FoodServiceImpl implements FoodService {
 		return dao.getBnf(idx);
 	}
 
+	@Override
+	public FoodVO getStore(int i) {
+		return dao.getStore(i);
+	}
+
+	@Override
+	public FoodVO getRest(int i) {
+		return dao.getRest(i);
+	}
+
+	@Override
+	public FoodVO getCoffee(int i) {
+		return dao.getCoffee(i);
+	}
+
 
 
 

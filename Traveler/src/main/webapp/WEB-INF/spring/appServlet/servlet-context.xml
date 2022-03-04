@@ -25,4 +25,35 @@
 	
 	
 	
+	<beans:bean id="authInterceptor" class="com.pe.bluering.interceptor.AuthInterceptor"></beans:bean>
+	<beans:bean id="loginInterceptor" class="com.pe.bluering.interceptor.LoginInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/admin/loginPost"/>
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/admin/index"/>
+			<mapping path="/admin/news"/>
+			<mapping path="/admin/newsWrite"/>
+			<mapping path="/admin/newsModify"/>
+			<mapping path="/admin/faq"/>
+			<mapping path="/admin/faqModify"/>
+			<mapping path="/admin/food"/>
+			<mapping path="/admin/foodModify"/>
+			<mapping path="/admin/foodWrite"/>
+			<mapping path="/admin/room"/>
+			<mapping path="/admin/roomModify"/>
+			<mapping path="/admin/roomWrite"/>
+			<mapping path="/admin/foodmenu"/>
+			<mapping path="/admin/foodMenuModify"/>
+			<mapping path="/admin/foodMenuWrite"/>
+			<beans:ref bean="authInterceptor" />
+			
+		</interceptor>
+	</interceptors>
+	
+	
 </beans:beans>

@@ -49,8 +49,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/admin/food">Food</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/admin/foodmenu">Food-Menu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/foodWrite">Food 소개</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/foodmenu">Food Menu</a></li>
               </ul>
             </div>
           </li>

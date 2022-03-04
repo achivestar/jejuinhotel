@@ -54,7 +54,7 @@
                 	 <nav aria-label="breadcrumb">
 					  <ol class="breadcrumb">
 					    <li class="breadcrumb-item"><a href="/admin/index">Home</a></li>
-					    <li class="breadcrumb-item active" aria-current="page">room</li>
+					    <li class="breadcrumb-item active" aria-current="page">Food소개</li>
 					  </ol>
 					</nav>
                  </div>
@@ -69,9 +69,9 @@
   		
 			<!--  공지사항 등록 시작 -->
 			<div class="row">
-				<div class="col-md-12 text-right mb-3">
+				<!-- <div class="col-md-12 text-right mb-3">
 					<a href="/admin/food" class="btn btn-primary">목록</a>
-				</div>
+				</div> -->
 				
 				<div class="col-md-12 text-right mb-3">
 					<ul class="nav nav-tabs">
@@ -91,69 +91,78 @@
 					<div class="tab-content">
 					  <div class="tab-pane fade show active" id="coffee">
 					
-								<form id="form1" method="post" action="/admin/foodRegist" enctype="multipart/form-data">
+								<form id="form1" method="post" action="/admin/foodUpdate1" enctype="multipart/form-data">
 									<div class="form-group">
 									    <label for="title1">커피라운지 제목</label>
-									    <input type="text" class="form-control" id="title1" name="title">
+									    <input type="text" class="form-control" id="title1" name="title"  value="${foodvocoffee.title}">
 									</div>
 									<div class="form-group">
 										 <label for="content1">커피라운지 소개글</label>
-										<textarea class="form-control"  name="content" id="content1" rows="3"></textarea>
+										<textarea class="form-control"  name="content" id="content1" rows="3">${foodvocoffee.content}</textarea>
 									</div>
 			
 									<div class="form-group">
-									    <label for="input_file">커피라운지 이미지</label>
+									    <label for="input_file">커피라운지 이미지</label><br>
+									    <img src="/resources/foodfileupload/${foodvocoffee.idx}/${foodvocoffee.savedFileName}" class="img-thumbnail" alt="..." style="width:200px;height:auto">
+									 	<br>
 									    <input type="file" class="form-control" name="file">
 									</div>
 									
-									
+								   <input type="hidden" name="idx" value="1" />
 								   <input type="hidden" name="gubun" value="coffee"/>
-								  <input type="submit" class="btn btn-primary" value="등록">
+								  <input type="button" id="foodUpdate1" class="btn btn-primary" value="저장">
 								  <input type="button" class="btn btn-secondary" id="list" value="목록">
 								</form>
 							
 					  </div>
 					  <div class="tab-pane fade" id="restaurant">
-					    	<form id="form2" method="post" action="/admin/foodRegist2" enctype="multipart/form-data">
+					    	<form id="form2" method="post" action="/admin/foodUpdate2" enctype="multipart/form-data">
 									<div class="form-group">
 									    <label for="title2">식당 제목</label>
-									    <input type="text" class="form-control" id="title2" name="title">
+									    <input type="text" class="form-control" id="title2" name="title" value="${foodvorest.title}">
 									</div>
 									<div class="form-group">
 										 <label for="content2">식당 소개글</label>
-										<textarea class="form-control"  name="content" id="content2" rows="3"></textarea>
+										<textarea class="form-control"  name="content" id="content2" rows="3">${foodvorest.content}</textarea>
 									</div>
 			
 									<div class="form-group">
 									    <label for="input_file">식당 이미지</label>
+									    <br>
+									    <img src="/resources/foodfileupload/${foodvorest.idx}/${foodvorest.savedFileName}" class="img-thumbnail" alt="..." style="width:200px;height:auto">
+									 	<br>
 									    <input type="file" class="form-control-file" name="file">
 									</div>
 									
-									
+								  <input type="hidden" name="idx" value="2" />	
 								  <input type="hidden" name="gubun" value="restaurant"/>
-								  <input type="submit" class="btn btn-primary" value="등록">
+								  <input type="button" id="foodUpdate2" class="btn btn-primary" value="저장">
 								  <input type="button" class="btn btn-secondary" id="list" value="목록">
 								</form> 
 					  </div>
 					  <div class="tab-pane fade" id="seven">
-					    	<form id="form3" method="post" action="/admin/foodRegist3" enctype="multipart/form-data">
+					    	<form id="form3" method="post" action="/admin/foodUpdate3" enctype="multipart/form-data">
 									<div class="form-group">
 									    <label for="title3">편의점 제목</label>
-									    <input type="text" class="form-control" id="title3" name="title">
+									    <input type="text" class="form-control" id="title3" name="title" value="${foodvostore.title}">
 									</div>
 									<div class="form-group">
 										 <label for="content3">편의점 소개글</label>
-										<textarea class="form-control"  name="content" id="content3" rows="3"></textarea>
+										<textarea class="form-control"  name="content" id="content3" rows="3">${foodvostore.content}</textarea>
 									</div>
 			
 									<div class="form-group">
 									    <label for="input_file">편의점 이미지</label>
+									    <br>
+									    <img src="/resources/foodfileupload/${foodvostore.idx}/${foodvostore.savedFileName}" class="img-thumbnail" alt="..." style="width:200px;height:auto">
+									 	<br>
 									    <input type="file" class="form-control-file" name="file">
 									</div>
 									
 									
 								  <input type="hidden" name="gubun" value="store"/>
-								  <input type="submit" class="btn btn-primary" value="등록">
+								  <input type="hidden" name="idx" value="3" />
+								   <input type="button" id="foodUpdate3" class="btn btn-primary" value="저장">
 								  <input type="button" class="btn btn-secondary" id="list" value="목록">
 								</form> 
 					  </div>
@@ -169,7 +178,7 @@
 										<textarea class="form-control"  name="content" id="content4" rows="3">${bnfvo.content }</textarea>
 									</div>
 								  <input type="hidden" name="idx" value="1" />
-								  <input type="submit" class="btn btn-primary" value="등록">
+								  <input type="button" id="foodUpdate4" class="btn btn-primary" value="저장">
 								  <input type="button" class="btn btn-secondary" id="list" value="목록">
 								</form> 
 					  </div>
@@ -231,8 +240,62 @@
 		location.href="/admin/room";	
 	});
 	
-
+	$("#foodUpdate1").click(function(){
+		if($("#title1").val()==""){
+			alert("제목을 입력해 주세요");
+			$("#title1").focus();
+			return;
+		}else if($("#content1").val()==""){
+			alert("소개글을 입력해 주세요");
+			$("#content1").focus();
+			return;
+		}else{
+			$("#form1").submit();
+		}
+	});
 	
+	$("#foodUpdate2").click(function(){
+		if($("#title2").val()==""){
+			alert("제목을 입력해 주세요");
+			$("#title2").focus();
+			return;
+		}else if($("#content2").val()==""){
+			alert("소개글을 입력해 주세요");
+			$("#content2").focus();
+			return;
+		}else{
+			$("#form2").submit();
+		}
+	});
+	
+	$("#foodUpdate3").click(function(){
+		if($("#title3").val()==""){
+			alert("제목을 입력해 주세요");
+			$("#title3").focus();
+			return;
+		}else if($("#content3").val()==""){
+			alert("소개글을 입력해 주세요");
+			$("#content3").focus();
+			return;
+		}else{
+			$("#form3").submit();
+		}
+	});
+	
+	
+	$("#foodUpdate4").click(function(){
+		if($("#title4").val()==""){
+			alert("제목을 입력해 주세요");
+			$("#title4").focus();
+			return;
+		}else if($("#content4").val()==""){
+			alert("소개글을 입력해 주세요");
+			$("#content4").focus();
+			return;
+		}else{
+			$("#form4").submit();
+		}
+	});
 </script>
   
  

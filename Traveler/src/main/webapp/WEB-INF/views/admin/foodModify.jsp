@@ -54,7 +54,7 @@
                 	 <nav aria-label="breadcrumb">
 					  <ol class="breadcrumb">
 					    <li class="breadcrumb-item"><a href="/admin/index">Home</a></li>
-					    <li class="breadcrumb-item active" aria-current="page">room</li>
+					    <li class="breadcrumb-item active" aria-current="page">Food소개</li>
 					  </ol>
 					</nav>
                  </div>

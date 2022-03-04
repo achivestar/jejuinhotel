@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>        
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%
+	pageContext.setAttribute("crcn", "\r\n");
+	pageContext.setAttribute("br","<br>");
+%>
 <html lang="ko">
 
 <head>
@@ -72,11 +76,11 @@
 					<form>
 						  <div class="form-group">
 						    <label for="question">Q.자주묻는질문</label>
-						    <input type="text" class="form-control" id="question">
+						    <input type="text" class="form-control" id="question" name="question">
 						  </div>
 						   <div class="form-group">
 						    <label for="answer">A.답변작성</label>
-						    <textarea class="form-control" id="answer" rows="5"></textarea>
+						    <textarea class="form-control" id="answer" rows="5" name="answer"></textarea>
 						  </div>
 						   <button type="button" id="add" class="btn btn-primary">등록</button>									 
 					</form>
@@ -107,7 +111,7 @@
 							    <tr class="text-center">
 							      <th scope="row">${status.count }<input type="hidden" name="idx" id="idx" value="${faqList.idx }" /></th>
 							      <td><textarea  rows="4" id="uquestion" name="question" class="form-control" readonly>${faqList.question }</textarea></td>
-							      <td><textarea  rows="4" id="uanswer" name="answer" class="form-control" readonly>${faqList.answer }</textarea></td>
+							      <td><textarea  rows="4" id="uanswer" name="answer" class="form-control" readonly><c:out value="${fn:replace(faqList.answer,br,crcn) }"/></textarea></td>
 							      <td>${fn:substring(regdate,0,20) } <br> ${fn:substring(upddate,0,20) } </td>
 							      <td><a href="/admin/faqModify?idx=${faqList.idx}"  class="btn btn-primary btn-sm">보기</a></td>
 							    </tr>

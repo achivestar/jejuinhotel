@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>        
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,39 +118,45 @@
         <div class="row pt-5">
             <div class="col-lg-12">
                 <div class="d-flex flex-column text-left mb-4">
-                    <h6 class="text-primary font-weight-normal text-uppercase mb-3">Blog Detail Page</h6>
-                    <h1 class="mb-4 section-title">Diam dolor est ipsum clita lorem</h1>
+                    <h3 class="mb-4">${newsvo.title }</h3>
                     <div class="d-index-flex mb-2">
-                        <span class="mr-3">Admin</span>
-                        <span class="mr-3">2022.02.18</span>
+                        <span class="mr-3">${newsvo.writer}</span><span class="mr-3">|</span><c:set var="regdate" value="${newsvo.regdate}"/><span class="mr-3">${fn:substring(regdate,0,10)}</span>
                     </div>
                 </div>
 
-                <div class="mb-5">
-                    <img class="img-fluid w-100 mb-4" src="/resources/img/carousel-1.jpg" alt="Image">
-                    <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.</p>
-                    <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et, clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat justo dolore sit invidunt.</p>
-                    <h2 class="mb-4">Est dolor lorem et ea</h2>
-                    <img class="img-fluid w-50 float-left mr-4 mb-3" src="/resources/img/blog-1.jpg" alt="Image">
-                    <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos. Invidunt sed diam dolores takimata dolor dolore dolore sit. Sit ipsum erat amet lorem et, magna sea at sed et eos. Accusam eirmod kasd lorem clita sanctus ut consetetur et. Et duo tempor sea kasd clita ipsum et. Takimata kasd diam justo est eos erat aliquyam et ut. Ea sed sadipscing no justo et eos labore, gubergren ipsum magna dolor lorem dolore, elitr aliquyam takimata sea kasd dolores diam, amet et est accusam labore eirmod vero et voluptua. Amet labore clita duo et no. Rebum voluptua magna eos magna, justo gubergren labore sit voluptua eos.</p>
-                    <h3 class="mb-4">Est dolor lorem et ea</h3>
-                    <img class="img-fluid w-50 float-right ml-4 mb-3" src="/resources/img/blog-2.jpg" alt="Image">
-                    <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos. Invidunt sed diam dolores takimata dolor dolore dolore sit. Sit ipsum erat amet lorem et, magna sea at sed et eos. Accusam eirmod kasd lorem clita sanctus ut consetetur et. Et duo tempor sea kasd clita ipsum et. Takimata kasd diam justo est eos erat aliquyam et ut. Ea sed sadipscing no justo et eos labore, gubergren ipsum magna dolor lorem dolore, elitr aliquyam takimata sea kasd dolores diam, amet et est accusam labore eirmod vero et voluptua. Amet labore clita duo et no.</p>
+                <div class="mb-5 text-center" >
+                   ${newsvo.content }
                 </div>
                 
                
 
             </div>
-             
-                <div class="col-lg-3 col-3 text-center">
-						<a href="#none"   style="color:#0094a8">이전글 [제목]<br>2022.02.14</a>
-				</div>
+             	
+             	<c:if test="${not empty isPrev}">
+	    				<c:forEach items="${isPrev}" var="isPrev">
+	    					<c:set var="regdate" value="${isPrev.regdate}"/>
+			    			<c:set var="TextValue" value="${isPrev.title}"/>
+						 <div class="col-lg-3 col-3 text-center">
+							<a href="/newsDetail?idx=${isPrev.idx}"   style="color:#0094a8">이전글 [${fn:substring(TextValue,0,20)}]</a><br>${fn:substring(regdate,0,10) }
+						</div>
+						</c:forEach>
+				</c:if>
+				
+               
                 <div class="col-lg-6 col-6 text-center">
 						<a href="/news"  class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">LIST</a>
 				</div>
-				<div class="col-lg-3 col-3 text-center">
-						<a href="#none"   style="color:#0094a8">다음글 [제목]<br>2022.02.19</a>
-				</div>
+				
+				<c:if test="${not empty isNext}">
+    				<c:forEach items="${isNext}" var="isNext">
+    					<c:set var="regdate" value="${isNext.regdate}"/>
+			   			 <c:set var="TextValue" value="${isNext.title}"/>
+						<div class="col-lg-3 col-3 text-center">
+						<a href="/newsDetail?idx=${isNext.idx}"   style="color:#0094a8">다음글 [${fn:substring(TextValue,0,20)}]</a><br>${fn:substring(regdate,0,10) }
+						</div>
+					</c:forEach>
+				</c:if>
+				
             
 
            
@@ -166,7 +175,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary-anchor back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

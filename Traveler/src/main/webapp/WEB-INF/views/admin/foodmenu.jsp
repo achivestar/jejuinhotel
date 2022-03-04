@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>       
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>        
 <html lang="ko">
 
 <head>
@@ -35,7 +35,7 @@
         <%@include file="./include/themeSetting.jsp" %>
         <%@include file="./include/nav.jsp" %>
        <!-- include theme & nav end -->
-        <div class="main-panel">
+      <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
@@ -49,7 +49,7 @@
                 	 <nav aria-label="breadcrumb">
 					  <ol class="breadcrumb">
 					    <li class="breadcrumb-item"><a href="/admin/index">Home</a></li>
-					    <li class="breadcrumb-item active" aria-current="page"></li>
+					    <li class="breadcrumb-item active" aria-current="page">Food Menu</li>
 					  </ol>
 					</nav>
                  </div>
@@ -57,11 +57,80 @@
               </div>
             </div>
           </div>
-           <div class="row">
+          <div class="row">
             <%@include file="./include/info.jsp" %>
           </div>
           
-  
+  		
+			<!--  룸 등록 시작 -->
+			<div class="row" id="anch">
+				<div class="col-md-12 text-right mb-3">
+					<a href="/admin/foodMenuWrite" class="btn btn-primary">menu 소개 등록</a>
+				</div>
+				<div class="col-md-12">
+					<div class="table-responsive-sm">
+					  <table class="table">
+					    	<thead class="thead-dark text-center">
+							  <tr>
+							    <th scope="col">#</th>
+							    <th scope="col">등록된 메뉴 소개</th>
+							    <th scope="col">구분</th>
+							    <th scope="col">등록일</th>
+							  </tr>
+							</thead>
+							<tbody class="text-center">
+							<c:if test="${empty foodMenuList}">
+						        <tr><td colspan="4" class="text-center">등록된 메뉴소개가 없습니다.</td></tr>
+							</c:if>
+						    <c:forEach items="${foodMenuList}" var="foodMenuList" varStatus="status">	
+							    <tr>
+							      <th scope="row">${foodMenuList.idx}</th>
+							      <td><a href="/admin/foodMenuModify?idx=${foodMenuList.idx}">${foodMenuList.title }</a></td>
+							      <td>${foodMenuList.division }</td>
+							      <td>${foodMenuList.regdate }</td>
+							    </tr>
+							</c:forEach>	   
+							  </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+			<!--  룸 등록 끝 -->
+			
+			
+			<!-- 페이징 시작 -->
+			<div class="col-md-12 mb-4">
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination justify-content-center mb-0">
+                        <c:if test="${pageMaker.prev}">
+	                        <li class="page-item">
+	                          <a class="page-link" href="/admin/foodmenu?page=${pageMaker.startPage-1}#anch" aria-label="Previous">
+	                            <span aria-hidden="true">&laquo;</span>
+	                            <span class="sr-only">Previous</span>
+	                          </a>
+	                        </li>
+                        </c:if>
+                        
+                        <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                        	 <li class="page-item <c:out value="${pageMaker.cri.page == idx ? 'active' : ''}" /> ">
+                        	  <a class="page-link" href="/admin/foodmenu?page=${idx}#anch">${idx }</a></li>
+                        </c:forEach>
+
+                        
+                        <c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
+	                        <li class="page-item">
+	                          <a class="page-link" href="/admin/foodmenu?page=${pageMaker.endPage+1}#anch" aria-label="Next">
+	                            <span aria-hidden="true">&raquo;</span>
+	                            <span class="sr-only">Next</span>
+	                          </a>
+	                        </li>
+                        </c:if>
+                      </ul>
+                    </nav>
+                </div>
+                
+                <!-- 페이징 끝 -->
+		
         </div>
        	 <!-- include footer start -->
          	<%@include file="./include/footer.jsp" %>

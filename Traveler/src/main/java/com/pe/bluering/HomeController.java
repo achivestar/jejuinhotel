@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.pe.bluering.domain.BnfVO;
 import com.pe.bluering.domain.Criteria;
 import com.pe.bluering.domain.FaqVO;
+import com.pe.bluering.domain.FoodMenuVO;
 import com.pe.bluering.domain.FoodVO;
 import com.pe.bluering.domain.NewsVO;
 import com.pe.bluering.domain.PageMaker;
 import com.pe.bluering.domain.RoomVO;
 import com.pe.bluering.service.FaqService;
+import com.pe.bluering.service.FoodMenuService;
 import com.pe.bluering.service.FoodService;
 import com.pe.bluering.service.NewsService;
 import com.pe.bluering.service.RoomService;
@@ -45,6 +47,9 @@ public class HomeController {
 	
 	@Autowired
 	private FoodService foodservice;
+	
+	@Autowired
+	private FoodMenuService foodmenuservice;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -96,7 +101,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/food", method = RequestMethod.GET)
-	public String food(FoodVO foodvo, BnfVO bnfvo, Model model, Criteria cri) {
+	public String food(FoodVO foodvo, BnfVO bnfvo, FoodMenuVO foodmenuvo, Model model, Criteria cri) {
 		
 		logger.info("client page food page");
 		 
@@ -112,6 +117,14 @@ public class HomeController {
 		 int idx = 1;
 		 bnfvo =  foodservice.getBnf(idx);
 		 model.addAttribute("bnfvo",bnfvo);
+		 
+		 
+		 List<FoodMenuVO> fmenu = foodmenuservice.getFoodMenuList("food");
+		 List<FoodMenuVO> bmenu = foodmenuservice.getBeverageMenuList("beverage");
+		 
+		 
+		 model.addAttribute("fmenu", fmenu);
+		 model.addAttribute("bmenu", bmenu);
 		 
 		 logger.info("client page food bnfvo page : "+bnfvo);
 		 logger.info("client page food list page : "+foodList);
@@ -184,7 +197,6 @@ public class HomeController {
 		 
 		 List<FaqVO> faqList = faqservice.listFaq();
 		 
- 
 		 model.addAttribute("faqList", faqList);
 
 		 logger.info(" page faqList  page : "+faqList);
