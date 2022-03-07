@@ -4,10 +4,11 @@
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>JEJU IN HOTEL | ADMIN</title>
   <!-- plugins:css -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/resources/admin/vendors/feather/feather.css">
   <link rel="stylesheet" href="/resources/admin/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="/resources/admin/vendors/css/vendor.bundle.base.css">
