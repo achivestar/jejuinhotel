@@ -263,7 +263,7 @@
 							</c:if>
 						    <c:forEach items="${foodList}" var="foodList" varStatus="status">	
 						  <div class="card" style="border-radius:20px">
-						    <img src="/resources/foodfileupload/${foodList.idx}/${foodList.savedFileName}" class="card-img-top" alt="..." style="display:inline-block;border-radius:20px 20px 0px 0px">
+						    <img src="/resources/foodfileupload/${foodList.idx}/${foodList.savedFileName}" class="card-img-top" alt="..." style="display:inline-block;border-radius:20px 20px 0px 0px;height:220px">
 						    <div class="card-body">
 						      <h5 class="card-title">${foodList.title }</h5>
 						      <p class="card-text">${foodList.content }</p>

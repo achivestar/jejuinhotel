@@ -158,7 +158,7 @@
 						    </tr>
 						    <tr class="text-center">
 						      <th class="table-light">어메니티</th>
-						      <td>${roomList.amenity }</td>
+						      <td class="text-left">${roomList.amenity }</td>
 						    </tr>
 						    <tr class="text-center">
 						      <th class="table-light">가격</th>

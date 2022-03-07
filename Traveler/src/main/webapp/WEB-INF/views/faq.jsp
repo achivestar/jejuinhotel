@@ -135,7 +135,7 @@
 						    </div>
 						    <div id="collapseTwo${faqList.idx}" class="collapse" aria-labelledby="heading${faqList.idx}" data-parent="#accordionExample">
 						      <div class="card-body text-left">
-						          A.${faqList.answer }
+						          A.<br>${faqList.answer }
 						      </div>
 						    </div>
 						  </div>

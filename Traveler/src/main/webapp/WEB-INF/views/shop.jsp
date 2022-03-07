@@ -177,21 +177,21 @@
                     <div class="owl-carousel service-carousel position-relative">
                     	 <div class="d-flex flex-column text-center bg-light mx-3">
                             <h3 class="display-3 font-weight-normal text-primary mb-3">
-                           	 <img src="/resources/img/shop/shop8.jpg" />
+                           	 <img src="/resources/img/shop/shop8.jpg" style="width:100%;height:350px"/>
                             </h3>
                             <h5 class="mb-3">Tracking</h5>
                             <p class="m-0">제주의 자연과 하나가 되어 걸어 봅니다. </p>
                         </div>
                         <div class="d-flex flex-column text-center bg-light mx-3">
                             <h3 class="display-3 font-weight-normal text-primary mb-3">
-                            	<img src="/resources/img/shop/shop9.jpg" />
+                            	<img src="/resources/img/shop/shop9.jpg" style="width:100%;height:350px"/>
                             </h3>
                             <h5 class="mb-3">Living</h5>
                             <p class="m-0">제주 한달 살기 체험을 즐겨보세요.</p>
                         </div>
                         <div class="d-flex flex-column text-center bg-light mx-3">
                             <h3 class="display-3 font-weight-normal text-primary mb-3">
-                            	<img src="/resources/img/shop/shop6.jpeg" />
+                            	<img src="/resources/img/shop/shop6.jpeg" style="width:100%;height:350px"/>
                             </h3>
                             <h5 class="mb-3">Camping</h5>
                             <p class="m-0">흔적을 남기지 않는 캠핑은 멋진 일입니다.</p>

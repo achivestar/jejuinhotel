@@ -86,7 +86,7 @@
 							    <tr>
 							      <th scope="row">${roomList.idx}</th>
 							      <td><a href="/admin/roomModify?idx=${roomList.idx}">${roomList.title }</a></td>
-							      <td>${roomList.reserveBtn }</td>
+							      <td><c:if test="${roomList.reserveBtn eq 'y'}">노출</c:if><c:if test="${roomList.reserveBtn eq 'n'}">미노출</c:if></td>
 							      <td>${roomList.regdate }</td>
 							    </tr>
 							</c:forEach>	   
