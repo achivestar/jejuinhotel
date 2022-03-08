@@ -5,9 +5,9 @@
 	<insert id="Insert" parameterType="RoomVO" useGeneratedKeys="true" keyProperty="idx">
 		<![CDATA[
 			INSERT INTO jeju_hotel_room
-			(title,content,amenity,price,roomType,bedType,reserveBtn,reserveLink,originalFileName1,savedFileName1,originalFileName2,savedFileName2,originalFileName3,savedFileName3,regdate,upddate)
+			(title,content,amenity,price,roomType,bedType,reserveBtn,reserveLink,viewtype,originalFileName1,savedFileName1,originalFileName2,savedFileName2,originalFileName3,savedFileName3,originalFileName4,savedFileName4,originalFileName5,savedFileName5,regdate,upddate)
 			VALUES 
-			(#{title},#{content},#{amenity},#{price},#{roomType},#{bedType},#{reserveBtn},#{reserveLink},#{originalFileName1},#{savedFileName1},#{originalFileName2},#{savedFileName2},#{originalFileName3},#{savedFileName3},now(),now());
+			(#{title},#{content},#{amenity},#{price},#{roomType},#{bedType},#{reserveBtn},#{reserveLink},#{viewtype},#{originalFileName1},#{savedFileName1},#{originalFileName2},#{savedFileName2},#{originalFileName3},#{savedFileName3},#{originalFileName4},#{savedFileName4},#{originalFileName5},#{savedFileName5},now(),now());
 		]]>
 	</insert>
 
@@ -43,6 +43,8 @@
 			SELECT count(idx) FROM jeju_hotel_room where idx > 0
 		]]>
 	</select>
+
+	
 	
 	<update id="roomUpdate" parameterType="RoomVO">
 		<![CDATA[
@@ -55,12 +57,17 @@
 			bedType = #{bedType},
 			reserveBtn = #{reserveBtn},
 			reserveLink = #{reserveLink},
+			viewtype = #{viewtype},
 			originalFileName1 = #{originalFileName1},
 			savedFileName1 = #{savedFileName1},
 			originalFileName2 = #{originalFileName2},
 			savedFileName2 = #{savedFileName2},
 			originalFileName3 = #{originalFileName3},
 			savedFileName3 = #{savedFileName3},
+			originalFileName4 = #{originalFileName4},
+			savedFileName4 = #{savedFileName4},
+			originalFileName5 = #{originalFileName5},
+			savedFileName5 = #{savedFileName5},
 			upddate = now()
 			WHERE
 			idx = #{idx}

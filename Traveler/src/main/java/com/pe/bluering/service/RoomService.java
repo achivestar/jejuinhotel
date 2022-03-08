@@ -22,4 +22,5 @@ public interface RoomService {
 	void roomUpdate(RoomVO roomvo);
 
 	void roomDelete(int idx);
+
 }

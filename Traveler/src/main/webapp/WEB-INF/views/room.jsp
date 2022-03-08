@@ -51,6 +51,9 @@
   			display:inline-block;
   			border:2px solid #fff;
   		}
+  		
+
+
 </style>
 </head>
 <body>
@@ -98,11 +101,47 @@
 			<c:if test="${empty roomList}">
 				<div class="row mb-3 text-center"> 등록된 룸이 없습니다.</div>
 			</c:if>
+				
+			
 			<c:forEach items="${roomList}" var="roomList" varStatus="status">	
-            <div class="row mb-3">
+			<style>
+				.carousel-inner img {
+				    width: 100%;
+				    height: 100%
+				}
+								
+				#custCarousel${status.count} .carousel-indicators {
+				    position: static;
+				    margin-top: 20px
+				}
+				
+				#custCarousel${status.count} .carousel-indicators>li {
+				    width: 100px
+				}
+				
+				#custCarousel${status.count} .carousel-indicators li img {
+				    display: block;
+				    opacity: 0.5
+				}
+				
+				#custCarousel${status.count} .carousel-indicators li.active img {
+				    opacity: 1
+				}
+				
+				#custCarousel${status.count} .carousel-indicators li:hover img {
+				    opacity: 0.75
+				}
+				
+				.carousel-item img {
+				    width: 100%
+				}
+			</style>
+			
+			<c:if test="${roomList.viewtype == 0}">
+           	 <div class="row mb-3">
             
             	<c:if test="${not empty roomList.savedFileName1}">
-	            	<div class="col-lg-12 m-0 my-lg-1">
+	            	<div class="col-lg-12 m-0" style="padding:0">
 	            		<div class="card text-white">
 						  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName1}" alt="Card image">
 						  <div class="card-img-overlay">
@@ -114,67 +153,118 @@
 	            	</div>
             	</c:if>
             	<c:if test="${not empty roomList.savedFileName2}">
-            	<div class="col-lg-6 m-0 my-lg-1">
+            	<div class="col-lg-6 col-6 m-0" style="padding:0">
             		<div class="card text-white">
 					  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName2}" alt="Card image">
-						  <div class="card-img-overlay">
-						    <p class="card-text">${roomList.roomType}</p><br>
-						    <p class="card-text">${roomList.bedType}</p>
-						  </div>
 					</div>
 					
             	</div>
             	</c:if>
             	<c:if test="${not empty roomList.savedFileName3}">
-            	<div class="col-lg-6 m-0 my-lg-1">
+            	<div class="col-lg-6 col-6 m-0" style="padding:0">
             		<div class="card text-white">
 					  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName3}" alt="Card image">
-						  <div class="card-img-overlay">
-						    <p class="card-text">${roomList.roomType}</p><br>
-						    <p class="card-text">${roomList.bedType}</p>
-						  </div>
 					</div>
 					
             	</div>
             	</c:if>
-            	
-            	<div class="col-lg-12">
-            		<div class="alert" role="alert" style="background-color:#e3e9fa">
-					  <h4 class="alert-heading" style="color:#f7b113"><b>${roomList.title }</b></h4>
-					  <hr>
-					   <p style="color:#0094a8">${roomList.content }</p>				 
+            	<c:if test="${not empty roomList.savedFileName4}">
+            	<div class="col-lg-6 col-6 m-0" style="padding:0">
+            		<div class="card text-white">
+					  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName4}" alt="Card image">
 					</div>
+					
             	</div>
-            	<div class="col-lg-12">
-            		  <div class="table-responsive">
-						  <table class="table table-bordered" >
-						    <tr class="text-center">
-						      <th width="30%" class="table-light">객실</th>
-						      <td>${roomList.roomType }</td>
-						    </tr>
-						    <tr class="text-center">
-						      <th class="table-light">침대</th>
-						      <td>${roomList.bedType }</td>
-						    </tr>
-						    <tr class="text-center">
-						      <th class="table-light">어메니티</th>
-						      <td class="text-left">${roomList.amenity }</td>
-						    </tr>
-						    <tr class="text-center">
-						      <th class="table-light">가격</th>
-						      <td>${roomList.price }</td>
-						    </tr>
-						  </table>
+            	</c:if>
+            	<c:if test="${not empty roomList.savedFileName5}">
+            	<div class="col-lg-6 col-6 m-0" style="padding:0">
+            		<div class="card text-white">
+					  <img class="card-img img" src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName5}" alt="Card image">
+					</div>
+					
+            	</div>
+            	</c:if>
+            	</div>
+            	</c:if>
+            	
+            	<c:if test="${roomList.viewtype == 1}">
+				<div class="col-md-12">
+		            <div id="custCarousel${status.count}" class="carousel slide" data-ride="carousel" align="center">
+		                <div class="carousel-inner">
+		                   <c:if test="${not empty roomList.savedFileName1}">
+		                    <div class="carousel-item active"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName1}"> </div>
+		                   </c:if>
+		                   <c:if test="${not empty roomList.savedFileName2}">
+		                    <div class="carousel-item"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName2}"> </div>
+		                   </c:if>
+		                   <c:if test="${not empty roomList.savedFileName3}">
+		                    <div class="carousel-item"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName3}"> </div>
+		                   </c:if>
+		                   <c:if test="${not empty roomList.savedFileName4}">
+		                    <div class="carousel-item"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName4}"> </div>
+		                   </c:if> 
+		                    <c:if test="${not empty roomList.savedFileName5}">
+		                    <div class="carousel-item"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName5}"> </div>
+		                   </c:if>
+		                </div><a class="carousel-control-prev" href="#custCarousel${status.count}" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel${status.count}" data-slide="next"> <span class="carousel-control-next-icon"></span> </a>
+		                <ol class="carousel-indicators list-inline">
+		                 <c:if test="${not empty roomList.savedFileName1}">
+		                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel${status.count}"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName1}" class="img-fluid"> </a> </li>
+		                 </c:if>  
+		                  <c:if test="${not empty roomList.savedFileName2}">
+		                    <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel${status.count}"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName2}" class="img-fluid"> </a> </li>
+		                  </c:if>  
+		                  <c:if test="${not empty roomList.savedFileName3}">
+		                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel${status.count}"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName3}" class="img-fluid"> </a> </li>
+		                  </c:if>
+		                  <c:if test="${not empty roomList.savedFileName4}">
+		                    <li class="list-inline-item"> <a id="carousel-selector-3" data-slide-to="3" data-target="#custCarousel${status.count}"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName4}" class="img-fluid"> </a> </li>
+		                  </c:if>
+		                  <c:if test="${not empty roomList.savedFileName5}">
+		                    <li class="list-inline-item"> <a id="carousel-selector-4" data-slide-to="4" data-target="#custCarousel${status.count}"> <img src="/resources/roomfileupload/${roomList.idx}/${roomList.savedFileName5}" class="img-fluid"> </a> </li>
+		            	  </c:if>
+		                </ol>
+		            </div>
+		        </div>
+		        </c:if>
+            	<div class="row mb-3"> 
+	            	<div class="col-lg-12 mt-5">
+	            		<div class="alert" role="alert" style="background-color:#e3e9fa">
+						  <h4 class="alert-heading" style="color:#f7b113"><b>${roomList.title }</b></h4>
+						  <hr>
+						   <p style="color:#0094a8">${roomList.content }</p>				 
 						</div>
-            	</div>
-            	
-            	<c:if test="${roomList.reserveBtn eq 'y' }">
-	            	<div class="col-lg-12 text-center">
-							<a href="${roomList.reserveLink }" class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">예약하기</a>
+	            	</div>
+	            	<div class="col-lg-12">
+	            		  <div class="table-responsive">
+							  <table class="table table-bordered" >
+							    <tr class="text-center">
+							      <th width="30%" class="table-light">객실</th>
+							      <td>${roomList.roomType }</td>
+							    </tr>
+							    <tr class="text-center">
+							      <th class="table-light">침대</th>
+							      <td>${roomList.bedType }</td>
+							    </tr>
+							    <tr class="text-center">
+							      <th class="table-light">어메니티</th>
+							      <td class="text-left">${roomList.amenity }</td>
+							    </tr>
+							    <tr class="text-center">
+							      <th class="table-light">가격</th>
+							      <td>${roomList.price }</td>
+							    </tr>
+							  </table>
+							</div>
+	            	</div>
+	            	
+	            	<c:if test="${roomList.reserveBtn eq 'y' }">
+		            	<div class="col-lg-12 text-center">
+								<a href="${roomList.reserveLink }" class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">예약하기</a>
+						</div>
+					</c:if>
 					</div>
-				</c:if>
 
-            </div>
             
             </c:forEach>
             <!-- 

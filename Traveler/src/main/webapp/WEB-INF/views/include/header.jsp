@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>        
  <div class="container-fluid bg-dark py-1" style="border-bottom:1px solid #fff">
         <div class="container">
             <div class="row">
@@ -40,14 +41,14 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="./about" class="nav-item nav-link">About</a>
-                        <a href="./room" class="nav-item nav-link">Rooms</a>
-                        <a href="./food" class="nav-item nav-link">Foods</a>
-                        <a href="./activity" class="nav-item nav-link">Activity</a>
-                         <a href="./shop" class="nav-item nav-link">Shop</a>
+                        <a href="/" class="nav-item nav-link <c:if test="${url eq 'index'}">active</c:if>">Home</a>
+                        <a href="./about" class="nav-item nav-link <c:if test="${url eq 'about'}">active</c:if>">About</a>
+                        <a href="./room" class="nav-item nav-link <c:if test="${url eq 'room'}">active</c:if>">Rooms</a>
+                        <a href="./food" class="nav-item nav-link <c:if test="${url eq 'food'}">active</c:if>">Foods</a>
+                        <a href="./activity" class="nav-item nav-link <c:if test="${url eq 'activity'}">active</c:if>">Activity</a>
+                         <a href="./shop" class="nav-item nav-link <c:if test="${url eq 'shop'}">active</c:if>">Shop</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Community</a>
+                            <a href="#" class="nav-link dropdown-toggle <c:if test="${url eq 'news'}">active</c:if>  <c:if test="${url eq 'faq'}">active</c:if>" data-toggle="dropdown">Community</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="./news" class="dropdown-item">News</a>
                                 <a href="./faq" class="dropdown-item">Support</a>

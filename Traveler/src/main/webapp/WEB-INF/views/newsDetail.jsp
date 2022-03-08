@@ -131,19 +131,19 @@
                
 
             </div>
-             	
+             
              	<c:if test="${not empty isPrev}">
 	    				<c:forEach items="${isPrev}" var="isPrev">
 	    					<c:set var="regdate" value="${isPrev.regdate}"/>
 			    			<c:set var="TextValue" value="${isPrev.title}"/>
-						 <div class="col-lg-3 col-3 text-center">
-							<a href="/newsDetail?idx=${isPrev.idx}"   style="color:#0094a8">이전글 [${fn:substring(TextValue,0,20)}]</a><br>${fn:substring(regdate,0,10) }
+						 <div class="col-lg-4 col-4 text-left">
+							<a href="/newsDetail?idx=${isPrev.idx}"   style="color:#0094a8;font-size:12px">이전글<br>${fn:substring(TextValue,0,20)}<br>${fn:substring(regdate,0,10) }</a>
 						</div>
 						</c:forEach>
 				</c:if>
 				
                
-                <div class="col-lg-6 col-6 text-center">
+                <div class="col-lg-4 col-4 text-center">
 						<a href="/news"  class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">LIST</a>
 				</div>
 				
@@ -151,8 +151,8 @@
     				<c:forEach items="${isNext}" var="isNext">
     					<c:set var="regdate" value="${isNext.regdate}"/>
 			   			 <c:set var="TextValue" value="${isNext.title}"/>
-						<div class="col-lg-3 col-3 text-center">
-						<a href="/newsDetail?idx=${isNext.idx}"   style="color:#0094a8">다음글 [${fn:substring(TextValue,0,20)}]</a><br>${fn:substring(regdate,0,10) }
+						<div class="col-lg-4 col-4 text-right">
+						<a href="/newsDetail?idx=${isNext.idx}"   style="color:#0094a8;font-size:12px">다음글<br>${fn:substring(TextValue,0,20)}<br>${fn:substring(regdate,0,10) }</a>
 						</div>
 					</c:forEach>
 				</c:if>

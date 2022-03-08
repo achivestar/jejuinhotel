@@ -73,13 +73,13 @@ public class HomeController {
 		 
 		 model.addAttribute("newsList", newsList);
 		 logger.info("admin page newsWrite list page : "+newsList);
-		
+		 model.addAttribute("url","index");
 		return "index";
 	}
 	
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
-	public String about() {
-		
+	public String about(Model model) {
+		model.addAttribute("url","about");
 		return "about";
 	}
 	
@@ -96,6 +96,7 @@ public class HomeController {
 		 
 		 model.addAttribute("roomList", roomList);
 		 model.addAttribute("pageMaker",pageMaker);
+		 model.addAttribute("url","room");
 		 logger.info("page roomList list page : "+roomList);
 		 return "room";
 	}
@@ -125,7 +126,7 @@ public class HomeController {
 		 
 		 model.addAttribute("fmenu", fmenu);
 		 model.addAttribute("bmenu", bmenu);
-		 
+		 model.addAttribute("url","food");
 		 logger.info("client page food bnfvo page : "+bnfvo);
 		 logger.info("client page food list page : "+foodList);
 		 
@@ -133,14 +134,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/activity", method = RequestMethod.GET)
-	public String activity() {
-		
+	public String activity(Model model) {
+		 model.addAttribute("url","activity");
 		return "activity";
 	}
 	
 	@RequestMapping(value = "/shop", method = RequestMethod.GET)
-	public String shop() {
-		
+	public String shop(Model model) {
+		 model.addAttribute("url","shop");
 		return "shop";
 	}
 	
@@ -157,6 +158,8 @@ public class HomeController {
 		 
 		 model.addAttribute("newsList", newsList);
 		 model.addAttribute("pageMaker",pageMaker);
+		 model.addAttribute("url","news");
+			
 		 logger.info("admin page newsWrite list page : "+newsList);
 		 
 		 return "news";
@@ -177,6 +180,7 @@ public class HomeController {
 		
 		 model.addAttribute("isPrev",isPrev);
 		 model.addAttribute("isNext",isNext);
+		 model.addAttribute("url","news");
 		return "newsDetail";
 	}
 	
@@ -185,7 +189,7 @@ public class HomeController {
 	public String location() {
 		
 		logger.info("location faq page");
-
+		
 		 return "location";
 	}
 	
@@ -200,7 +204,7 @@ public class HomeController {
 		 model.addAttribute("faqList", faqList);
 
 		 logger.info(" page faqList  page : "+faqList);
-		 
+		 model.addAttribute("url","faq");
 		 return "faq";
 	}
 	

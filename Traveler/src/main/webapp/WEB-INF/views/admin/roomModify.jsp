@@ -77,7 +77,7 @@
 					<a href="/admin/room" class="btn btn-primary">목록</a>
 				</div>
 				<div class="col-md-12">
-					<form name="dataForm" id="dataForm" onsubmit="return registerAction()">
+					<form name="dataForm" id="dataForm"> <!-- onsubmit="return registerAction()" -->
 						<div class="form-group">
 						    <label for="title">객실이름</label>
 						    <input type="text" class="form-control" id="title" name="title" value="${roomvo.title}">
@@ -115,7 +115,7 @@
 						<div class="form-group">
 						    <label for="input_file">객실이미지</label>
 						    <input type="file" class="form-control-file" id="input_file" multiple="multiple">
-						    <span style="font-size:10px; color: gray;">※첨부파일은 최대 3개까지 등록이 가능합니다.</span>
+						    <span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
 						  	<div class="data_file_txt" id="data_file_txt">
 								<span>첨부 파일</span>
 								<br />
@@ -125,16 +125,34 @@
 								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName1}" alt="" class="img-thumbnail" style="width:200px;height:auto">
 								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName2}" alt="" class="img-thumbnail" style="width:200px;height:auto">
 								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName3}" alt="" class="img-thumbnail" style="width:200px;height:auto">
+								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName4}" alt="" class="img-thumbnail" style="width:200px;height:auto">
+								<img src="/resources/roomfileupload/${roomvo.idx}/${roomvo.savedFileName5}" alt="" class="img-thumbnail" style="width:200px;height:auto">
 								
 								<input type="hidden" name="originalFileName1" value="${roomvo.originalFileName1}" />
 								<input type="hidden" name="originalFileName2" value="${roomvo.originalFileName2}" />
 								<input type="hidden" name="originalFileName3" value="${roomvo.originalFileName3}" />
+								<input type="hidden" name="originalFileName4" value="${roomvo.originalFileName4}" />
+								<input type="hidden" name="originalFileName5" value="${roomvo.originalFileName5}" />
 								<input type="hidden" id="savedFileName1" name="savedFileName1" value="${roomvo.savedFileName1}" />
 								<input type="hidden" id="savedFileName2" name="savedFileName2" value="${roomvo.savedFileName2}" />
 								<input type="hidden" id="savedFileName3" name="savedFileName3" value="${roomvo.savedFileName3}" />
+								<input type="hidden" id="savedFileName4" name="savedFileName4" value="${roomvo.savedFileName4}" />
+								<input type="hidden" id="savedFileName5" name="savedFileName5" value="${roomvo.savedFileName5}" />
 							</div>
 						</div>
-						
+						<hr>
+						<div class="form-group">
+							 <label for="content">화면출력형식</label>
+							 <div class="form-check">
+							  <input type="radio" name="viewtype" id="viewtype0" value="0" <c:if test="${roomvo.viewtype == 0}">checked</c:if>>
+							  <label for="viewtype0">리스트형식</label>
+							</div>
+							<div class="form-check">
+							  <input type="radio" name="viewtype" id=viewtype1 value="1" <c:if test="${roomvo.viewtype == 1}">checked</c:if>>
+							  <label for="viewtype1">롤링형식</label>
+							</div>
+						</div>
+						<hr>
 						<div class="form-group">
 							 <label for="content">예약하기버튼 노출여부</label>
 							 <div class="form-check">
@@ -146,6 +164,7 @@
 							  <label for="reserveBtnN">비노출</label>
 							</div>
 						</div>
+						<hr>
 						<div class="form-group">
 							<label for="reserveLink">예약하기링크주소</label>
 						    <input type="text" class="form-control" id="reserveLink" name="reserveLink" value="${roomvo.reserveLink}">
@@ -153,7 +172,7 @@
 						</div>
 
 					  <br>
-					  <input type="submit" class="btn btn-warning" id="save" value="수정">
+					  <input type="button" class="btn btn-warning" id="save" value="수정">
 					  <input type="button" class="btn btn-danger" id="delete" value="삭제">
 					  <input type="button" class="btn btn-secondary" id="list" value="목록">
 					</form>
@@ -233,7 +252,7 @@
 	// 파일 현재 필드 숫자 totalCount랑 비교값
 	var fileCount = 0;
 	// 해당 숫자를 수정하여 전체 업로드 갯수를 정한다.
-	var totalCount = 3;
+	var totalCount = 5;
 	// 파일 고유넘버
 	var fileNum = 0;
 	// 첨부파일 배열
@@ -261,7 +280,7 @@
 	        $('#articlefileChange').append(
 	       		'<div id="file' + fileNum + '" onclick="fileDelete(\'file' + fileNum + '\')">'
 	       		+ '<font style="font-size:12px">' + f.name + '</font>'  
-	       		+ '<img src="/img/icon_minus.png" style="width:20px; height:auto; vertical-align: middle; cursor: pointer;"/>' 
+	       		+ '<img src="/resources/admin/images/minus.png" style="width:20px; height:auto; vertical-align: middle; cursor: pointer;"/>' 
 	       		+ '<div/>'
 			);
 	        fileNum ++;
@@ -285,69 +304,78 @@
 	/*
 	 * 폼 submit 로직
 	 */
-		function registerAction(){
-			
-		var form = $("form")[0];        
-	 	var formData = new FormData(form);
-			for (var x = 0; x < content_files.length; x++) {
-				// 삭제 안한것만 담아 준다. 
-				if(!content_files[x].is_delete){
-					 formData.append("article_file", content_files[x]);
+	 
+	 
+	 $("#save").click(function(){
+		 
+		 
+			var form = $("form")[0];        
+		 	var formData = new FormData(form);
+				for (var x = 0; x < content_files.length; x++) {
+					// 삭제 안한것만 담아 준다. 
+					if(!content_files[x].is_delete){
+						 formData.append("article_file", content_files[x]);
+					}
 				}
-			}
-	   /*
-	   * 파일업로드 multiple ajax처리
-	   */ 
-	   if($("#title").val()==""){
-	    	alert("객실 이름을 입력해 주세요");
-	    	$("#title").focus();
-	    	return;
-	    }else if($("#content").val()==""){
-	    	alert("객실 소개란에 소개글을 입력해 주세요");
-	    	$("#content").focus();
-	    }else if($("#amenity").val()==""){
-	    	alert("어메니티 소개글을 입력해 주세요");
-	    	$("#amenity").focus();
-	    }else if($("#price").val()==""){
-	    	alert("룸 가격을 입력해 주세요");
-	    	$("#price").focus();
-	    }else if($("#roomType").val()==""){
-	    	alert("객실 형태를 선택해 주세요");
-	    	$("#roomType").focus();
-	    }else if($("#bedType").val()==""){
-	    	alert("침대 형식을 선택해 주세요");
-	    	$("#bedType").focus();
-	    }else if($("#bedType").val()==""){
-	    	alert("침대 형식을 선택해 주세요");
-	    	$("#bedType").focus();
-	    }else{
-	    	$.ajax({
-		   	      type: "POST",
-		   	   	  enctype: "multipart/form-data",
-		   	      url: "/admin/roomUpdate",
-		       	  data : formData,
-		       	  dataType : 'text',
-		       	  processData: false,
-		   	      contentType: false,
-		   	      success: function (data) {
-		   	    	 // alert(data);
-		   	    	location.href="/admin/room";
-		   	      },
-		   	      beforeSend : function(){
-						$(".spinner").removeClass("displayLoding");
-				  },complete:function(){
-						$(".spinner").addClass("displayLoding");	
-				  },
-		   	      error:function(data){
-		   	    	//  alert(data);
-		   	    	location.href="/admin/room";
-		   	      }
-		   	    });
-	    } 
+		   /*
+		   * 파일업로드 multiple ajax처리
+		   */ 
+		   if($("#title").val()==""){
+		    	alert("객실 이름을 입력해 주세요");
+		    	$("#title").focus();
+		    	return;
+		    }else if($("#content").val()==""){
+		    	alert("객실 소개란에 소개글을 입력해 주세요");
+		    	$("#content").focus();
+		    }else if($("#amenity").val()==""){
+		    	alert("어메니티 소개글을 입력해 주세요");
+		    	$("#amenity").focus();
+		    }else if($("#price").val()==""){
+		    	alert("룸 가격을 입력해 주세요");
+		    	$("#price").focus();
+		    }else if($("#roomType").val()==""){
+		    	alert("객실 형태를 선택해 주세요");
+		    	$("#roomType").focus();
+		    }else if($("#bedType").val()==""){
+		    	alert("침대 형식을 선택해 주세요");
+		    	$("#bedType").focus();
+		    }else if($("#bedType").val()==""){
+		    	alert("침대 형식을 선택해 주세요");
+		    	$("#bedType").focus();
+		    }else{
+		    	$.ajax({
+			   	      type: "POST",
+			   	   	  enctype: "multipart/form-data",
+			   	      url: "/admin/roomUpdate",
+			       	  data : formData,
+			       	  dataType : 'text',
+			       	  processData: false,
+			   	      contentType: false,
+			   	      success: function (data) {
+			   	    	 // alert(data);
+			   	    	 alert("수정 되었습니다");
+			   	    	location.href="/admin/room";
+			   	      },
+			   	      beforeSend : function(){
+							$(".spinner").removeClass("displayLoding");
+					  },complete:function(){
+							$(".spinner").addClass("displayLoding");	
+					  },
+			   	      error:function(data){
+			   	    	//  alert(data);
+			   	    	location.href="/admin/room";
+			   	      }
+			   	    });
+		    } 
+		 
+	 });
+	/* 	function registerAction(){
+			
+
 		
 	   	    return false;
 		}
-
+ */
 	
 	$("#delete").click(function(){
 		var form = $("form")[0];        

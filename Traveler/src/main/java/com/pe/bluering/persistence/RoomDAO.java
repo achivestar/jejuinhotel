@@ -22,4 +22,5 @@ public interface RoomDAO {
 	void roomUpdate(RoomVO roomvo);
 
 	void roomDelete(int idx);
+
 }

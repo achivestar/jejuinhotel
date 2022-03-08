@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,31 +152,18 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 					if(i==1) {
 						roomvo.setOriginalFileName1(originalFileName);
 						roomvo.setSavedFileName1(savedFileName);
-						
-//						File targetFilethumb = new File(fileRoot + roomvo.getSavedFileName1());	
-//						
-//						// 썸네일 생성
-//						File thumbnailFile = new File(fileRoot, "s_" + savedFileName);	
-//						
-//						BufferedImage bo_image = ImageIO.read(targetFilethumb);
-//
-//							//비율 
-//							double ratio = 9;
-//							//넓이 높이
-//							int width = (int) (bo_image.getWidth() / ratio);
-//							int height = (int) (bo_image.getHeight() / ratio);					
-//						
-//						
-//						Thumbnails.of(targetFile)
-//				        .size(width, height)
-//				        .toFile(thumbnailFile);
-						
 					}else if(i==2) {
 						roomvo.setOriginalFileName2(originalFileName);
 						roomvo.setSavedFileName2(savedFileName);
 					}else if(i==3) {
 						roomvo.setOriginalFileName3(originalFileName);
 						roomvo.setSavedFileName3(savedFileName);
+					}else if(i==4) {
+						roomvo.setOriginalFileName4(originalFileName);
+						roomvo.setSavedFileName4(savedFileName);
+					}else if(i==5) {
+						roomvo.setOriginalFileName5(originalFileName);
+						roomvo.setSavedFileName5(savedFileName);
 					}
 				
 				
@@ -241,9 +229,13 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 			roomvo.setOriginalFileName1(roomvo.getOriginalFileName1());
 			roomvo.setOriginalFileName2(roomvo.getOriginalFileName2());
 			roomvo.setOriginalFileName3(roomvo.getOriginalFileName3());
+			roomvo.setOriginalFileName4(roomvo.getOriginalFileName4());
+			roomvo.setOriginalFileName5(roomvo.getOriginalFileName5());
 			roomvo.setSavedFileName1(roomvo.getSavedFileName1());
 			roomvo.setSavedFileName2(roomvo.getSavedFileName2());
 			roomvo.setSavedFileName3(roomvo.getSavedFileName3());
+			roomvo.setSavedFileName4(roomvo.getSavedFileName4());
+			roomvo.setSavedFileName5(roomvo.getSavedFileName5());
 			// 파일이 있을때 탄다.
 			if(multipartFile.size() > 0 && !multipartFile.get(0).getOriginalFilename().equals("")) {
 				
@@ -253,7 +245,16 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 				response.setHeader("Content-type", "application-download");
 				response.setHeader("Content-Disposition", "attachment; filename=" + multipartFile);
 				response.setHeader("Content-Transfer-Encoding", "binary");
-			
+				
+				
+				String delFileName1 = roomvo.getSavedFileName1();
+				String delFileName2 = roomvo.getSavedFileName2();
+				String delFileName3 = roomvo.getSavedFileName3();
+				String delFileName4 = roomvo.getSavedFileName4();
+				String delFileName5 = roomvo.getSavedFileName5();
+				System.out.println("del1 " + delFileName1+",del2 :"+delFileName2+", del3 :" +delFileName3+", del4 :"+delFileName4 +" , del5 :" +delFileName5);
+				
+				uploadUpdateFile(fileRoot,delFileName1,delFileName2,delFileName3,delFileName4,delFileName5);
 				
 				int i =1;
 				
@@ -265,6 +266,9 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 					String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 					String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
 					
+					
+					//String savedName = uploadUpdateFile(file.getOriginalFilename(), file.getBytes(),request,fileRoot,delFileName);
+
 					File targetFile = new File(fileRoot + savedFileName);	
 					try {
 						InputStream fileStream = file.getInputStream();
@@ -279,22 +283,26 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 					
 					if(i==1) {
 						roomvo.setOriginalFileName1(originalFileName);
-						roomvo.setSavedFileName1(savedFileName);
-
-						
+						roomvo.setSavedFileName1(savedFileName);	
 					}else if(i==2) {
 						roomvo.setOriginalFileName2(originalFileName);
 						roomvo.setSavedFileName2(savedFileName);
 					}else if(i==3) {
 						roomvo.setOriginalFileName3(originalFileName);
 						roomvo.setSavedFileName3(savedFileName);
+					}else if(i==4) {
+						roomvo.setOriginalFileName4(originalFileName);
+						roomvo.setSavedFileName4(savedFileName);
+					}else if(i==5) {
+						roomvo.setOriginalFileName5(originalFileName);
+						roomvo.setSavedFileName5(savedFileName);
 					}
-				
-				
-				
+
 					
 					i++;
 				}
+				
+				
 				roomvo.setContent(roomvo.getContent().replace("\r\n","<br>"));
 				roomvo.setAmenity(roomvo.getAmenity().replace("\r\n","<br>"));
 				roomservice.roomUpdate(roomvo);
@@ -379,5 +387,55 @@ private static final Logger logger = LoggerFactory.getLogger(RoomController.clas
 		
 		
 		return savedName;
+	}
+	
+	
+	private void uploadUpdateFile(String uploadPath, String delFileName1,String delFileName2,String delFileName3,String delFileName4,String delFileName5) throws IOException {
+		
+		if(delFileName1 != null) {
+			 String deleteFileName1 = uploadPath+delFileName1;
+			 System.out.println("DeleteFileName1 : " + deleteFileName1);
+			 File deleteFile = new File(deleteFileName1);
+			 if(deleteFile.exists()) {
+		            deleteFile.delete(); 
+		      }
+		}
+		if(delFileName2 != null) {
+			 String deleteFileName2 = uploadPath+delFileName2;
+			 System.out.println("DeleteFileName2 : " + deleteFileName2);
+			 File deleteFile = new File(deleteFileName2);
+			 if(deleteFile.exists()) {
+		            deleteFile.delete(); 
+		      }
+		}
+		if(delFileName3 != null) {
+			 String deleteFileName3 = uploadPath+delFileName3;
+			 System.out.println("DeleteFileName3 : " + deleteFileName3);
+			 File deleteFile = new File(deleteFileName3);
+			 if(deleteFile.exists()) {
+		            deleteFile.delete(); 
+		      }
+		}
+		if(delFileName4 != null) {
+			 String deleteFileName4 = uploadPath+delFileName4;
+			 System.out.println("DeleteFileName4 : " + deleteFileName4);
+			 File deleteFile = new File(deleteFileName4);
+			 if(deleteFile.exists()) {
+		            deleteFile.delete(); 
+		      }
+		}
+		if(delFileName5 != null) {
+			 String deleteFileName5 = uploadPath+delFileName5;
+			 System.out.println("DeleteFileName5 : " + deleteFileName5);
+			 File deleteFile = new File(deleteFileName5);
+			 if(deleteFile.exists()) {
+		            deleteFile.delete(); 
+		      }
+		}
+	   
+	   
+       
+       
+
 	}
 }

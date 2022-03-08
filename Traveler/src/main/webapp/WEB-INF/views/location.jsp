@@ -109,15 +109,16 @@
 				<p>대표전화 : 064-000-0000</p>
 			</div>
 			<div class="col-12 mt-3 mb-3">
-					<div class="table-responsive">
+					<div class="table-responsive-sm">
 						  <table class="table table-bordered">
 						    <tr class="text-center">
 						      <td style="vertical-align:middle" class="table-light">제주국제공항</td>
 						      <td style="vertical-align:middle" class="table-light">택시이용시</td>
 						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
-						       <table style="width:100%">
+						      
+						       <table  style="width:100%">
 							      	<tr >
-							      		<td class="table-light" style="width:30%;vertical-align:middle;border-left:0px;border-top:0px">요금</td><td style="vertical-align:middle;border-right:0px;border-top:0px">약6,600원</td>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px;border-top:0px">요금</td><td style="vertical-align:middle;border-right:0px;border-top:0px">약6,600원</td>
 							      	</tr>
 							      	<tr>
 							      		<td class="table-light" style="vertical-align:middle;border-left:0px">소요시간</td><td style="vertical-align:middle;border-right:0px">약10~15분</td>
@@ -126,15 +127,17 @@
 							      		<td class="table-light" style="vertical-align:middle;border-bottom:0px;border-left:0px">거리</td><td style="vertical-align:middle;border-right:0px;border-bottom:0px">약6.2km</td>
 							      	</tr>
 						      	</table>
+				
 						      </td>
 						    </tr>
 						     <tr class="text-center">
 						      <td style="vertical-align:middle" class="table-light">제주항연안여객터미널</td>
 						      <td style="vertical-align:middle" class="table-light">택시이용시</td>
 						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
+						      
 						       <table style="width:100%">
 							      	<tr >
-							      		<td class="table-light" style="width:30%;vertical-align:middle;border-top:0px;border-left:0px">요금</td><td style="vertical-align:middle;border-top:0px;border-right:0px">약11,600원</td>
+							      		<td class="table-light" style="vertical-align:middle;border-top:0px;border-left:0px">요금</td><td style="vertical-align:middle;border-top:0px;border-right:0px">약11,600원</td>
 							      	</tr>
 							      	<tr>
 							      		<td class="table-light" style="vertical-align:middle;border-left:0px">소요시간</td><td style="vertical-align:middle;border-right:0px">약20분</td>
@@ -143,6 +146,7 @@
 							      		<td class="table-light" style="vertical-align:middle;border-left:0px;border-bottom:0px">거리</td><td style="vertical-align:middle;border-bottom:0px;border-right:0px">약10.1km</td>
 							      	</tr>
 						      	</table>
+						
 						      </td>
 						    </tr>
 						  </table>

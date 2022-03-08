@@ -59,4 +59,5 @@ public class RoomDAOImpl implements RoomDAO {
 		sql.delete(namespace+".roomDelete",idx);
 	}
 
+
 }

@@ -66,7 +66,7 @@
 			<!--  룸 등록 시작 -->
 			<div class="row" id="anch">
 				<div class="col-md-12 text-right mb-3">
-					<a href="/admin/roomWrite" class="btn btn-primary">room 이미지 등록</a>
+					<a href="/admin/roomWrite" class="btn btn-primary">room 등록</a>
 				</div>
 				<div class="col-md-12">
 					<div class="table-responsive-sm">
@@ -76,7 +76,9 @@
 							    <th scope="col">#</th>
 							    <th scope="col">등록된 룸</th>
 							    <th scope="col">예약버튼</th>
+							    <th scope="col">출력형태</th>
 							    <th scope="col">등록일</th>
+							    <th scope="col">관리</th>
 							  </tr>
 							</thead>
 							<tbody class="text-center">
@@ -88,7 +90,9 @@
 							      <th scope="row">${roomList.idx}</th>
 							      <td><a href="/admin/roomModify?idx=${roomList.idx}">${roomList.title }</a></td>
 							      <td><c:if test="${roomList.reserveBtn eq 'y'}">노출</c:if><c:if test="${roomList.reserveBtn eq 'n'}">미노출</c:if></td>
+							      <td><c:if test="${roomList.viewtype == 0}">리스트 Type</c:if><c:if test="${roomList.viewtype == 1}">롤링 Type</c:if></td>
 							      <td>${roomList.regdate }</td>
+							       <td><a href="/admin/roomModify?idx=${roomList.idx}"><button class="btn btn-primary">관리</button></a></td>
 							    </tr>
 							</c:forEach>	   
 							  </tbody>

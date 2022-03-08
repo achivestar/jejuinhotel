@@ -18,12 +18,17 @@ public class RoomVO {
 	private String bedType;
 	private String reserveBtn;
 	private String reserveLink;
+	private int viewtype;
 	private String originalFileName1;
 	private String originalFileName2;
 	private String originalFileName3;
+	private String originalFileName4;
+	private String originalFileName5;
 	private String savedFileName1;
 	private String savedFileName2;
 	private String savedFileName3;
+	private String savedFileName4;
+	private String savedFileName5;
 	private String regdate;
 	private String upddate;
 }
