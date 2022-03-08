@@ -82,7 +82,7 @@
 						  </div>
 						   <div class="form-group">
 						    <label for="answer">A.답변작성</label>
-						    <textarea class="form-control" id="answer" rows="5" name="answer"></textarea>
+						    <textarea class="form-control" id="answer" rows="25" name="answer"></textarea>
 						  </div>
 						   <button type="button" id="add" class="btn btn-primary">등록</button>									 
 					</form>

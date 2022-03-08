@@ -84,8 +84,8 @@
 							   <c:set var="regdate" value="${faqvo.regdate}"/>
 							    <tr class="text-center">
 							      <th scope="row">${faqvo.idx }<input type="hidden" name="idx" id="idx" value="${faqvo.idx }" /></th>
-							      <td><textarea  rows="4" id="uquestion" name="question" class="form-control">${faqvo.question }</textarea></td>
-							      <td><textarea  rows="4" id="uanswer" name="answer" class="form-control">${faqvo.answer }</textarea></td>
+							      <td style="vertical-align:top"><textarea  rows="10" id="uquestion" name="question" class="form-control">${faqvo.question }</textarea></td>
+							      <td><textarea  rows="30" id="uanswer" name="answer" class="form-control">${faqvo.answer }</textarea></td>
 							      <td>
 							      <button type="button" id="update" class="btn btn-warning btn-sm">수정</button>
 							      <button type="button" id="delete" class="btn btn-danger btn-sm">삭제</button></td>

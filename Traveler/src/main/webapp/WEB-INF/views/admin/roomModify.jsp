@@ -84,11 +84,11 @@
 						</div>
 						<div class="form-group">
 							 <label for="content">객실소개</label>
-							<textarea class="form-control"  name="content" id="content" rows="3" >${roomvo.content }</textarea>
+							<textarea class="form-control"  name="content" id="content" rows="10" >${roomvo.content }</textarea>
 						</div>
 						<div class="form-group">
 							 <label for="amenity">어메니티 (객실내물품)</label>
-							<textarea class="form-control" name="amenity" id="amenity" rows="3">${roomvo.amenity }</textarea>
+							<textarea class="form-control" name="amenity" id="amenity" rows="10">${roomvo.amenity }</textarea>
 						</div>
 						<div class="form-group">
 							 <label for="content">객실가격</label>

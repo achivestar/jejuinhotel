@@ -82,7 +82,7 @@
 						</div>
 						<div class="form-group">
 							 <label for="content">객실소개</label>
-							  <textarea class="form-control"  name="content" id="content" rows="3"></textarea>
+							  <textarea class="form-control"  name="content" id="content" rows="10"></textarea>
 						</div>
 						<div class="form-group">
 							 <label for="amenity">어메니티 (객실내물품)</label>
