@@ -4,13 +4,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
-                    <div class="d-flex flex-column align-items-center justify-content-center bg-primary h-75 py-5 px-3">
+                    <div class="d-flex flex-column align-items-center justify-content-center bg-primary py-5 px-3">
                         <!-- <i class="flaticon-brickwall display-1 font-weight-normal text-secondary mb-3"></i> -->
                         <h4 class="display-3 mb-3" style="color:#ffe603">New</h4>
                         <h1 class="m-0" style="color:#fff">Experience in JEJU</h1>
                     </div>
                 </div>
-                <div class="col-lg-7 m-0 my-lg-5">
+                <div class="col-lg-7 m-0 my-lg-5" >
                     <h4 class="mb-4"><b>우리는 호텔의 단순한 숙박 서비스 제공을 넘어</b></h4>
                     <p>제주의 새로운 경험&여행의 모든 것을 제공하여 드립니다.
                     	제주 로컬의 다양한 분야의 체험, 정보, 커뮤니티를 드리고자 합니다. 

@@ -225,7 +225,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 mt-3 mb-3">
-                    <div class="py-5 px-4 h-100 bg-primary d-flex flex-column align-items-center justify-content-center">
+                    <div class="py-5 px-4  bg-primary d-flex flex-column align-items-center justify-content-center">
                         <h4 class="display-3 mb-3" style="color:red">J&STAY</h4>
                         <h3 class="m-0 mt-3" style="color:#fff">제주에서 한달살기</h3>
                          <a href="https://jnstay.net" target="_blank" class="btn btn-cust-primary py-md-3 px-md-5 mt-2 mt-md-4">click</a>

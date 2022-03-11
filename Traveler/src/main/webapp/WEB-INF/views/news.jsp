@@ -142,16 +142,14 @@
 			    <c:set var="TextValue" value="${newsList.title}"/>
 			   	 <div class="col mb-4">
 				    <div class="card"  data-aos="zoom-in">
-				      <a href="/newsDetail?idx=${newsList.idx}">
+				      
 				      <c:if test="${not empty newsList.thumburl}">
-				      		<img src="${newsList.thumburl}" class="card-img-top newsimg" alt="...">
+				      		<img src="${newsList.thumburl}" class="card-img-top newsimg" style="cursor:pointer" onclick="go_url(${newsList.idx})" />
 				      </c:if>
 				      <c:if test="${empty newsList.thumburl}">
-				     	 <img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" alt="...">
+				     	 <img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" style="cursor:pointer" onclick="go_url(${newsList.idx})" />
 				      </c:if>
-				      
-				      
-				      </a>
+				    
 				      <div class="card-body">
 				        <p class="card-text"><a href="/newsDetail?idx=${newsList.idx}">${fn:substring(TextValue,0,20)}
 				        <c:if test="${fn:length(TextValue)>=20}">
@@ -235,6 +233,10 @@
     <script src="/resources/js/aos.js"></script>
     <script>
 	  AOS.init();
+	  
+	  function go_url(a){
+		  location.href="./newsDetail?idx="+a;
+	  }
 	</script>
 </body>
 </html>

@@ -133,22 +133,22 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
                 </div>
                 <div class="col-lg-6 p-0 pt-5 pt-lg-0">
                     <div class="owl-carousel service-carousel position-relative">
-                    	 <div class="d-flex flex-column text-center bg-light mx-3">
-                            <h3 class="display-3 font-weight-normal text-primary mb-3">
+                    	 <div class="d-flex flex-column text-center bg-light mx-3" >
+                            <h3 class="display-3 font-weight-normal text-primary mb-3" style="height:170px">
                            	 <img src="/resources/img/about/about2.jpeg" />
                             </h3>
                             <h5 class="mb-3">Tracking</h5>
                             <p class="m-0">제주의 자연과 하나가 되어 걸어 봅니다.</p>
                         </div>
                         <div class="d-flex flex-column text-center bg-light mx-3">
-                            <h3 class="display-3 font-weight-normal text-primary mb-3">
+                            <h3 class="display-3 font-weight-normal text-primary mb-3" style="height:170px">
                             	<img src="/resources/img/about/about4.jpg" />
                             </h3>
                             <h5 class="mb-3">Playing</h5>
                             <p class="m-0">우리는 재미있는 여행을 좋아합니다.</p>
                         </div>
                         <div class="d-flex flex-column text-center bg-light mx-3">
-                            <h3 class="display-3 font-weight-normal text-primary mb-3">
+                            <h3 class="display-3 font-weight-normal text-primary mb-3" style="height:170px">
                             	<img src="/resources/img/about/about3.jpg" />
                             </h3>
                             <h5 class="mb-3">Camping</h5>
@@ -353,7 +353,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 mb-2">
-                    <div class="py-5 px-4 h-100 bg-primary d-flex flex-column align-items-center justify-content-center">
+                    <div class="py-5 px-4 bg-primary d-flex flex-column align-items-center justify-content-center">
                         <h4 class="display-3 mb-3" style="color:#ffe603">News</h4>
                         <h3 class="m-0 mt-3" style="color:#fff">생생한 소식을 전해드려요</h3>
                          <a href="" class="btn btn-cust-primary py-md-3 px-md-5 mt-2 mt-md-4">+ More</a>
@@ -371,10 +371,10 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 			    		<c:set var="TextValue" value="${newsList.title}"/>
 	                     <div class="card ml-2 mr-2">
 							     <c:if test="${not empty newsList.thumburl}">
-				      				<a href="/newsDetail?idx=${newsList.idx}"><img src="${newsList.thumburl}" class="card-img-top newsimg" alt="..."></a>
+				      				<img src="${newsList.thumburl}" class="card-img-top newsimg" alt="..." style="cursor:pointer" onclick="go_url(${newsList.idx})">
 								 </c:if>
 							      <c:if test="${empty newsList.thumburl}">
-							     	 <a href="/newsDetail?idx=${newsList.idx}"><img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" alt="..."></a>
+							     	 <img src="/resources/img/active/active4.jpg" class="card-img-top newsimg" alt="..." style="cursor:pointer" onclick="go_url(${newsList.idx})">
 							      </c:if>
 							    <div class="card-body">
 							      <h5 class="card-title"><a style="color:#000" href="/newsDetail?idx=${newsList.idx}">${fn:substring(TextValue,0,20)}<c:if test="${fn:length(TextValue)>=20}">
@@ -478,6 +478,10 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
     <script src="/resources/js/aos.js"></script>
      <script>
 	  AOS.init();
+	  
+	  function go_url(a){
+		  location.href="./newsDetail?idx="+a;
+	  }
 	</script>
 </body>
 </html>
