@@ -6,8 +6,8 @@
             <div class="col-lg-10 col-md-10 col-10 mb-5">
                 <h4 class="text-primary mb-4">Get In Touch</h4>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>제주특별자치도 제주시 신산마을길 20</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>(대표) 064-741-1100 / 예약실 064-741-1101 / Fax : 064-741-1102</p>
+                <p>입금통장 : 농협 351-1220-6091-23 (주식회사제주인)</p>
                 <div class="d-flex justify-content-start mt-4">
                     <!-- <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a> -->
                     <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;"  href="https://www.facebook.com/jejuall.net/" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -22,7 +22,7 @@
         </div>
         <div class="container border-top border-secondary pt-2">
             <p class="m-0 text-center text-white">
-                &copy; <a class="text-white font-weight-bold" href="#">Site Name</a>. All Rights Reserved.
+               <a class="text-white font-weight-bold" href="#">Jeju in Hotel</a>.  &copy; All Rights Reserved.
             </p>
         </div>
     </div>

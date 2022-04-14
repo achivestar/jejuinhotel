@@ -47,6 +47,9 @@
 			<mapping path="/admin/room"/>
 			<mapping path="/admin/roomModify"/>
 			<mapping path="/admin/roomWrite"/>
+			<mapping path="/admin/etc"/>
+			<mapping path="/admin/etcModify"/>
+			<mapping path="/admin/etcWrite"/>
 			<mapping path="/admin/foodmenu"/>
 			<mapping path="/admin/foodMenuModify"/>
 			<mapping path="/admin/foodMenuWrite"/>

@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="container-fluid bg-cust-light" style="height:100%">
+<div class="container-fluid bg-cust-light mb-3" style="height:100%">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
                     <div class="d-flex flex-column align-items-center justify-content-center bg-primary py-5 px-3">
                         <!-- <i class="flaticon-brickwall display-1 font-weight-normal text-secondary mb-3"></i> -->
-                        <h4 class="display-3 mb-3" style="color:#ffe603">New</h4>
-                        <h1 class="m-0" style="color:#fff">Experience in JEJU</h1>
+                        <span class="mb-3" style="color:#ffe603;font-size:34px">Have a nice day</span>
+                        <span class="m-0" style="color:#fff;font-size:32px">JEJU IN HOTEL</span>
                     </div>
                 </div>
                 <div class="col-lg-7 m-0 my-lg-5" >

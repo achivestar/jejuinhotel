@@ -32,6 +32,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.JsonObject;
 import com.pe.bluering.domain.BnfVO;
 import com.pe.bluering.domain.Criteria;
+import com.pe.bluering.domain.EtcVO;
 import com.pe.bluering.domain.FaqVO;
 import com.pe.bluering.domain.FoodMenuVO;
 import com.pe.bluering.domain.FoodVO;
@@ -40,6 +41,7 @@ import com.pe.bluering.domain.NewsVO;
 import com.pe.bluering.domain.PageMaker;
 import com.pe.bluering.domain.RoomVO;
 import com.pe.bluering.domain.UserVO;
+import com.pe.bluering.service.EtcService;
 import com.pe.bluering.service.FaqService;
 import com.pe.bluering.service.FoodMenuService;
 import com.pe.bluering.service.FoodService;
@@ -73,6 +75,9 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	
 	@Autowired
 	private FoodMenuService foodmenuservice;
+	
+	@Autowired
+	private EtcService etcservice;
 	
 	@Autowired
 	private TotalCount totalcount;
@@ -724,6 +729,76 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		     return "/admin/foodMenuModify";
 	}
 	
+	
+	
+	@RequestMapping(value="/etc", method=RequestMethod.GET) 
+	public String etc(Model model, Criteria cri) {
+		
+		logger.info("admin page etcList page");
+		 
+		 List<EtcVO> etcList = etcservice.getEtcList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(etcservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("etcList", etcList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+		 logger.info("admin page etc list page : ");
+		 return "/admin/etc";
+	}
 
+	@RequestMapping(value="/etcWrite", method=RequestMethod.GET) 
+	public String etcWrite( Model model) {
+		
+		logger.info("admin page etcWrite page");
+		int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+
+		logger.info("admin page etcWrite  page : ");
+		 
+		 return "/admin/etcWrite";
+	}
+	
+	
+	@RequestMapping(value="/etcModify", method=RequestMethod.GET) 
+	public String etcModify(EtcVO etcvo, @RequestParam("idx") int idx, Model model) {
+		   
+			 
+			 etcvo = etcservice.etcModify(idx);
+
+			 model.addAttribute("etcvo", etcvo);
+			 
+			 int totalRoom = totalcount.getTotalRoom();
+			 int totalFaq = totalcount.getTotalFaq();
+			 int totalNews = totalcount.getTotalNews();
+			 int totalFood = totalcount.getTotalFood();
+			 
+			 model.addAttribute("totalRoom", totalRoom);
+			 model.addAttribute("totalFaq", totalFaq);
+			 model.addAttribute("totalNews", totalNews);
+			 model.addAttribute("totalFood", totalFood);
+		     return "/admin/etcModify";
+	}
+	
+	
 }
 

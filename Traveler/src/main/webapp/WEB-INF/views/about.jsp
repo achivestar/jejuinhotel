@@ -79,9 +79,9 @@
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="btn btn-outline-primary" href="">Home</a>
+                        <a class="btn btn-outline-primary" href="">홈</a>
                         <i class="fas fa-angle-double-right text-primary mx-2"></i>
-                        <a class="btn btn-cust-primary disabled" href="">About Us</a>
+                        <a class="btn btn-cust-primary disabled" href="">소개</a>
                     </div>
                 </div>
             </div>

@@ -47,6 +47,10 @@
 			max-heght:470px;
 		}
 		
+		img {
+			width:100%;
+		}
+		
 		span.theme{
 			color:#fff;font-size:30px
 		}

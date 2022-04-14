@@ -237,9 +237,9 @@
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="btn btn-outline-primary" href="/">Home</a>
+                        <a class="btn btn-outline-primary" href="/">홈</a>
                         <i class="fas fa-angle-double-right text-primary mx-2"></i>
-                        <a class="btn btn-cust-primary disabled" href="">Food</a>
+                        <a class="btn btn-cust-primary disabled" href="">음식</a>
                     </div>
                 </div>
             </div>
@@ -310,10 +310,15 @@
 						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
 						       <table style="width:100%">
 							      	<tr >
-							      		<td class="table-light" style="width:30%;vertical-align:middle;border-left:0px;border-top:0px">운영시간</td><td style="vertical-align:middle;border-right:0px;border-top:0px">AM 06:00 ~ AM 09:00</td>
+							      		<td class="table-light" style="width:30%;vertical-align:middle;border-left:0px;border-top:0px">운영시간</td><td style="vertical-align:middle;border-right:0px;border-top:0px">07:00~09:00 (08:30분 입장마감)</td>
 							      	</tr>
 							      	<tr>
-							      		<td class="table-light" style="vertical-align:middle;border-left:0px">이용방법</td><td style="vertical-align:middle;border-right:0px">조식서비스를 이용하실 고객님은 입실시 문의 드립니다.</td>
+							      		<td class="table-light" style="vertical-align:middle;border-left:0px">이용방법</td><td style="vertical-align:middle;border-right:0px;text-align:left;">
+							      			 - 성인(중학생 이상~) 10,000원 / 소인(36개월~초등학생) 7,000원<br>
+      - 메뉴 변경 / 추가시  별도 문의 <br>
+      ▸조식(세미뷔페) <br>
+     ▸석식 별도문의<br>
+							      		</td>
 							      	</tr>
 							      	<tr>
 							      		<td class="table-light" style="vertical-align:middle;border-bottom:0px;border-left:0px">위치</td><td style="vertical-align:middle;border-right:0px;border-bottom:0px">지하1층</td>
@@ -326,7 +331,7 @@
 						      <td style="vertical-align:middle;margin:0;padding:0;border:1px solid #ddd">
 						       <table style="width:100%">
 							      	<tr >
-							      		<td class="table-light" style="width:30%;vertical-align:middle;border-top:0px;border-left:0px">운영시간</td><td style="vertical-align:middle;border-top:0px;border-right:0px">상시운영</td>
+							      		<td class="table-light" style="width:30%;vertical-align:middle;border-top:0px;border-left:0px">운영시간</td><td style="vertical-align:middle;border-top:0px;border-right:0px">06:00 ~ 24:00</td>
 							      	</tr>
 							      	<tr>
 							      		<td class="table-light" style="vertical-align:middle;border-left:0px">이용방법</td><td style="vertical-align:middle;border-right:0px">상시이용</td>

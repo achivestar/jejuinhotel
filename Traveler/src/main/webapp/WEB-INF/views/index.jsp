@@ -187,10 +187,10 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">시그니처 객실</span><br><a href="/room" class="btn btn-cust-primary mt-2 py-md-3 px-md-5">+ More</a></p>
 	    		</div>
 	    		<div class="col-md-4 col-4" style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
-	    			<img src="/resources/img/room/room1.jpg" style="width:100%;height:100%" />
+	    			<img src="/resources/img/room/s_room7.JPG" style="width:100%;height:100%" />
 	    		</div>
 	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
-	    			<img src="/resources/img/room/room4.jpg" style="width:100%;height:100%" />
+	    			<img src="/resources/img/room/s_room8.JPG" style="width:100%;height:100%" />
 	    		</div>
 	    		<!-- room end -->
 	    		
@@ -211,7 +211,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 	    		<!-- our service start -->
 	    		<div class="col-md-4 col-4 bg-green"  data-aos="zoom-in"
      data-aos-duration="1000">
-	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">여행의 다양함</span><br><a href="/shop" class="btn btn-cust-primary mt-2 py-md-3 px-md-5">+ More</a></p>
+	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">부대시설</span><br><a href="/etc" class="btn btn-cust-primary mt-2 py-md-3 px-md-5">+ More</a></p>
 	    		</div>
 	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
 	    			<img src="/resources/img/shop/shop6.jpeg" style="width:100%;height:100%" />
@@ -222,127 +222,7 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 	    		
 	    		<!-- out service end -->
             </div>
-            <!-- <div class="row">
-                <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-outline-primary m-1" data-filter=".first">Standard room</li>
-                        <li class="btn btn-outline-primary m-1" data-filter=".second">Suite room</li>
-                        <li class="btn btn-outline-primary m-1" data-filter=".third">Food</li>
-
-                    </ul>
-                </div>
-            </div> -->
-            <!-- <div class="row mx-1 portfolio-container">
-                <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item first">
-                    <div class="position-relative overflow-hidden">
-                        <div class="portfolio-img d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src="/resources/img/portfolio-1.jpg" alt="">
-                        </div>
-                        <div class="portfolio-text bg-cust-secondary d-flex flex-column align-items-center justify-content-center">
-                            <h4 class="text-white mb-4">Project Name</h4>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn btn-outline-primary m-1" href="">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="btn btn-outline-primary m-1" href="/resources/img/portfolio-1.jpg" data-lightbox="portfolio">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item second">
-                    <div class="position-relative overflow-hidden">
-                        <div class="portfolio-img d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src="/resources/img/portfolio-2.jpg" alt="">
-                        </div>
-                        <div class="portfolio-text bg-cust-secondary d-flex flex-column align-items-center justify-content-center">
-                            <h4 class="text-white mb-4">Project Name</h4>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn btn-outline-primary m-1" href="">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="btn btn-outline-primary m-1" href="/resources/img/portfolio-2.jpg" data-lightbox="portfolio">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item third">
-                    <div class="position-relative overflow-hidden">
-                        <div class="portfolio-img d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src="/resources/img/portfolio-3.jpg" alt="">
-                        </div>
-                        <div class="portfolio-text bg-cust-secondary d-flex flex-column align-items-center justify-content-center">
-                            <h4 class="text-white mb-4">Project Name</h4>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn btn-outline-primary m-1" href="">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="btn btn-outline-primary m-1" href="/resources/img/portfolio-3.jpg" data-lightbox="portfolio">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item first">
-                    <div class="position-relative overflow-hidden">
-                        <div class="portfolio-img d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src="/resources/img/portfolio-4.jpg" alt="">
-                        </div>
-                        <div class="portfolio-text bg-cust-secondary d-flex flex-column align-items-center justify-content-center">
-                            <h4 class="text-white mb-4">Project Name</h4>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn btn-outline-primary m-1" href="">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="btn btn-outline-primary m-1" href="/resources/img/portfolio-4.jpg" data-lightbox="portfolio">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item second">
-                    <div class="position-relative overflow-hidden">
-                        <div class="portfolio-img d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src="/resources/img/portfolio-5.jpg" alt="">
-                        </div>
-                        <div class="portfolio-text bg-cust-secondary d-flex flex-column align-items-center justify-content-center">
-                            <h4 class="text-white mb-4">Project Name</h4>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn btn-outline-primary m-1" href="">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="btn btn-outline-primary m-1" href="/resources/img/portfolio-5.jpg" data-lightbox="portfolio">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6 p-0 portfolio-item third">
-                    <div class="position-relative overflow-hidden">
-                        <div class="portfolio-img d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src="/resources/img/portfolio-6.jpg" alt="">
-                        </div>
-                        <div class="portfolio-text bg-cust-secondary d-flex flex-column align-items-center justify-content-center">
-                            <h4 class="text-white mb-4">Project Name</h4>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn btn-outline-primary m-1" href="">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="btn btn-outline-primary m-1" href="/resources/img/portfolio-6.jpg" data-lightbox="portfolio">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+          
         </div>
     </div>
     <!-- Projects End -->

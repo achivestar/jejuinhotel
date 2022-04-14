@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pe.bluering.mappers.etcMapper">
+
+	<insert id="Insert" parameterType="EtcVO" useGeneratedKeys="true" keyProperty="idx">
+		<![CDATA[
+			INSERT INTO jeju_hotel_etc
+			(title,content,originalFileName1,savedFileName1,originalFileName2,savedFileName2,originalFileName3,savedFileName3,originalFileName4,savedFileName4,originalFileName5,savedFileName5,regdate,upddate,count)
+			VALUES 
+			(#{title},#{content},#{originalFileName1},#{savedFileName1},#{originalFileName2},#{savedFileName2},#{originalFileName3},#{savedFileName3},#{originalFileName4},#{savedFileName4},#{originalFileName5},#{savedFileName5},now(),now(),#{count});
+		]]>
+	</insert>
+
+
+	<select id="getCount" resultType="int">
+		<![CDATA[
+			SELECT count(idx) as idx from jeju_hotel_etc;
+		]]>
+	</select>
+	
+	
+	<select id="getIdx" resultType="int">
+		<![CDATA[
+			SELECT max(idx) as idx from jeju_hotel_etc;
+		]]>
+	</select>
+	
+	<select id="getEtcList" resultType="EtcVO">
+		<![CDATA[
+			SELECT * from jeju_hotel_etc where idx > 0 order by idx asc limit #{pageStart}, #{perPageNum} ;
+		]]>
+	</select>
+	
+	
+	<select id="getEtcModify" parameterType="int" resultType="EtcVO">
+		<![CDATA[
+			SELECT * FROM jeju_hotel_etc where idx = #{idx}
+		]]>
+	</select>
+	
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+			SELECT count(idx) FROM jeju_hotel_etc where idx > 0 
+		]]>
+	</select>
+
+	
+	
+	<delete id="etcDelete" parameterType="int">
+		<![CDATA[
+			DELETE FROM jeju_hotel_etc where idx = #{idx}
+		]]>
+	</delete>
+	
+	<update id="etcUpdate" parameterType="EtcVO">
+			<![CDATA[
+			    UPDATE jeju_hotel_etc SET 
+				title = #{title}, 
+				content = #{content}, 
+				originalFileName1 = #{originalFileName1},
+				savedFileName1 = #{savedFileName1},
+				originalFileName2 = #{originalFileName2},
+				savedFileName2 = #{savedFileName2},
+				originalFileName3 = #{originalFileName3},
+				savedFileName3 = #{savedFileName3},
+				originalFileName4 = #{originalFileName4},
+				savedFileName4 = #{savedFileName4},
+				originalFileName5 = #{originalFileName5},
+				savedFileName5 = #{savedFileName5},
+				upddate = now()
+				WHERE
+				idx = #{idx} 
+			]]>
+	</update>
+	
+
+	
+	
+	
+	<!-- <select id="getPrev" parameterType="int"  resultType="NewsVO">
+		<![CDATA[
+		SELECT * FROM jeju_hotel_news WHERE idx =
+			(SELECT idx FROM jeju_hotel_news WHERE idx < #{idx} ORDER BY idx DESC LIMIT 1)
+		]]>
+	
+	</select>
+	
+	
+	<select id="getNext" parameterType="int"  resultType="NewsVO">
+		<![CDATA[
+		SELECT * FROM jeju_hotel_news WHERE idx =
+			(SELECT idx FROM jeju_hotel_news WHERE idx > #{idx}  ORDER BY idx LIMIT 1)
+		]]>
+	
+	</select> -->
+
+</mapper>

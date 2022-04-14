@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pe.bluering.mappers.foodMapper">
+
+	<insert id="Insert" parameterType="FoodVO" useGeneratedKeys="true" keyProperty="idx">
+		<![CDATA[
+			INSERT INTO jeju_hotel_food
+			(title,content,gubun,originalFileName,savedFileName,regdate,upddate)
+			VALUES 
+			(#{title},#{content},#{gubun},#{originalFileName},#{savedFileName},now(),now());
+		]]>
+	</insert>
+
+
+	<select id="getCount" resultType="int">
+		<![CDATA[
+			SELECT count(idx) as idx from jeju_hotel_food;
+		]]>
+	</select>
+	
+	
+	<select id="getIdx" resultType="int">
+		<![CDATA[
+			SELECT max(idx) as idx from jeju_hotel_food;
+		]]>
+	</select>
+	
+	<select id="getFoodList" resultType="FoodVO">
+		<![CDATA[
+			SELECT * from jeju_hotel_food where idx > 0 order by idx desc limit #{pageStart}, #{perPageNum};
+		]]>
+	</select>
+	
+	
+	<select id="getFoodModify" parameterType="int" resultType="FoodVO">
+		<![CDATA[
+			SELECT * FROM jeju_hotel_food where idx = #{idx}
+		]]>
+	</select>
+	
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+			SELECT count(idx) FROM jeju_hotel_food where idx > 0
+		]]>
+	</select>
+	
+	
+	<select id="getSaveFileName" parameterType="int"  resultType="String">
+			<![CDATA[
+				select savedFileName from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	<select id="getOriginFileName" parameterType="int"  resultType="String">
+			<![CDATA[
+				select originalFileName from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	
+	<select id="getDeleteFileName" parameterType="int"  resultType="String">
+			<![CDATA[
+				select savedFileName from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	
+	<select id="getBnf" parameterType="int"  resultType="com.pe.bluering.domain.BnfVO">
+			<![CDATA[
+				select * from jeju_hotel_bnf
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	<select id="getStore" parameterType="int"  resultType="FoodVO">
+			<![CDATA[
+				select * from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	<select id="getCoffee" parameterType="int"  resultType="FoodVO">
+			<![CDATA[
+				select * from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	<select id="getRest" parameterType="int"  resultType="FoodVO">
+			<![CDATA[
+				select * from jeju_hotel_food
+				where
+				idx = #{idx};
+			]]>
+	</select>
+	
+	
+	
+	<update id="foodUpdate" parameterType="FoodVO">
+		<![CDATA[
+			UPDATE jeju_hotel_food SET 
+			title = #{title}, 
+			content = #{content}, 
+			originalFileName = #{originalFileName},
+			savedFileName = #{savedFileName},
+			upddate = now()
+			WHERE
+			idx = #{idx}
+		]]>
+	</update>
+	
+
+	<update id="bnfUpdate" parameterType="com.pe.bluering.domain.BnfVO">
+		<![CDATA[
+			UPDATE jeju_hotel_bnf SET 
+			title = #{title}, 
+			content = #{content}, 
+			upddate = now()
+			WHERE
+			idx = #{idx}
+		]]>
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	<!-- <update id="newsThumbUpdate" parameterType="newsVO">
+		<![CDATA[
+			UPDATE jeju_hotel_news SET 
+			thumburl = #{thumburl}
+			WHERE
+			idx = #{idx}
+		]]>
+	</update> -->
+	
+	
+	<delete id="foodDelete" parameterType="int">
+		<![CDATA[
+			DELETE FROM jeju_hotel_food where idx = #{idx}
+		]]>
+	</delete>
+	
+	
+	<!-- <select id="getPrev" parameterType="int"  resultType="NewsVO">
+		<![CDATA[
+		SELECT * FROM jeju_hotel_news WHERE idx =
+			(SELECT idx FROM jeju_hotel_news WHERE idx < #{idx} ORDER BY idx DESC LIMIT 1)
+		]]>
+	
+	</select>
+	
+	
+	<select id="getNext" parameterType="int"  resultType="NewsVO">
+		<![CDATA[
+		SELECT * FROM jeju_hotel_news WHERE idx =
+			(SELECT idx FROM jeju_hotel_news WHERE idx > #{idx}  ORDER BY idx LIMIT 1)
+		]]>
+	
+	</select> -->
+
+</mapper>

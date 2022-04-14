@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pe.bluering.domain.BnfVO;
 import com.pe.bluering.domain.Criteria;
+import com.pe.bluering.domain.EtcVO;
 import com.pe.bluering.domain.FaqVO;
 import com.pe.bluering.domain.FoodMenuVO;
 import com.pe.bluering.domain.FoodVO;
 import com.pe.bluering.domain.NewsVO;
 import com.pe.bluering.domain.PageMaker;
 import com.pe.bluering.domain.RoomVO;
+import com.pe.bluering.service.EtcService;
 import com.pe.bluering.service.FaqService;
 import com.pe.bluering.service.FoodMenuService;
 import com.pe.bluering.service.FoodService;
@@ -44,6 +46,9 @@ public class HomeController {
 	
 	@Autowired
 	private RoomService roomservice;
+	
+	@Autowired
+	private EtcService etcservice;
 	
 	@Autowired
 	private FoodService foodservice;
@@ -143,6 +148,23 @@ public class HomeController {
 	public String shop(Model model) {
 		 model.addAttribute("url","shop");
 		return "shop";
+	}
+	
+	@RequestMapping(value = "/etc", method = RequestMethod.GET)
+	public String etc(Model model,EtcVO etcvo,Criteria cri) {
+		logger.info("page roomList page");
+		 
+		List<EtcVO> etcList = etcservice.getEtcList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(etcservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("etcList", etcList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 model.addAttribute("url","etc");
+		 logger.info("page roomList list page : "+etcList);
+		 return "etc";
 	}
 	
 	@RequestMapping(value = "/news", method = RequestMethod.GET)

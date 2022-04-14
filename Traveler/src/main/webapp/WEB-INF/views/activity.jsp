@@ -96,9 +96,9 @@
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="btn btn-outline-primary" href="/">Home</a>
+                        <a class="btn btn-outline-primary" href="/">홈</a>
                         <i class="fas fa-angle-double-right text-primary mx-2"></i>
-                        <a class="btn btn-cust-primary disabled" href="">Activity</a>
+                        <a class="btn btn-cust-primary disabled" href="">액티비티</a>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
     <div class="container">
     	<div class="row">
     		<div class="col-md-12 text-center p-3" style="line-height:1.8">
-    			제주의 자연을 눈으로만 보는 것이 아닌,<br> 마음으로도 느껴보면 어떻까요?<br>
+    			제주의 자연을 눈으로만 보는 것이 아닌,<br> 마음으로도 느껴보면 어떨까요?<br>
 				우리는 단순히 숙박만을 예약받고<br> 제공하는 것으로 끝이 아닌<br>
  				새로운 숙박 서비스를 구현 합니다.
     		</div>
