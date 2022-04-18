@@ -214,10 +214,10 @@ JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
 	    			<p style="margin:0 auto" class="text-center"><span class="txt-white">부대시설</span><br><a href="/etc" class="btn btn-cust-primary mt-2 py-md-3 px-md-5">+ More</a></p>
 	    		</div>
 	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
-	    			<img src="/resources/img/shop/shop6.jpeg" style="width:100%;height:100%" />
+	    			<img src="/resources/img/etc/etc1.jpg" style="width:100%;height:100%" />
 	    		</div>
 	    		<div class="col-md-4 col-4"  style="padding:0" data-aos="zoom-in" data-aos-duration="1000">
-	    			<img src="/resources/img/shop/shop9.jpg" style="width:100%;height:100%" />
+	    			<img src="/resources/img/etc/etc2.jpg" style="width:100%;height:100%" />
 	    		</div>
 	    		
 	    		<!-- out service end -->
