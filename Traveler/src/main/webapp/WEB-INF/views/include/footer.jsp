@@ -10,9 +10,9 @@
                 <p>입금통장 : 농협 351-1220-6091-23 (주식회사제주인)</p>
                 <div class="d-flex justify-content-start mt-4">
                     <!-- <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a> -->
-                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;"  href="https://www.facebook.com/jejuall.net/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;"  href="#none" ><i class="fab fa-facebook-f"></i></a>
                     <!-- <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a> -->
-                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="https://www.instagram.com/jejuall_net/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#none" ><i class="fab fa-instagram"></i></a>
                     
                     <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="/location"><i class="fa fa-map-marker-alt"></i></a>
                 </div>

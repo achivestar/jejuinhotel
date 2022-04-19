@@ -92,7 +92,7 @@
         <div class="container py-5">
             <div class="row align-items-center py-4">
                 <div class="col-md-6 text-center text-md-left">
-                    <h1 class="mb-4 mb-md-0 text-white text-uppercase">제주의 새로운 경험 <br> New Experience in Jeju</h1>
+                    <!-- <h1 class="mb-4 mb-md-0 text-white text-uppercase">제주의 새로운 경험 <br> New Experience in Jeju</h1> -->
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">

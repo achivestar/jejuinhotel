@@ -144,8 +144,8 @@
                     <!-- <h6 class="text-primary font-weight-normal text-uppercase mb-3">Services</h6> -->
                     <h4 class="mb-4"><b>숙박을 제공하는 것으로 끝이 아닙니다</b></h4>
                     <p>
-						JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여
-						새로운 숙박 서비스를 구현합니다.
+						JEJU IN HOTEL 은<!-- 과 케이엠커뮤니케이션의 협업을 통하여
+						새로운 숙박 서비스를 구현합니다. -->
 						숙박하시는 동안 제주 로컬의 다양한 분야의
 						체험, 정보, 커뮤니티를 드리고자 합니다.</p>
                     

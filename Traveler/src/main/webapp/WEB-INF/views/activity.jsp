@@ -122,7 +122,7 @@
     			<%@include file="./include/video.jsp" %>
     		</div>
     		
-    		<div class="col-md-12 text-center p-3" style="font-size:20px" data-aos="fade-up" data-aos-duration="1000">
+    		<!-- <div class="col-md-12 text-center p-3" style="font-size:20px" data-aos="fade-up" data-aos-duration="1000">
     			제주잡화점 LOUNGE<br><br>
 				10:00 - 18:00<br>
 				TEL 064.711.7382<br>
@@ -130,7 +130,7 @@
 				<div class="col-lg-12 text-center">
 						<a href="http://jejuall.net" target="_blank" class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">온라인 예약하기</a>
 				</div>
-    		</div>
+    		</div> -->
     		<br><br>
     		<div class="col-md-12 col-12 mt-3 mb-3 text-center">
     			<h4>우리는 여러분에게 <span style="display:inline-block;background-color: #0094a8;color:#fff">제주 로컬</span>의<br> 모든 것을 보여드려요</h4>
@@ -173,8 +173,8 @@
                 <div class="col-lg-12 pr-lg-5">
                     <h4 class="mb-4 text-center" data-aos="zoom-in" data-aos-duration="1000"><b>숙박을 제공하는 것으로 끝이 아닙니다</b></h4>
                     <p class="text-center p-3" style="line-height:1.8" data-aos="zoom-in" data-aos-duration="1000">
-						JEJU IN HOTEL과 케이엠커뮤니케이션의 협업을 통하여<br>
-						새로운 숙박 서비스를 구현합니다.<br>
+						JEJU IN HOTEL은<!-- 과 케이엠커뮤니케이션의 협업을 통하여<br>
+						새로운 숙박 서비스를 구현합니다. --><br>
 						숙박하시는 동안 제주 로컬의 다양한 분야의<br>
 						체험, 정보, 커뮤니티를 제공합니다.</p>
                     
@@ -206,9 +206,9 @@
                     </div>
                     
                 </div>
-                <div class="col-lg-12 text-center">
+                <!-- <div class="col-lg-12 text-center">
 						<a href="http://jejuall.net" target="_blank" class="btn btn-cust-primary2 py-md-3 px-md-5 mt-2 mt-md-4" style="font-weight:bold">온라인 예약하기</a>
-				</div>
+				</div> -->
             </div>
         </div>
     </div>
