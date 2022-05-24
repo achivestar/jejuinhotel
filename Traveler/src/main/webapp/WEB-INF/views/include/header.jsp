@@ -51,6 +51,7 @@
                             <a href="#" class="nav-link dropdown-toggle <c:if test="${url eq 'news'}">active</c:if>  <c:if test="${url eq 'faq'}">active</c:if>" data-toggle="dropdown">커뮤니티</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="./news" class="dropdown-item">소식</a>
+                                <a href="./qna" class="dropdown-item">Q&A</a>
                                 <a href="./faq" class="dropdown-item">자주묻는질문</a>
                             </div>
                         </div>

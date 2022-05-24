@@ -39,6 +39,8 @@ import com.pe.bluering.domain.FoodVO;
 import com.pe.bluering.domain.LoginDTO;
 import com.pe.bluering.domain.NewsVO;
 import com.pe.bluering.domain.PageMaker;
+import com.pe.bluering.domain.QnaReppleVO;
+import com.pe.bluering.domain.QnaVO;
 import com.pe.bluering.domain.RoomVO;
 import com.pe.bluering.domain.UserVO;
 import com.pe.bluering.service.EtcService;
@@ -46,6 +48,7 @@ import com.pe.bluering.service.FaqService;
 import com.pe.bluering.service.FoodMenuService;
 import com.pe.bluering.service.FoodService;
 import com.pe.bluering.service.NewsService;
+import com.pe.bluering.service.QnaService;
 import com.pe.bluering.service.RoomService;
 import com.pe.bluering.service.TotalCount;
 import com.pe.bluering.service.UserService;
@@ -75,6 +78,9 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	
 	@Autowired
 	private FoodMenuService foodmenuservice;
+	
+	@Autowired
+	private QnaService qnaservice;
 	
 	@Autowired
 	private EtcService etcservice;
@@ -800,5 +806,71 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	}
 	
 	
+	
+	@RequestMapping(value="/newAccount", method=RequestMethod.GET) 
+	public String newAccount(Model model) {
+		 return "/admin/newAccount";
+	}
+	
+	
+	@RequestMapping(value="/qna", method=RequestMethod.GET) 
+	public String qna(Model model, Criteria cri) {
+		
+		 logger.info("admin page etcList page");
+		 
+		 List<QnaVO> qnaList = qnaservice.getQnaList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(qnaservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("qnaList", qnaList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 
+		 
+		 int totalRoom = totalcount.getTotalRoom();
+		 int totalFaq = totalcount.getTotalFaq();
+		 int totalNews = totalcount.getTotalNews();
+		 int totalFood = totalcount.getTotalFood();
+		 
+		 model.addAttribute("totalRoom", totalRoom);
+		 model.addAttribute("totalFaq", totalFaq);
+		 model.addAttribute("totalNews", totalNews);
+		 model.addAttribute("totalFood", totalFood);
+		 logger.info("admin page qna list page : ");
+		 
+		
+		 return "/admin/qna";
+	}
+	
+	
+	@RequestMapping(value="/qnaModify", method=RequestMethod.GET) 
+	public String qnaModify(QnaVO qnavo, QnaReppleVO qnarepplevo, @RequestParam("idx") int idx, Model model) {
+		   
+			 
+			 qnavo = qnaservice.qnaModify(idx);
+
+			 model.addAttribute("qnavo", qnavo);
+			 
+			 List<QnaReppleVO> qnaReppleList = qnaservice.getQnaReppleList(idx);
+
+			 
+			 int totalRoom = totalcount.getTotalRoom();
+			 int totalFaq = totalcount.getTotalFaq();
+			 int totalNews = totalcount.getTotalNews();
+			 int totalFood = totalcount.getTotalFood();
+			 
+			 model.addAttribute("totalRoom", totalRoom);
+			 model.addAttribute("totalFaq", totalFaq);
+			 model.addAttribute("totalNews", totalNews);
+			 model.addAttribute("totalFood", totalFood);
+			 
+			 
+			 
+			 model.addAttribute("qnaReppleList", qnaReppleList);
+		     return "/admin/qnaModify";
+	}
+	
+
 }
 

@@ -1,9 +1,14 @@
 package com.pe.bluering;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +27,15 @@ import com.pe.bluering.domain.FoodMenuVO;
 import com.pe.bluering.domain.FoodVO;
 import com.pe.bluering.domain.NewsVO;
 import com.pe.bluering.domain.PageMaker;
+import com.pe.bluering.domain.QnaReppleVO;
+import com.pe.bluering.domain.QnaVO;
 import com.pe.bluering.domain.RoomVO;
 import com.pe.bluering.service.EtcService;
 import com.pe.bluering.service.FaqService;
 import com.pe.bluering.service.FoodMenuService;
 import com.pe.bluering.service.FoodService;
 import com.pe.bluering.service.NewsService;
+import com.pe.bluering.service.QnaService;
 import com.pe.bluering.service.RoomService;
 
 
@@ -56,13 +64,16 @@ public class HomeController {
 	@Autowired
 	private FoodMenuService foodmenuservice;
 	
+	@Autowired
+	private QnaService qnaservice;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, NewsVO newsvo) {
+	public String home(Locale locale, Model model, NewsVO newsvo, HttpServletRequest request) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -72,6 +83,9 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		HttpSession session = request.getSession();
+		String name = "user";
+		session.setAttribute("sessionId", name);
 		
 		
 		 List<NewsVO> newsList = newsservice.getNewsListIndex();
@@ -230,6 +244,86 @@ public class HomeController {
 		 return "faq";
 	}
 	
+	@RequestMapping(value="/qna", method=RequestMethod.GET) 
+	public String qna(QnaVO qnavo, Model model, Criteria cri) {
+		
+		 logger.info("qna page");
+		 
+		 List<QnaVO> qnaList = qnaservice.getQnaList(cri);
+		 
+		 PageMaker pageMaker = new PageMaker();
+		 pageMaker.setCri(cri);
+		 pageMaker.setTotalCount(qnaservice.listCountCriteria(cri));
+		 
+		 model.addAttribute("qnaList", qnaList);
+		 model.addAttribute("pageMaker",pageMaker);
+		 
+
+		 logger.info("qnaList  page : "+qnaList);
+		 model.addAttribute("url","qna");
+
+ 
+		 return "qna";
+	}
 	
+	@RequestMapping(value="/qnaRegist", method=RequestMethod.GET) 
+	public String qnaRegist(Model model) {
+		
+		logger.info("qnaRegist page");
+		 
+		return "qnaRegist";
+	}
+	
+
+	@RequestMapping(value="/qnaView", method=RequestMethod.POST) 
+	public String qnaView(Model model,QnaVO qnavo, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		logger.info("qnaView page");
+		logger.info("-----------------------------------------------");
+		logger.info(qnavo.getName()+","+qnavo.getIdx()+","+qnavo.getPwd());
+		int idx = qnaservice.isMember(qnavo);
+		
+    	if(idx>0) {
+    		model.addAttribute("idx",qnavo.getIdx());
+    		model.addAttribute("name",qnavo.getName());
+    		model.addAttribute("pwd",qnavo.getPwd());
+    		model.addAttribute("qnavo",qnavo);
+    		model.addAttribute("anch","anch");
+    		return "redirect:/myQnaList";
+    	}else {
+    		return "redirect:/isNo";
+    	}
+		
+	}
+	
+	
+	@RequestMapping(value="/isNo", method=RequestMethod.GET) 
+	public String isNo(Model model,QnaVO qnavo, HttpServletRequest request, HttpServletResponse response) {
+	
+		return "isNo";
+	}
+
+	@RequestMapping(value="/myQnaList", method=RequestMethod.GET) 
+	public String myQnaList(Model model, QnaVO qnavo, @RequestParam("idx") int idx,@RequestParam("name") String name,@RequestParam("pwd") String pwd, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		logger.info("myQnaListPage============");
+		logger.info(qnavo.getName()+","+qnavo.getIdx()+","+qnavo.getPwd());
+		logger.info(idx+","+name+","+pwd);
+		HttpSession session = request.getSession();
+		String names = (String)session.getAttribute("sessionId");
+		System.out.println("session get : " + names);
+		if(names == null) {
+			return "isNo";
+		}else {
+			qnavo = qnaservice.getQuestionList(qnavo);
+			model.addAttribute("qnavo", qnavo);
+			logger.info("getQuestionList : "+qnavo);
+			List<QnaReppleVO> questionReppleList = qnaservice.getQuestionReppleList(idx);
+			model.addAttribute("questionReppleList",questionReppleList);
+			logger.info("questionReppleList : "+questionReppleList);		
+			return "myQnaList";
+		}
+		
+		
+	}
 	
 }

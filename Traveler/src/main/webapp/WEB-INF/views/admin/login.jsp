@@ -35,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(/resources/login/images/bg-01.jpg);">
+				<div class="login100-form-title" style="background-image: url(/resources/login/images/bg-02.jpg);">
 					<span class="login100-form-title-1">
 						JEJU IN HOTEL<br>ADMIN SIGN
 					</span>
@@ -72,7 +72,10 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
 							Login
-						</button>
+						</button>&nbsp;&nbsp;
+						<a href="/admin/newAccount" class="login100-form-btn" style="background-color:steelblue"type="button">
+							New Account
+						</a>
 					</div>
 				</form>
 			</div>

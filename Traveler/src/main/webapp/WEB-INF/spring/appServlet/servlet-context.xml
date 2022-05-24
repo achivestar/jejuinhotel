@@ -53,6 +53,10 @@
 			<mapping path="/admin/foodmenu"/>
 			<mapping path="/admin/foodMenuModify"/>
 			<mapping path="/admin/foodMenuWrite"/>
+			<mapping path="/admin/qnaModify"/>
+			<mapping path="/admin/qna"/>
+			<mapping path="/admin/qnaAdminReppleUpdate"/>
+			<mapping path="/admin/qnaAdminReppleDelete"/>
 			<beans:ref bean="authInterceptor" />
 			
 		</interceptor>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pe.bluering.mappers.qnaMapper">
+
+	<insert id="Insert" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="idx">
+		<![CDATA[
+			INSERT INTO jeju_hotel_qna
+			(title,question,name,secret,pwd,regdate,upddate)
+			VALUES 
+			(#{title},#{question},#{name},#{secret},#{pwd},now(),now());
+		]]>
+	</insert>
+	
+	
+	<insert id="qnaReppleAdd" parameterType="QnaReppleVO" useGeneratedKeys="true" keyProperty="idx">
+		<![CDATA[
+			INSERT INTO jeju_hotel_qna_repple
+			(bno,answer,name,regdate,upddate)
+			VALUES 
+			(#{bno},#{answer},#{name},now(),now());
+		]]>
+	</insert>
+	
+		
+	<select id="getQnaList" resultType="QnaVO">
+		<![CDATA[
+			SELECT * from jeju_hotel_qna where idx > 0 order by idx desc limit #{pageStart}, #{perPageNum};
+		]]>
+	</select>
+
+	<select id="getQnaReppleList" resultType="QnaReppleVO" parameterType="int">
+		<![CDATA[
+			SELECT * from jeju_hotel_qna_repple where bno = #{idx} order by regdate desc;
+		]]>
+	</select>
+
+
+	
+	
+	<select id="isMember" resultType="int" parameterType="QnaVO">
+		<![CDATA[
+			SELECT COUNT(idx) AS idx from jeju_hotel_qna where name=#{name} and pwd=#{pwd} and idx=#{idx}
+		]]>
+	</select>
+	
+
+	<select id="getQuestionList" resultType="QnaVO" parameterType="QnaVO">
+		<![CDATA[
+			SELECT * from jeju_hotel_qna where name=#{name} and pwd=#{pwd} and idx=#{idx}
+		]]>
+	</select>
+
+	<select id="getQuestionReppleList" resultType="QnaReppleVO" parameterType="int">
+		<![CDATA[
+			SELECT * from jeju_hotel_qna_repple where bno= #{idx} ORDER BY regdate desc
+		]]>
+	</select>
+	
+	<select id="qnaModify" parameterType="int" resultType="QnaVO">
+		<![CDATA[
+			SELECT * FROM jeju_hotel_qna where idx = #{idx}
+		]]>
+	</select>
+	
+	<select id="listCountCriteria" resultType="int">
+		<![CDATA[
+			SELECT count(idx) FROM jeju_hotel_qna where idx > 0
+		]]>
+	</select>
+
+	
+	
+	<update id="qnaUpdate" parameterType="QnaVO">
+		<![CDATA[
+			UPDATE jeju_hotel_qna SET 
+			title = #{title}, 
+			question = #{question}, 
+			secret = #{secret},
+			upddate = now()
+			WHERE
+			idx = #{idx} and name= #{name}
+		]]>
+	</update>
+	
+	
+	<update id="qnaStateChange" parameterType="int">
+		<![CDATA[
+			UPDATE jeju_hotel_qna SET 
+			tf = 'n'
+			WHERE
+			idx = #{idx}
+		]]>
+	</update>
+	
+	<update id="qnaReppleUpdate" parameterType="QnaReppleVO">
+		<![CDATA[
+			UPDATE jeju_hotel_qna_repple SET 
+			answer = #{answer}
+			WHERE
+			idx = #{idx}
+		]]>
+	</update>
+	
+	<delete id="qnaDelete" parameterType="QnaVO">
+		<![CDATA[
+			DELETE FROM jeju_hotel_qna where idx = #{idx} and name = #{name}
+		]]>
+	</delete>
+	
+	
+	<delete id="qnaAdminReppleDelete" parameterType="int">
+		<![CDATA[
+			DELETE FROM jeju_hotel_qna_repple where idx = #{idx}
+		]]>
+	</delete>
+	
+	<!-- <select id="getPrev" parameterType="int"  resultType="NewsVO">
+		<![CDATA[
+		SELECT * FROM jeju_hotel_news WHERE idx =
+			(SELECT idx FROM jeju_hotel_news WHERE idx < #{idx} ORDER BY idx DESC LIMIT 1)
+		]]>
+	
+	</select>
+	
+	
+	<select id="getNext" parameterType="int"  resultType="NewsVO">
+		<![CDATA[
+		SELECT * FROM jeju_hotel_news WHERE idx =
+			(SELECT idx FROM jeju_hotel_news WHERE idx > #{idx}  ORDER BY idx LIMIT 1)
+		]]>
+	
+	</select> -->
+
+</mapper>

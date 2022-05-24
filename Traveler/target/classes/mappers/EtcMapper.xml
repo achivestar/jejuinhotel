@@ -27,7 +27,7 @@
 	
 	<select id="getEtcList" resultType="EtcVO">
 		<![CDATA[
-			SELECT * from jeju_hotel_etc where idx > 0 order by idx desc limit #{pageStart}, #{perPageNum} ;
+			SELECT * from jeju_hotel_etc where idx > 0 order by idx asc limit #{pageStart}, #{perPageNum} ;
 		]]>
 	</select>
 	

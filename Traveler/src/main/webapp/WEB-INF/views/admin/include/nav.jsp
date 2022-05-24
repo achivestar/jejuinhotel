@@ -55,6 +55,12 @@
             </div>
           </li>
            <li class="nav-item">
+            <a class="nav-link" href="/admin/qna">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Q&A</span>
+            </a>
+          </li>
+           <li class="nav-item">
             <a class="nav-link" href="/admin/etc">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">부대시설</span>
