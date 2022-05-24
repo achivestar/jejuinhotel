@@ -76,7 +76,7 @@
 					<div class="table-responsive-md">
 					  <table class="table">
 					    <thead>
-						    <tr class="text-center">
+						    <tr class="text-center ">
 						      <th scope="col">#</th>
 						      <th scope="col">등록자</th>
 						      <th scope="col">제목</th>

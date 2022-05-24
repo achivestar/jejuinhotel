@@ -122,7 +122,7 @@
     	<div class="row">
     		<div class="col-md-12  p-3 mt-3 mb-3" style="font-size:20px;">
     			
-    			<h5 style="border-left:2px solid #6610f2" class="p-1" id="anch2">질문내용</h5>
+    			<h5 style="border-left:2px solid #5fb8c0" class="p-1" id="anch2">질문내용</h5>
     			<form>
 	    			 	<p><input type="text" name="title" id="title" value="${qnavo.title}" class="form-control" /></p>
 	    				<p><textarea  rows="4" cols="100%" id="question" name="question" class="form-control"><c:out value="${fn:replace(qnavo.question,br,crcn) }"/></textarea></p>
@@ -131,11 +131,11 @@
 	    				 <div class="form-group">
 						  	<div class="form-check form-check-inline">
 							  <input class="form-check-input" type="radio" name="secret" id="secret1" value="y" <c:if test="${qnavo.secret eq 'y'}">checked</c:if>>
-							  <label class="form-check-label" for="secret1">비밀글</label>
+							  <label class="form-check-label" for="secret1">질문내역비밀</label>
 							</div>
 							<div class="form-check form-check-inline">
 							  <input class="form-check-input" type="radio" name="secret" id="secret2" value="n" <c:if test="${qnavo.secret eq 'n'}">checked</c:if>>
-							  <label class="form-check-label" for="secret2">공개글</label>
+							  <label class="form-check-label" for="secret2">질문내역공개</label>
 							</div>
 				 		</div>  
 	    				<p><button type="button" id="update" class="btn-primary-anchor p-2" style="border:none">수정</button>
@@ -147,7 +147,7 @@
             <hr>
              <div class="col-md-12  p-3 mt-3 mb-3" style="font-size:20px;">
     			<div class="list-group mt-3">
-					 <h5 style="border-left:2px solid #6610f2" class="p-1" id="anch">답변내역</h5>
+					 <h5 style="border-left:2px solid #5fb8c0" class="p-1" id="anch">답변내역</h5>
 					 	 <c:forEach items="${questionReppleList}" var="questionReppleList" varStatus="status">		
 							  <a class="list-group-item list-group-item-action">
 							    <input type="hidden" name="idx" id="bidx${questionReppleList.idx}" value="${questionReppleList.idx}" />
@@ -156,15 +156,15 @@
 							      <textarea style="background:#fff;text-align:left;resize: none;border:none" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control" readonly><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
 							   		</c:if>
 							   		<c:if test="${questionReppleList.name ne '제주인호텔' }">
-							      <textarea style="background:#fff;text-align:right;resize: none;border:none" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
+							      <textarea style="background:#fff;text-align:left;resize: none;border:none" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
 							   		</c:if>
 							   </div>
 							    <c:if test="${questionReppleList.name eq '제주인호텔' }">
 							      	<small class="ml-3 float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
 							      </c:if>
 							      <c:if test="${questionReppleList.name ne '제주인호텔' }">
-							      	<small class="ml-3 float-right"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
-							      	<small class="float-right"><button type="button" onclick="update(${questionReppleList.idx})" class="btn-primary-anchor btn-sm p-2" style="border:none">수정</button>
+							      	<small class="ml-3 float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
+							      	<small class="float-left"><button type="button" onclick="update(${questionReppleList.idx})" class="btn-primary-anchor btn-sm p-2" style="border:none">수정</button>
 	    							<button type="button"  class="btn-danger btn-sm p-2 open" style="border:none" data-id="${questionReppleList.idx}" data-toggle="modal" data-target="#exampleModal2">삭제</button></small>
 							      </c:if>
 							  </a>

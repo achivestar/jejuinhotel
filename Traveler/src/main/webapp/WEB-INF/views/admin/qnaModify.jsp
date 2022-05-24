@@ -132,15 +132,15 @@
 							  	<input type="hidden" name="idx" id="bidx${qnaReppleList.idx}" value="${qnaReppleList.idx}" />
 							    <div class="d-flex w-100 justify-content-between mb-3">
 							        <c:if test="${qnaReppleList.name eq '제주인호텔' }">
-							       		<textarea style="text-align:right" rows="4" cols="100%" id="answer${qnaReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(qnaReppleList.answer,br,crcn) }"/></textarea>
+							       		<textarea style="text-align:left" rows="4" cols="100%" id="answer${qnaReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(qnaReppleList.answer,br,crcn) }"/></textarea>
 									</c:if>
 									<c:if test="${qnaReppleList.name ne '제주인호텔' }">
 							       		<textarea style="text-align:left" rows="4" cols="100%" id="answer${qnaReppleList.idx}" name="answer" class="form-control" readonly><c:out value="${fn:replace(qnaReppleList.answer,br,crcn) }"/></textarea>
 									</c:if>
 							    </div>
 							     <c:if test="${qnaReppleList.name eq '제주인호텔' }">
-							      <small class="ml-3 float-right">${qnaReppleList.name } <br> ${qnaReppleList.regdate}</small>
-							      <small class="float-right"><button type="button" onclick="update(${qnaReppleList.idx})" class="btn-primary btn-sm p-2" style="border:none">수정</button>
+							      <small class="ml-3 float-left">${qnaReppleList.name } <br> ${qnaReppleList.regdate}</small>
+							      <small class="float-left"><button type="button" onclick="update(${qnaReppleList.idx})" class="btn-primary btn-sm p-2" style="border:none">수정</button>
 	    							<button type="button"  class="btn-danger p-2 open btn-sm" style="border:none" data-id="${qnaReppleList.idx}" data-toggle="modal" data-target="#exampleModal">삭제</button></small>
 							     </c:if>
 							      <c:if test="${qnaReppleList.name ne '제주인호텔' }">

@@ -123,30 +123,30 @@
     		<div class="col-md-12  p-3 mt-3 mb-3" style="font-size:20px;">
     			<form id="form">
 				  <div class="form-group">
-				    <label for="title">문의 제목</label>
+				    <label for="title" style="padding-left:10px;border-left:2px solid #5fb8c0">문의 제목</label>
 				    <input type="text" class="form-control" id="title" name="title">
 				  </div>
 				  <div class="form-group">
-				  	<label for="question">문의 내용</label>
+				  	<label for="question" style="padding-left:10px;border-left:2px solid #5fb8c0">문의 내용</label>
 				    <textarea name="question" class="form-control"  rows="10" id="question"></textarea>
 				  </div>
 				  <div class="form-group">
 					  	<div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" name="secret" id="secret1" value="y" checked>
-						  <label class="form-check-label" for="secret1">비밀글</label>
+						  <label class="form-check-label" for="secret1" >질문내역비밀</label>
 						</div>
 						<div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" name="secret" id="secret2" value="n">
-						  <label class="form-check-label" for="secret2">공개글</label>
+						  <label class="form-check-label" for="secret2">질문내역공개</label>
 						</div>
 				  </div>
 				  <div class="row">
 				    <div class="col">
-				      <label for="name">이름 <span style="font-size:11px">(답변 확인,수정,삭제시 필요합니다)</span></label>
+				      <label for="name" style="padding-left:10px;border-left:2px solid #5fb8c0">이름 <span style="font-size:11px">(답변 확인,수정,삭제시 필요하며 이름은 비공개 처리 됩니다.)</span></label>
 				      <input type="text" class="form-control"  id="name" name="name">
 				    </div>
 				    <div class="col">
-				      <label for="pwd">비밀번호<span style="font-size:11px">(답변 확인,수정,삭제시 필요합니다)</span></label>
+				      <label for="pwd" style="padding-left:10px;border-left:2px solid #5fb8c0">비밀번호<span style="font-size:11px">(답변 확인,수정,삭제시 필요합니다)</span></label>
 				      <input type="text" class="form-control" maxlength="4" placeholder="(숫자4자리)" id="pwd" name="pwd">
 				    </div>
 				  </div>

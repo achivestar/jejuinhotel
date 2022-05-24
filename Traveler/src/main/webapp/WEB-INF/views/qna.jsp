@@ -92,7 +92,7 @@
         </div>
     </div> -->
     <!-- Page Header Start -->
-    <div class="container-fluid  py-5 page-header" >
+  <!--   <div class="container-fluid  py-5 page-header" >
         <div class="container py-5">
             <div class="row align-items-center py-4">
                 <div class="col-md-6 text-center text-md-left">
@@ -107,61 +107,62 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Page Header Start -->
     <!-- Header End -->
     
-    <%@include file="./include/info.jsp" %>
+    <%-- <%@include file="./include/info.jsp" %> --%>
 
 
     <div class="container">
     	
     	<div class="row">
-    		<div class="col-md-12 text-center p-3 mt-3 mb-3" style="font-size:20px;line-height:1.8">
+    		<div class="col-md-12 text-center p-3 mt-3 mb-3" style="font-size:20px;color:#000;line-height:1.8">
     			문의 사항은 064-741-1100 / 예약실 064-741-1101 <br>
     			연락 주시면 신속하고 친절하게 안내해 드리겠습니다.
     		</div>
+    		<div class="col-md-12 text-center p-3  mb-3" style="font-size:20px;">
+    			<a class="btn btn-primary-anchor btn-lg" href="/qnaRegist#here" role="button">문의하기</a>
+
+            </div>    
     		<div class="col-md-12" id="anch">
 					 <h5 style="border-left:2px solid #6610f2" class="p-1">문의내역</h5>
 					 <div class="table-responsive">
 						 <table class="table">
 							  <thead>
-							    <tr>
-							      <th scope="col">no</th>
-							      <th scope="col">이름</th>
+							    <tr class="text-center" style="background:#0094a8;color:#fff">
+							      <th scope="col">질문자</th>
 							      <th scope="col">질문내역</th>
 							      <th scope="col">답변여부</th>
 							      <th scope="col">등록일시</th>
-							      <th scope="col">답변확인</th>
 							    </tr>
 							  </thead>
-							  <tbody>
+							  <tbody >
 							  <c:forEach items="${qnaList}" var="qnaList" varStatus="status">	
 							   <c:set var="regdate" value="${qnaList.regdate}"/>
 							   <c:set var="upddate" value="${qnaList.upddate}"/>
 							   <c:set var="title" value="${qnaList.title}"/>
 							   <c:set var="name" value="${qnaList.name}" />
-							    <tr>
-							      <th scope="row">${status.count }</th>
-							      <td>${fn:replace(qnaList.name,fn:substring(name,1,2),'**')}</td>
+							    <tr class="text-center">
+							      <td>${fn:replace(qnaList.name,fn:substring(name,1,2),'*')}</td>
 							      <td style="vertical-align:middle">
 							      <c:if test="${qnaList.secret eq 'y'}">
-							      	비밀글입니다. 
+							      	<a href="#none" class="open" style="color:blue" data-id="${qnaList.idx}" data-toggle="modal" data-target="#exampleModal">비밀글입니다.</a> 
 							      	<img src="/resources/img/lock.png" style="width:20px"/>
 							      </c:if>
 							      <c:if test="${qnaList.secret eq 'n'}">
-							     	 ${fn:substring(title,0,20) }
+							     	 <a href="#none" class="open" style="color:blue" data-id="${qnaList.idx}" data-toggle="modal" data-target="#exampleModal">${fn:substring(title,0,20) }</a>
 							      </c:if>
 
 							      </td>
 							      <td><c:if test="${qnaList.tf eq 'y'}">
-							      		<span class="badge badge-pill badge-danger p-1">답변준비중</span>
+							      		<span class="badge badge-pill badge-danger p-1">답변준비</span>
 							      	</c:if>
 							      	<c:if test="${qnaList.tf eq 'n'}">
 							      		<span class="badge badge-pill badge-success p-1">답변완료</span>
 							      	</c:if></td>
 							      <td>${qnaList.regdate}</td>
-							      <td><a href="#none" class="open" data-id="${qnaList.idx}" data-toggle="modal" data-target="#exampleModal">보기</a></td>
+							      <%-- <td><a href="#none" class="open" data-id="${qnaList.idx}" data-toggle="modal" data-target="#exampleModal">보기</a></td> --%>
 							    </tr>
 							    </c:forEach>
 							  </tbody>
