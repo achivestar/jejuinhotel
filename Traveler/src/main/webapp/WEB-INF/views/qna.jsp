@@ -147,6 +147,11 @@
 							    </tr>
 							  </thead>
 							  <tbody >
+							  <c:if test="${empty qnaList}">
+							  	<tr class="text-center">
+							  		<td colspan="4">등록된 질문이 없습니다.</td>
+							  	</tr>
+							  </c:if>
 							  <c:forEach items="${qnaList}" var="qnaList" varStatus="status">	
 							   <c:set var="regdate" value="${qnaList.regdate}"/>
 							   <c:set var="upddate" value="${qnaList.upddate}"/>

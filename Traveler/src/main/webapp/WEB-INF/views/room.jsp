@@ -13,12 +13,12 @@
 <meta name="subject" content="제주인호텔" />
 <meta name="title" content="제주인호텔" />
 <meta name="author" content="제주인호텔">
-<meta name="description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
-<meta name="keywords" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
+<meta name="description" content="제주인호텔,jejuinhotel,제주 로컬의 다양한 분야의 체험, 정보, 커뮤니티를 드리고자 합니다." />
+<meta name="keywords" content="제주인호텔, jejuinhotel, 제주로컬, 다양한분야,체험,정보,커뮤니티" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="제주인호텔" />
 <meta property="og:title" content="제주인호텔" />
-<meta property="og:description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
+<meta property="og:description" content="제주인호텔,jejuinhotel,제주 로컬의 다양한 분야의 체험, 정보, 커뮤니티를 드리고자 합니다." />
 
     <!-- Favicon -->
     <link href="/resources/img/favicon.ico" rel="icon">
