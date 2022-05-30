@@ -165,16 +165,16 @@
 							      <textarea style="background:#fff;text-align:left;resize: none;border:none" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control" readonly><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
 							   		</c:if>
 							   		<c:if test="${questionReppleList.name ne '제주인호텔' }">
-							       <textarea style="margin-left:50px;background:#fff;text-align:left;resize: none;" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
+							       <textarea style="margin-left:100px;background:#fff;text-align:left;resize: none;" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
 							   		</c:if>
 							   </div>
 							    <c:if test="${questionReppleList.name eq '제주인호텔' }">
-							      	<small class="ml-3 float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
+							      	<small class="ml-3 float-left"><span style="font-size:11px;color:#5fb8c0">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
 							      </c:if>
 							      <c:if test="${questionReppleList.name ne '제주인호텔' }">
-							      	<small style="padding-left:50px" class="float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
+							      	<small style="padding-left:100px" class="float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
 							      	<br><br>
-							      	<small style="padding-left:50px" class="float-left"><button type="button" onclick="update(${questionReppleList.idx})" class="btn-primary-anchor btn-sm p-2" style="border:none">수정</button>
+							      	<small style="padding-left:100px" class="float-left"><button type="button" onclick="update(${questionReppleList.idx})" class="btn-primary-anchor btn-sm p-2" style="border:none">수정</button>
 	    							<button type="button"  class="btn-danger btn-sm p-2 open" style="border:none" data-id="${questionReppleList.idx}" data-toggle="modal" data-target="#exampleModal2">삭제</button></small>
 							      </c:if>
 							  </a>
