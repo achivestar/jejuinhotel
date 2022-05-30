@@ -9,4 +9,6 @@ public interface TotalDAO {
 	int getTotalNews();
 	
 	int getTotalFood();
+
+	int getTotalQna();
 }

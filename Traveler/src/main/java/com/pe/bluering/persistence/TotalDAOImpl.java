@@ -33,4 +33,9 @@ public class TotalDAOImpl implements TotalDAO {
 		return sql.selectOne(namespace+".getTotalFood");
 	}
 
+	@Override
+	public int getTotalQna() {
+		return sql.selectOne(namespace+".getTotalQna");
+	}
+
 }

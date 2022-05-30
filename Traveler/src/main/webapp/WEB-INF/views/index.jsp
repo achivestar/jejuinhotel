@@ -20,7 +20,9 @@
 <meta property="og:site_name" content="제주인호텔" />
 <meta property="og:title" content="제주인호텔" />
 <meta property="og:description" content="제주인호텔,jejuinhotel,제주 로컬의 다양한 분야의 체험, 정보, 커뮤니티를 드리고자 합니다." />
-
+	<!-- Favicons -->
+<link href="/resources/img/favicon.ico" rel="icon">
+<link href="/resources/img/favicon.ico" rel="apple-touch-icon">
 	<link rel="canonical" href="/">
     <!-- Favicon -->
     <link href="/resources/img/favicon.ico" rel="icon">
@@ -274,14 +276,6 @@ JEJU IN HOTEL 은<!-- 과 케이엠커뮤니케이션의 협업을 통하여
 							    </div>
 						  </div>
 						 </c:forEach>
-						  <!-- <div class="card ml-2 mr-2">
-						    <img src="/resources/img/about/about3.jpg" class="card-img-top" alt="...">
-						    <div class="card-body">
-						      <h5 class="card-title">New 제목2</h5>
-						      <p class="card-text">사이트 오픈2</p>
-						      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
-						    </div>
-						  </div> -->
 							  
 					</div>
                 </div>
@@ -289,57 +283,7 @@ JEJU IN HOTEL 은<!-- 과 케이엠커뮤니케이션의 협업을 통하여
         </div>
     </div>
     <!-- Team End -->
-
-
-   
-
-
-
-
-<!-- Team Start -->
-    <!-- <div class="container-fluid bg-cust-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6 mb-3" >
-                    <div class="py-5 px-4 h-100 bg-primary d-flex flex-column align-items-center justify-content-center">
-                        <h4 class="display-3 mb-3" style="color:#ffe603">Shop</h4>
-                        <h3 class="m-0 mt-3" style="color:#fff">우리의 멋진 쇼핑몰에 들어오세요</h3>
-                         <a href="" class="btn btn-cust-primary py-md-3 px-md-5 mt-2 mt-md-4">+ More</a>
-                    </div>
-                   
-                </div>
-                <div class="col-md-8 col-sm-6 p-0 py-sm-5">
-                    <div class="card-group">
-	                     <div class="card">
-							    <img src="/resources/img/logo/logo1.jpg" style="height:225px"class="card-img-top" alt="...">
-							    <div class="card-body">
-							      <h5 class="card-title">제주인호텔</h5>
-							      <p class="card-text">제주인호텔에 대한 ..</p>
-							      <p class="card-text"><small class="text-muted">2020.02.17</small></p>
-							    </div>
-						  </div>
-						  
-						  <div class="card">
-						    <img src="/resources/img/logo/logo2.jpg" style="height:225px" class="card-img-top" alt="...">
-						    <div class="card-body">
-						      <h5 class="card-title">제주잡화점</h5>
-						      <p class="card-text">제주잡화점에 대한..</p>
-						      <p class="card-text"><small class="text-muted">2020.02.19</small></p>
-						    </div>
-						  </div>
-							  
-					</div>
-                </div>
-                
-                
-              
-            </div>
-        </div>
-    </div> -->
-    <!-- Team End -->
-
-
-            
+           
 
  
     <!-- Footer Start -->

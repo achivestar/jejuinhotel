@@ -144,10 +144,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 
 		 
 		return "/admin/index";
@@ -172,10 +175,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 logger.info("admin page newsWrite list page : "+newsList);
 		 return "/admin/news";
 	}
@@ -184,15 +190,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	public String newsWrite( Model model) {
 		logger.info("admin page newsWrite get page");
 		
-		int totalRoom = totalcount.getTotalRoom();
+		 int totalRoom = totalcount.getTotalRoom();
 		 int totalFaq = totalcount.getTotalFaq();
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
+		 
+		 int totalQna = totalcount.getTotalQna();
 		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		return "/admin/newsWrite";
 	}
 	
@@ -231,10 +240,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 	     return "/admin/newsModify";
 	  }
 
@@ -481,10 +493,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 
 		 logger.info("admin page faqList  page : "+faqList);
 		 
@@ -504,10 +519,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			 int totalNews = totalcount.getTotalNews();
 			 int totalFood = totalcount.getTotalFood();
 			 
+			 int totalQna = totalcount.getTotalQna();
+			 
 			 model.addAttribute("totalRoom", totalRoom);
 			 model.addAttribute("totalFaq", totalFaq);
 			 model.addAttribute("totalNews", totalNews);
 			 model.addAttribute("totalFood", totalFood);
+			 model.addAttribute("totalQna",totalQna);
 			 
 			 
 		     return "/admin/faqModify";
@@ -536,10 +554,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 logger.info("admin page roomList list page : "+roomList);
 		 return "/admin/room";
 	}
@@ -549,15 +570,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	public String roomWrite( Model model) {
 		
 		logger.info("admin page roomWrite page");
-		int totalRoom = totalcount.getTotalRoom();
+		 int totalRoom = totalcount.getTotalRoom();
 		 int totalFaq = totalcount.getTotalFaq();
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
+		 
+		 int totalQna = totalcount.getTotalQna();
 		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 
 		logger.info("admin page roomWrite  page : ");
 		 
@@ -579,10 +603,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			 int totalNews = totalcount.getTotalNews();
 			 int totalFood = totalcount.getTotalFood();
 			 
+			 int totalQna = totalcount.getTotalQna();
+			 
 			 model.addAttribute("totalRoom", totalRoom);
 			 model.addAttribute("totalFaq", totalFaq);
 			 model.addAttribute("totalNews", totalNews);
 			 model.addAttribute("totalFood", totalFood);
+			 model.addAttribute("totalQna",totalQna);
 		     return "/admin/roomModify";
 	}
 	
@@ -607,10 +634,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 logger.info("admin page foodList list page : "+foodList);
 		 return "/admin/food";
 	}
@@ -637,15 +667,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		model.addAttribute("foodvocoffee",foodvocoffee);
 		 
 		
-		int totalRoom = totalcount.getTotalRoom();
+		 int totalRoom = totalcount.getTotalRoom();
 		 int totalFaq = totalcount.getTotalFaq();
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
+		 
+		 int totalQna = totalcount.getTotalQna();
 		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 
 		 
 		 return "/admin/foodWrite";
@@ -659,15 +692,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			foodvo = foodservice.foodModify(idx);
 			model.addAttribute("foodvo", foodvo);
 
-			int totalRoom = totalcount.getTotalRoom();
+			 int totalRoom = totalcount.getTotalRoom();
 			 int totalFaq = totalcount.getTotalFaq();
 			 int totalNews = totalcount.getTotalNews();
 			 int totalFood = totalcount.getTotalFood();
+			 
+			 int totalQna = totalcount.getTotalQna();
 			 
 			 model.addAttribute("totalRoom", totalRoom);
 			 model.addAttribute("totalFaq", totalFaq);
 			 model.addAttribute("totalNews", totalNews);
 			 model.addAttribute("totalFood", totalFood);
+			 model.addAttribute("totalQna",totalQna);
 		     return "/admin/foodModify";
 	}
 	
@@ -690,10 +726,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 			logger.info("admin page foodmenu page : "+foodMenuList);
 		 return "/admin/foodmenu";
 	}
@@ -702,15 +741,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	@RequestMapping(value="/foodMenuWrite", method=RequestMethod.GET) 
 	public String foodMenuWrite(Model model, FoodMenuVO foodmenuvo,Criteria cri) {
 
-		int totalRoom = totalcount.getTotalRoom();
+		 int totalRoom = totalcount.getTotalRoom();
 		 int totalFaq = totalcount.getTotalFaq();
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
+		 
+		 int totalQna = totalcount.getTotalQna();
 		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 
 		 
 		 return "/admin/foodMenuWrite";
@@ -728,10 +770,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			 int totalNews = totalcount.getTotalNews();
 			 int totalFood = totalcount.getTotalFood();
 			 
+			 int totalQna = totalcount.getTotalQna();
+			 
 			 model.addAttribute("totalRoom", totalRoom);
 			 model.addAttribute("totalFaq", totalFaq);
 			 model.addAttribute("totalNews", totalNews);
 			 model.addAttribute("totalFood", totalFood);
+			 model.addAttribute("totalQna",totalQna);
 		     return "/admin/foodMenuModify";
 	}
 	
@@ -757,10 +802,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 logger.info("admin page etc list page : ");
 		 return "/admin/etc";
 	}
@@ -769,15 +817,18 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 	public String etcWrite( Model model) {
 		
 		logger.info("admin page etcWrite page");
-		int totalRoom = totalcount.getTotalRoom();
+		 int totalRoom = totalcount.getTotalRoom();
 		 int totalFaq = totalcount.getTotalFaq();
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
+		 
+		 int totalQna = totalcount.getTotalQna();
 		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 
 		logger.info("admin page etcWrite  page : ");
 		 
@@ -798,10 +849,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			 int totalNews = totalcount.getTotalNews();
 			 int totalFood = totalcount.getTotalFood();
 			 
+			 int totalQna = totalcount.getTotalQna();
+			 
 			 model.addAttribute("totalRoom", totalRoom);
 			 model.addAttribute("totalFaq", totalFaq);
 			 model.addAttribute("totalNews", totalNews);
 			 model.addAttribute("totalFood", totalFood);
+			 model.addAttribute("totalQna",totalQna);
 		     return "/admin/etcModify";
 	}
 	
@@ -833,10 +887,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 		 int totalNews = totalcount.getTotalNews();
 		 int totalFood = totalcount.getTotalFood();
 		 
+		 int totalQna = totalcount.getTotalQna();
+		 
 		 model.addAttribute("totalRoom", totalRoom);
 		 model.addAttribute("totalFaq", totalFaq);
 		 model.addAttribute("totalNews", totalNews);
 		 model.addAttribute("totalFood", totalFood);
+		 model.addAttribute("totalQna",totalQna);
 		 logger.info("admin page qna list page : ");
 		 
 		
@@ -860,10 +917,13 @@ private static final Logger logger = LoggerFactory.getLogger(AdminController.cla
 			 int totalNews = totalcount.getTotalNews();
 			 int totalFood = totalcount.getTotalFood();
 			 
+			 int totalQna = totalcount.getTotalQna();
+			 
 			 model.addAttribute("totalRoom", totalRoom);
 			 model.addAttribute("totalFaq", totalFaq);
 			 model.addAttribute("totalNews", totalNews);
 			 model.addAttribute("totalFood", totalFood);
+			 model.addAttribute("totalQna",totalQna);
 			 
 			 
 			 

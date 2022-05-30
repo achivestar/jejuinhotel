@@ -57,7 +57,7 @@
            <li class="nav-item">
             <a class="nav-link" href="/admin/qna">
               <i class="icon-paper menu-icon"></i>
-              <span class="menu-title">Q&A</span>
+              <span class="menu-title">Q&A 문의<span style="color:red;font-weight:bold">${totalQna}</span>건 대기</span>
             </a>
           </li>
            <li class="nav-item">

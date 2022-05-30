@@ -77,9 +77,11 @@ private static final Logger logger = LoggerFactory.getLogger(QnaController.class
 		
 		ResponseEntity<String> entity = null;
 	    try {
+	    	
 	    	qnaservice.qnaReppleDelete(qnavo);
 	    	Thread.sleep(2000); 
 	    	qnaservice.qnaDelete(qnavo);
+	    	
 	        entity = new ResponseEntity<String>("success", HttpStatus.OK);
 	      } catch (Exception e) {
 	        e.printStackTrace();

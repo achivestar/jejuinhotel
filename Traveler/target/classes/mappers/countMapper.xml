@@ -28,7 +28,11 @@
 		]]>
 	</select>
 	
-	
+	<select id="getTotalQna" resultType="int" >
+		<![CDATA[
+			SELECT count(idx) as idx from jeju_hotel_qna where tf = 'y'
+		]]>
+	</select>
 	
 	
 

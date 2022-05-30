@@ -9,5 +9,7 @@ public interface TotalCount {
 	int getTotalFaq();
 	
 	int getTotalNews();
+
+	int getTotalQna();
 	
 }

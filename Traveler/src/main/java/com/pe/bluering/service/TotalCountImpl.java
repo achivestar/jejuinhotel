@@ -31,4 +31,9 @@ public class TotalCountImpl implements TotalCount {
 		return dao.getTotalNews();
 	}
 
+	@Override
+	public int getTotalQna() {
+		return dao.getTotalQna();
+	}
+
 }

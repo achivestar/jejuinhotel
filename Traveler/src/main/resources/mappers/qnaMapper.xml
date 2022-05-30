@@ -92,6 +92,7 @@
 		]]>
 	</update>
 	
+
 	<update id="qnaReppleUpdate" parameterType="QnaReppleVO">
 		<![CDATA[
 			UPDATE jeju_hotel_qna_repple SET 
@@ -107,6 +108,11 @@
 		]]>
 	</delete>
 	
+	<delete id="qnaReppleDelete" parameterType="QnaVO">
+		<![CDATA[
+			DELETE FROM jeju_hotel_qna_repple where bno = #{idx}
+		]]>
+	</delete>
 	
 	<delete id="qnaAdminReppleDelete" parameterType="int">
 		<![CDATA[
