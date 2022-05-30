@@ -7,10 +7,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JEJU IN HOTEL</title>
+<title>제주인호텔 - 1:1문의</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+
+<meta name="naver-site-verification" content="59d276851429350ddaf87416682ea6ff0645a10c" />
+<meta name="subject" content="제주인호텔" />
+<meta name="title" content="제주인호텔" />
+<meta name="author" content="제주인호텔">
+<meta name="description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
+<meta name="keywords" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="제주인호텔" />
+<meta property="og:title" content="제주인호텔" />
+<meta property="og:description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
 
     <!-- Favicon -->
     <link href="/resources/img/favicon.ico" rel="icon">
@@ -156,20 +165,21 @@
 							      <textarea style="background:#fff;text-align:left;resize: none;border:none" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control" readonly><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
 							   		</c:if>
 							   		<c:if test="${questionReppleList.name ne '제주인호텔' }">
-							      <textarea style="background:#fff;text-align:left;resize: none;border:none" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
+							       <textarea style="margin-left:50px;background:#fff;text-align:left;resize: none;" rows="4" cols="100%" id="answer${questionReppleList.idx}" name="answer" class="form-control"><c:out value="${fn:replace(questionReppleList.answer,br,crcn)}"/></textarea>
 							   		</c:if>
 							   </div>
 							    <c:if test="${questionReppleList.name eq '제주인호텔' }">
 							      	<small class="ml-3 float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
 							      </c:if>
 							      <c:if test="${questionReppleList.name ne '제주인호텔' }">
-							      	<small class="ml-3 float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
-							      	<small class="float-left"><button type="button" onclick="update(${questionReppleList.idx})" class="btn-primary-anchor btn-sm p-2" style="border:none">수정</button>
+							      	<small style="padding-left:50px" class="float-left"><span style="font-size:11px">${questionReppleList.name } <br> ${questionReppleList.regdate}</span></small>
+							      	<br><br>
+							      	<small style="padding-left:50px" class="float-left"><button type="button" onclick="update(${questionReppleList.idx})" class="btn-primary-anchor btn-sm p-2" style="border:none">수정</button>
 	    							<button type="button"  class="btn-danger btn-sm p-2 open" style="border:none" data-id="${questionReppleList.idx}" data-toggle="modal" data-target="#exampleModal2">삭제</button></small>
 							      </c:if>
 							  </a>
 						  </c:forEach>
-						 <br><br>
+						 <br>
 					 <hr>
 					 <form id="form">
 					 	<div class="form-group">

@@ -19,7 +19,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="제주인호텔" />
 <meta property="og:title" content="제주인호텔" />
-<meta property="og:description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예" />
+<meta property="og:description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
 <meta name="robots" content="index,follow">
 
 

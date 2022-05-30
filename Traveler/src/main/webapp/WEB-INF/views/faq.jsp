@@ -7,10 +7,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JEJU IN HOTEL</title>
+<title>제주인호텔 - 자주묻는질문</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+
+<meta name="naver-site-verification" content="59d276851429350ddaf87416682ea6ff0645a10c" />
+<meta name="subject" content="제주인호텔" />
+<meta name="title" content="제주인호텔" />
+<meta name="author" content="제주인호텔">
+<meta name="description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
+<meta name="keywords" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="제주인호텔" />
+<meta property="og:title" content="제주인호텔" />
+<meta property="og:description" content="제주인호텔, 제주인호텔 제주, 제주인호텔 제주 예약" />
 
     <!-- Favicon -->
     <link href="/resources/img/favicon.ico" rel="icon">
